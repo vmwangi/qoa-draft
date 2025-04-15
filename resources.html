@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources - Queen of Apostles Parish</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --primary: #2a9df4;
+    --primary-dark: #1e88e5;
+    --primary-light: #e3f2fd;
+    --white: #ffffff;
+    --black: #000000;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --amber-700: #b45309;
+    --amber-100: #fef3c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: var(--gray-800);
+    background-color: var(--gray-50);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Announcement Banner */
+.announcement-banner {
+    background-color: var(--amber-100);
+    color: var(--amber-700);
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.announcement-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.nav-menu a {
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--gray-800);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.mobile-menu a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 220px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 1rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+/* Section Styles */
+.resource-section {
+    padding: 3rem 0 5rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-text {
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-left: 0.5rem;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 0.5rem;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Spiritual Resources */
+.resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resource-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.resource-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.resource-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: all 0.2s;
+}
+
+.resource-link:hover {
+    color: var(--primary-dark);
+}
+
+.resource-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.resource-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Archdiocese Notices */
+.notices-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.notice-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.notice-card:nth-child(even) {
+    background-color: var(--gray-100);
+}
+
+.notice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.notice-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.notice-date {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+}
+
+.notice-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.notice-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.notice-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: all 0.2s;
+}
+
+.notice-link:hover {
+    color: var(--primary-dark);
+}
+
+.notice-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.notice-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Homily Archive */
+.homily-search {
+    margin-bottom: 2rem;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.search-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.homilies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.homily-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.homily-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.homily-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.homily-date {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+}
+
+.homily-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.homily-celebrant {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+}
+
+.homily-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.audio-player {
+    margin-bottom: 1rem;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.audio-control {
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.audio-control:hover {
+    background-color: var(--gray-300);
+}
+
+.audio-speed {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+.homily-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.homily-action {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+    transition: all 0.2s;
+}
+
+.homily-action:hover {
+    color: var(--primary-dark);
+}
+
+.homily-action i {
+    margin-right: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.homily-action:hover i {
+    transform: translateX(3px);
+}
+
+/* Bulletins & Newsletters */
+.bulletins-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.bulletin-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.bulletin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bulletin-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.bulletin-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bulletin-date {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+}
+
+.bulletin-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.bulletin-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.bulletin-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: all 0.2s;
+}
+
+.bulletin-link:hover {
+    color: var(--primary-dark);
+}
+
+.bulletin-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.bulletin-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Testimonies */
+.testimonies-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.testimony-slide {
+    display: none;
+    animation: fadeEffect 1s;
+}
+
+.testimony-slide.active {
+    display: block;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.7;}
+    to {opacity: 1;}
+}
+
+.testimony-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.testimony-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimony-card::before {
+    content: '\201C';
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    color: var(--primary-light);
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    line-height: 1;
+    opacity: 0.5;
+}
+
+.testimony-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-size: 1.125rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimony-author {
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 1rem;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-control {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.carousel-control:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--gray-300);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.carousel-dot.active {
+    background-color: var(--primary);
+    transform: scale(1.2);
+}
+
+.share-testimony-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.testimony-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--gray-800);
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.5rem;
+    outline: none;
+    min-height: 150px;
+    resize: vertical;
+    transition: all 0.2s;
+}
+
+.form-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-submit {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.form-submit:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 1.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: color 0.2s;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--gray-100);
+}
+
+.modal-close:hover {
+    color: var(--gray-800);
+    background-color: var(--gray-200);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.modal-body {
+    margin-bottom: 1.5rem;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-body li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.modal-btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+}
+
+.modal-btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-btn-secondary {
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    border: none;
+}
+
+.modal-btn-secondary:hover {
+    background-color: var(--gray-300);
+}
+
+.resource-files-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.resource-file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--gray-50);
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s;
+}
+
+.resource-file-item:hover {
+    background-color: var(--gray-100);
+}
+
+.resource-file-icon {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+}
+
+.resource-file-info {
+    flex-grow: 1;
+}
+
+.resource-file-name {
+    font-weight: 500;
+    color: var(--gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.resource-file-size {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+.resource-file-download {
+    color: var(--primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resource-file-download:hover {
+    color: var coro-dark);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--gray-900);
+    color: var(--white);
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem 0 0 0.375rem;
+    outline: none;
+    height: 3rem;
+}
+
+.newsletter-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.newsletter-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+}
+
+.outstation {
+    margin-bottom: 0.75rem;
+}
+
+.outstation a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.outstation a:hover {
+    color: var(--primary);
+}
+
+.outstation a i {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-800);
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .notices-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .homilies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bulletins-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .notices-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .homilies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .bulletins-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Announcement Banner -->
+<div class="announcement-banner">
+    <div class="container">
+        <div class="announcement-banner-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Important Notice: Special prayer service this Friday at 6 PM.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Header & Navigation -->
+<header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                
+                <nav class="nav-menu">
+                    <a href="#">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="sacraments.html">Sacraments</a>
+                    <a href="mass-times.html">Mass Times</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <a href="calendar.html">Calendar</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="sacraments.html">Sacraments</a>
+                <a href="mass-times.html">Mass Times</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="calendar.html">Calendar</a>
+                <a href="offering.html">Offering</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1>Resources</h1>
+        <p>Spiritual resources to help you grow in faith</p>
+    </div>
+</section>
+
+<!-- Spiritual Resources -->
+<section class="resource-section">
+    <div class="container">
+        <h2 class="section-title">Spiritual Resources</h2>
+        <p class="section-subtitle">Explore our collection of spiritual resources to help you grow in your faith journey.</p>
+        
+        <div class="resources-grid">
+            <div class="resource-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="Daily Prayers" class="resource-img">
+                <div class="resource-content">
+                    <h3 class="resource-title">Daily Prayers</h3>
+                    <p class="resource-text">A collection of daily prayers to help you start and end your day with God.</p>
+                    <a class="resource-link" onclick="openModal('daily-prayers-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="Novenas" class="resource-img">
+                <div class="resource-content">
+                    <h3 class="resource-title">Novenas</h3>
+                    <p class="resource-text">A collection of novenas to various saints and for different intentions.</p>
+                    <a class="resource-link" onclick="openModal('novenas-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="Rosary Guide" class="resource-img">
+                <div class="resource-content">
+                    <h3 class="resource-title">Rosary Guide</h3>
+                    <p class="resource-text">A comprehensive guide to praying the Rosary, including all the mysteries and accompanying prayers.</p>
+                    <a class="resource-link" onclick="openModal('rosary-guide-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Archdiocese Notices -->
+<section class="resource-section">
+    <div class="container">
+        <h2 class="section-title">Archdiocese Notices</h2>
+        <p class="section-subtitle">Stay informed about important announcements and events from the Archdiocese.</p>
+        
+        <div class="notices-grid">
+            <div class="notice-card">
+                <div class="notice-content">
+                    <p class="notice-date">April 10, 2023</p>
+                    <h3 class="notice-title">Archdiocesan Pastoral Council Meeting</h3>
+                    <p class="notice-text">The Archdiocesan Pastoral Council will meet on April 20, 2023, at the Cathedral. Parish representatives are requested to attend.</p>
+                    <a class="notice-link" onclick="openModal('notice1-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="notice-card">
+                <div class="notice-content">
+                    <p class="notice-date">March 25, 2023</p>
+                    <h3 class="notice-title">Archdiocesan Youth Conference</h3>
+                    <p class="notice-text">The annual Archdiocesan Youth Conference will be held from June 15-18, 2023. Registration is now open for all parish youth groups.</p>
+                    <a class="notice-link" onclick="openModal('notice2-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="notice-card">
+                <div class="notice-content">
+                    <p class="notice-date">March 15, 2023</p>
+                    <h3 class="notice-title">Archdiocesan Pilgrimage to Holy Land</h3>
+                    <p class="notice-text">The Archdiocese is organizing a pilgrimage to the Holy Land from October 10-20, 2023. Interested parishioners should contact their parish office for more information.</p>
+                    <a class="notice-link" onclick="openModal('notice3-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-button">
+            <a href="#" class="btn">See Past Notices <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Homily Archive -->
+<section class="resource-section">
+    <div class="container">
+        <h2 class="section-title">Homily Archive</h2>
+        <p class="section-subtitle">Listen to and read homilies from our parish priests.</p>
+        
+        <div class="homily-search">
+            <form class="search-form">
+                <div class="search-row">
+                    <input type="text" placeholder="Search by keyword" class="search-input">
+                    <input type="date" class="search-input">
+                    <select class="search-input">
+                        <option value="">All Celebrants</option>
+                        <option value="fr-john">Fr. John</option>
+                        <option value="fr-peter">Fr. Peter</option>
+                        <option value="fr-james">Fr. James</option>
+                    </select>
+                    <button type="submit" class="search-btn">Search</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="homilies-grid">
+            <div class="homily-card">
+                <div class="homily-content">
+                    <p class="homily-date">April 9, 2023 - Easter Sunday</p>
+                    <h3 class="homily-title">The Resurrection: New Life in Christ</h3>
+                    <p class="homily-celebrant">Fr. John Kamau</p>
+                    <p class="homily-text">In this Easter homily, Fr. John reflects on the meaning of the Resurrection and how it brings new life to all believers.</p>
+                    
+                    <div class="audio-player">
+                        <audio controls style="width: 100%;">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-controls">
+                            <button class="audio-control" title="0.5x Speed">0.5x</button>
+                            <button class="audio-control" title="1x Speed">1x</button>
+                            <button class="audio-control" title="1.5x Speed">1.5x</button>
+                            <button class="audio-control" title="2x Speed">2x</button>
+                            <span class="audio-speed">Playback Speed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="homily-actions">
+                        <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                        <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="homily-card">
+                <div class="homily-content">
+                    <p class="homily-date">April 2, 2023 - Palm Sunday</p>
+                    <h3 class="homily-title">The Passion of Christ: A Journey of Love</h3>
+                    <p class="homily-celebrant">Fr. Peter Njoroge</p>
+                    <p class="homily-text">Fr. Peter reflects on the Passion of Christ and how it demonstrates God's immense love for humanity.</p>
+                    
+                    <div class="audio-player">
+                        <audio controls style="width: 100%;">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-controls">
+                            <button class="audio-control" title="0.5x Speed">0.5x</button>
+                            <button class="audio-control" title="1x Speed">1x</button>
+                            <button class="audio-control" title="1.5x Speed">1.5x</button>
+                            <button class="audio-control" title="2x Speed">2x</button>
+                            <span class="audio-speed">Playback Speed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="homily-actions">
+                        <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                        <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="homily-card">
+                <div class="homily-content">
+                    <p class="homily-date">March 26, 2023 - 5th Sunday of Lent</p>
+                    <h3 class="homily-title">The Raising of Lazarus: A Sign of Hope</h3>
+                    <p class="homily-celebrant">Fr. James Mwangi</p>
+                    <p class="homily-text">Fr. James explores the story of the raising of Lazarus and what it teaches us about hope and resurrection.</p>
+                    
+                    <div class="audio-player">
+                        <audio controls style="width: 100%;">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-controls">
+                            <button class="audio-control" title="0.5x Speed">0.5x</button>
+                            <button class="audio-control" title="1x Speed">1x</button>
+                            <button class="audio-control" title="1.5x Speed">1.5x</button>
+                            <button class="audio-control" title="2x Speed">2x</button>
+                            <span class="audio-speed">Playback Speed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="homily-actions">
+                        <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                        <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-button">
+            <a href="#" class="btn">See Past Homilies <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Bulletins & Newsletters -->
+<section class="resource-section">
+    <div class="container">
+        <h2 class="section-title">Bulletins & Newsletters</h2>
+        <p class="section-subtitle">Stay informed about parish events, announcements, and activities through our weekly bulletins and monthly newsletters.</p>
+        
+        <div class="bulletins-grid">
+            <div class="bulletin-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="April 2023 Newsletter" class="bulletin-img">
+                <div class="bulletin-content">
+                    <p class="bulletin-date">April 2023</p>
+                    <h3 class="bulletin-title">Parish Monthly Newsletter</h3>
+                    <p class="bulletin-text">Our April newsletter features articles on Easter celebrations, upcoming parish events, and testimonies from parishioners.</p>
+                    <a class="bulletin-link" onclick="openModal('april-newsletter-modal')">Read Newsletter <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="bulletin-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="April 9, 2023 Bulletin" class="bulletin-img">
+                <div class="bulletin-content">
+                    <p class="bulletin-date">April 9, 2023</p>
+                    <h3 class="bulletin-title">Easter Sunday Bulletin</h3>
+                    <p class="bulletin-text">Our Easter Sunday bulletin includes the Mass schedule, announcements, and a special Easter message from our parish priest.</p>
+                    <a class="bulletin-link" onclick="openModal('easter-bulletin-modal')">Read Bulletin <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="bulletin-card">
+                <img src="/placeholder.svg?height=200&width=400" alt="April 2, 2023 Bulletin" class="bulletin-img">
+                <div class="bulletin-content">
+                    <p class="bulletin-date">April 2, 2023</p>
+                    <h3 class="bulletin-title">Palm Sunday Bulletin</h3>
+                    <p class="bulletin-text">Our Palm Sunday bulletin includes the Holy Week schedule, announcements, and a reflection on the Passion of Christ.</p>
+                    <a class="bulletin-link" onclick="openModal('palm-sunday-bulletin-modal')">Read Bulletin <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonies -->
+<section class="resource-section">
+    <div class="container">
+        <h2 class="section-title">Testimonies</h2>
+        <p class="section-subtitle">Read inspiring testimonies from our parishioners about how God has worked in their lives.</p>
+        
+        <div class="testimonies-carousel">
+            <div class="testimony-slide active">
+                <div class="testimony-card">
+                    <p class="testimony-text">"I was going through a difficult time in my life when I joined the parish prayer group. The support and prayers of the community helped me find peace and strength in God."</p>
+                    <p class="testimony-author">- Mary Wanjiku</p>
+                </div>
+            </div>
+            
+            <div class="testimony-slide">
+                <div class="testimony-card">
+                    <p class="testimony-text">"After being away from the Church for many years, I felt welcomed back with open arms. The parish's reconciliation program helped me reconnect with my faith."</p>
+                    <p class="testimony-author">- John Kamau</p>
+                </div>
+            </div>
+            
+            <div class="testimony-slide">
+                <div class="testimony-card">
+                    <p class="testimony-text">"The youth ministry at our parish has been a blessing for my children. They have grown in their faith and made lifelong friends."</p>
+                    <p class="testimony-author">- Sarah Njeri</p>
+                </div>
+            </div>
+            
+            <div class="testimony-slide">
+                <div class="testimony-card">
+                    <p class="testimony-text">"Volunteering at the parish food drive opened my eyes to the needs in our community and deepened my commitment to service."</p>
+                    <p class="testimony-author">- Peter Mwangi</p>
+                </div>
+            </div>
+            
+            <div class="testimony-slide">
+                <div class="testimony-card">
+                    <p class="testimony-text">"The marriage preparation program helped my spouse and I build a stronger foundation for our life together, rooted in faith."</p>
+                    <p class="testimony-author">- Ann Wambui</p>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-control" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-control" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(0)"></span>
+                <span class="carousel-dot" onclick="currentSlide(1)"></span>
+                <span class="carousel-dot" onclick="currentSlide(2)"></span>
+                <span class="carousel-dot" onclick="currentSlide(3)"></span>
+                <span class="carousel-dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+        
+        <div class="share-testimony-link">
+            <a class="btn" onclick="openModal('share-testimony-modal')">Share Your Testimony <i class="fas fa-heart"></i></a>
+            <a href="#" class="btn btn-outline">View All Testimonies <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<!-- Daily Prayers Modal -->
+<div class="modal" id="daily-prayers-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('daily-prayers-modal')">×</span>
+        <h2 class="modal-title">Daily Prayers</h2>
+        <div class="modal-body">
+            <p>Our Daily Prayers resource includes prayers to help you start and end your day with God, as well as prayers for specific intentions and needs.</p>
+            
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Morning Prayers Collection</div>
+                        <div class="resource-file-size">PDF • 1.2 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Evening Prayers Collection</div>
+                        <div class="resource-file-size">PDF • 980 KB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Prayers for Special Intentions</div>
+                        <div class="resource-file-size">PDF • 1.5 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Family Prayer Guide</div>
+                        <div class="resource-file-size">PDF • 2.3 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Novenas Modal -->
+<div class="modal" id="novenas-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('novenas-modal')">×</span>
+        <h2 class="modal-title">Novenas</h2>
+        <div class="modal-body">
+            <p>Our Novenas collection includes prayers to various saints and for different intentions to help deepen your prayer life.</p>
+            
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Divine Mercy Novena</div>
+                        <div class="resource-file-size">PDF • 850 KB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Novena to Our Lady of Perpetual Help</div>
+                        <div class="resource-file-size">PDF • 1.1 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Novena to St. Joseph</div>
+                        <div class="resource-file-size">PDF • 920 KB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Novena to the Holy Spirit</div>
+                        <div class="resource-file-size">PDF • 1.3 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Novena to St. Jude</div>
+                        <div class="resource-file-size">PDF • 780 KB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Rosary Guide Modal -->
+<div class="modal" id="rosary-guide-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('rosary-guide-modal')">×</span>
+        <h2 class="modal-title">Rosary Guide</h2>
+        <div class="modal-body">
+            <p>Our Rosary Guide includes comprehensive instructions and meditations for praying the Rosary, including all the mysteries and accompanying prayers.</p>
+            
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Complete Rosary Guide</div>
+                        <div class="resource-file-size">PDF • 3.2 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Joyful Mysteries Meditations</div>
+                        <div class="resource-file-size">PDF • 1.1 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Sorrowful Mysteries Meditations</div>
+                        <div class="resource-file-size">PDF • 1.2 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Glorious Mysteries Meditations</div>
+                        <div class="resource-file-size">PDF • 1.3 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Luminous Mysteries Meditations</div>
+                        <div class="resource-file-size">PDF • 1.2 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Share Testimony Modal -->
+<div class="modal" id="share-testimony-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('share-testimony-modal')">×</span>
+        <h2 class="modal-title">Share Your Testimony</h2>
+        <div class="modal-body">
+            <p>We'd love to hear how God has worked in your life. Please share your testimony using the form below.</p>
+            
+            <form class="testimony-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="testimony" class="form-label">Your Testimony</label>
+                    <textarea id="testimony" class="form-textarea" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Would you like your testimony to be shared publicly?</label>
+                    <div>
+                        <input type="radio" id="share-yes" name="share" value="yes" checked>
+                        <label for="share-yes">Yes, I'm happy for my testimony to be shared</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="share-no" name="share" value="no">
+                        <label for="share-no">No, please keep my testimony private</label>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">Submit Testimony</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="sacraments.html">Sacraments</a></li>
+                        <li><a href="mass-times.html">Mass Times</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Additional Links -->
+                <div class="footer-section">
+                    <h3>More Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="offering.html">Offerings</a></li>
+                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                        <li><a href="resources.html">Resources</a></li> 
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Our Outstations -->
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+let slideIndex = 0;
+const slides = document.querySelectorAll('.testimony-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+
+function showSlides(n) {
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+}
+
+function changeSlide(n) {
+    slideIndex += n;
+    showSlides(slideIndex);
+}
+
+function currentSlide(n) {
+    slideIndex = n;
+    showSlides(slideIndex);
+}
+
+showSlides(slideIndex);
+
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

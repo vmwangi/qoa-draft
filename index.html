@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Added to ensure vertical centering within the content */
+            padding: 1rem;
+        }
+
+        .hero .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: none; /* Remove max-width constraint for hero */
+            padding: 0; /* Remove padding for full-width centering */
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--gray-900);
+        }
+
+        .btn-secondary {
+            background-color: var(--gray-300);
+            color: var(--gray-700);
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray-400);
+        }
+
+        /* Welcome Message */
+        .welcome {
+            padding: 4rem 0;
+            background-color: var(--gray-50);
+        }
+
+        .welcome-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            text-align: center; 
+            width: 100%;
+        }
+
+        .priest-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-light); /* Optional: subtle border for polish */
+        }
+
+        .welcome-text {
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .welcome-text h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .welcome-text p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .link i {
+            margin-left: 0.25rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            padding: 4rem 0;
+            background-color: var(--primary-light);
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .mission-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-circle {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .mission-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .mission-card p {
+            color: var(--gray-600);
+        }
+
+        /* Featured Highlights */
+        .highlights {
+            padding: 4rem 0;
+            background-color: var(--gray-50);
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-header {
+            height: 12rem;
+            background-color: var(--primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header-icon {
+            position: absolute;
+            font-size: 4rem;
+            color: var(--white);
+            opacity: 0.2;
+        }
+
+        .card-header h3 {
+            position: relative;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card-content {
+            flex-grow: 1;
+        }
+
+        .card-item {
+            margin-bottom: 1rem;
+        }
+
+        .card-item p:first-child {
+            font-weight: 700;
+        }
+
+        .card-item p:not(:first-child) {
+            color: var(--gray-600);
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        /* Card Carousel */
+        .card-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-carousel-inner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .card-carousel-item {
+            display: none;
+            width: 100%;
+            transition: transform 0.6s ease;
+            backface-visibility: hidden;
+        }
+
+        .card-carousel-item.active {
+            display: block;
+        }
+
+        .card-carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .card-carousel-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-size: 0.75rem;
+        }
+
+        .card-carousel-btn:hover {
+            opacity: 1;
+        }
+
+        .card-carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .card-carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--gray-300);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .card-carousel-indicator.active {
+            background-color: var(--primary);
+        }
+
+        .outstation-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Quick Access */
+        .quick-access {
+            padding: 4rem 0;
+        }
+
+        .quick-access-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .quick-card {
+            background-color: var(--primary-light);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .quick-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #d0e7fa;
+            transform: translateY(-5px);
+        }
+
+        .quick-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .quick-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-card p {
+            color: var(--gray-600);
+        }
+
+        /* Registration */
+        .registration {
+            padding: 4rem 0;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .registration h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .registration p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            border: none;
+        }
+
+        .btn-white:hover {
+            background-color: var(--gray-100);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow: auto;
+            padding: 2rem 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 0 auto;
+            max-width: 500px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1rem;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--gray-50);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.375rem 0 0 0.375rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0 0.375rem 0.375rem 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .btn-group {
+                flex-direction: row;
+            }
+
+            .mission-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .highlight-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-access-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .welcome-content {
+                flex-direction: row;
+                text-align: left; /* Align text left for larger screens */
+            }
+
+            .welcome-text {
+                text-align: left;
+                align-items: flex-start; /* Align text content to the left for row layout */
+            }
+
+            .highlight-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .quick-access-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .mission-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Show/hide elements based on screen size */
+        .desktop-hidden {
+            display: block;
+        }
+
+        @media (min-width: 1024px) {
+            .desktop-hidden {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special prayer service this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                
+                <nav class="nav-menu">
+                    <a href="#">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="sacraments.html">Sacraments</a>
+                    <a href="mass-times.html">Mass Times</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <a href="calendar.html">Calendar</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="sacraments.html">Sacraments</a>
+                <a href="mass-times.html">Mass Times</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="calendar.html">Calendar</a>
+                <a href="offering.html">Offering</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Queen of Apostles Catholic Church</h1>
+                <p>A place of worship, community, and spiritual growth</p>
+                <div class="btn-group">
+                    <a href="/mass-times" class="btn btn-primary">Mass Times</a>
+                    <a href="/groups/jumuiya" class="btn btn-outline">Join a Jumuiya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Message --> 
+    <section class="welcome">
+        <div class="container">
+            <div class="welcome-content">
+                <img src="https://placehold.co/200x200?text=Parish+Priest" alt="Parish Priest Placeholder" class="priest-img">
+                <div class="welcome-text">
+                    <h2>Welcome from our Parish Priest</h2>
+                    <p>Dear brothers and sisters in Christ, I warmly welcome you to Queen of Apostles Parish. Our parish is a vibrant community of faith where we strive to live the Gospel values and share God's love with one another.</p>
+                    <a href="#" id="readMoreBtn" class="link">Read Full Message <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Priest Message Modal -->
+    <div class="modal" id="priestMessageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Welcome from our Parish Priest</h3>
+                <button class="modal-close" id="closePriestModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Dear brothers and sisters in Christ,</p>
+                <p>I warmly welcome you to Queen of Apostles Parish. Our parish is a vibrant community of faith where we strive to live the Gospel values and share God's love with one another. Whether you are a long-time parishioner or a visitor, we hope you find a spiritual home with us.</p>
+                <p>At Queen of Apostles, we are committed to nurturing the spiritual growth of all our members through meaningful liturgies, faith formation programs, and opportunities for service. We believe that each person is called to use their unique gifts to build up the Body of Christ and to make a positive difference in our world.</p>
+                <p>I invite you to explore our website to learn more about our parish, our ministries, and our upcoming events. If you have any questions or if there is any way we can be of assistance to you, please do not hesitate to contact our parish office.</p>
+                <p>May God bless you abundantly, and may Our Lady, Queen of Apostles, intercede for you and your loved ones.</p>
+                <p>In Christ's love,</p>
+                <p style="font-weight: 700; margin-top: 1rem; font-style: italic;">Fr. James Mwangi</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <h2 class="section-title">Our Parish Mission & Vision</h2>
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To build a community of faith that celebrates God's love, nurtures spiritual growth, and reaches out to those in need through service and evangelization.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be a welcoming parish where all people can encounter Christ, grow in their relationship with God, and be empowered to serve others.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>We are guided by faith, hope, and love. We value community, service, inclusivity, and a deep commitment to the teachings of Christ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <h2 class="section-title">Featured Highlights</h2>
+            <div class="highlight-cards">
+                <!-- Upcoming Masses Card -->
+                <div class="highlight-card">
+                    <div class="card-header">
+                        <i class="fas fa-clock card-header-icon"></i>
+                        <h3>Upcoming Masses</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-carousel">
+                            <div class="card-carousel-inner">
+                                <!-- Center Church -->
+                                <div class="card-carousel-item active" data-card="1" data-slide="1">
+                                    <div class="outstation-title">Center Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Sunday Mass</p>
+                                            <p>8:00 AM - English</p>
+                                            <p>10:30 AM - Swahili</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Weekday Mass</p>
+                                            <p>Monday - Friday: 6:30 AM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Marurui Church -->
+                                <div class="card-carousel-item" data-card="1" data-slide="2">
+                                    <div class="outstation-title">Marurui Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Sunday Mass</p>
+                                            <p>9:00 AM - English</p>
+                                            <p>11:30 AM - Swahili</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Weekday Mass</p>
+                                            <p>Tuesday & Thursday: 5:30 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- St. Gabriel Church -->
+                                <div class="card-carousel-item" data-card="1" data-slide="3">
+                                    <div class="outstation-title">St. Gabriel Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Sunday Mass</p>
+                                            <p>7:30 AM - Swahili</p>
+                                            <p>10:00 AM - English</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Weekday Mass</p>
+                                            <p>Wednesday & Friday: 6:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-carousel-controls">
+                                <button class="card-carousel-btn prev-btn" data-card="1">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="card-carousel-indicators">
+                                    <span class="card-carousel-indicator active" data-card="1" data-slide-to="1"></span>
+                                    <span class="card-carousel-indicator" data-card="1" data-slide-to="2"></span>
+                                    <span class="card-carousel-indicator" data-card="1" data-slide-to="3"></span>
+                                </div>
+                                <button class="card-carousel-btn next-btn" data-card="1">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/mass-times" class="link">View All Mass Times <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outstation Events Card -->
+                <div class="highlight-card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar card-header-icon"></i>
+                        <h3>Church Events</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-carousel">
+                            <div class="card-carousel-inner">
+                                <!-- Center Church -->
+                                <div class="card-carousel-item active" data-card="2" data-slide="1">
+                                    <div class="outstation-title">Center Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Youth Retreat</p>
+                                            <p>July 15-17, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Parish Feast Day</p>
+                                            <p>August 5, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Bible Study</p>
+                                            <p>Every Wednesday, 7:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Marurui Church -->
+                                <div class="card-carousel-item" data-card="2" data-slide="2">
+                                    <div class="outstation-title">Marurui Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Children's Day</p>
+                                            <p>July 22, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Marriage Seminar</p>
+                                            <p>August 12-13, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Prayer Group</p>
+                                            <p>Every Monday, 6:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- St. Gabriel Church -->
+                                <div class="card-carousel-item" data-card="2" data-slide="3">
+                                    <div class="outstation-title">St. Gabriel Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Choir Competition</p>
+                                            <p>July 29, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Elders Meeting</p>
+                                            <p>August 8, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Youth Fellowship</p>
+                                            <p>Every Friday, 5:30 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-carousel-controls">
+                                <button class="card-carousel-btn prev-btn" data-card="2">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="card-carousel-indicators">
+                                    <span class="card-carousel-indicator active" data-card="2" data-slide-to="1"></span>
+                                    <span class="card-carousel-indicator" data-card="2" data-slide-to="2"></span>
+                                    <span class="card-carousel-indicator" data-card="2" data-slide-to="3"></span>
+                                </div>
+                                <button class="card-carousel-btn next-btn" data-card="2">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/calendar" class="link">View All Events <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outstation Notices Card -->
+                <div class="highlight-card">
+                    <div class="card-header">
+                        <i class="fas fa-file-alt card-header-icon"></i>
+                        <h3>Church Notices</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-carousel">
+                            <div class="card-carousel-inner">
+                                <!-- Center Church -->
+                                <div class="card-carousel-item active" data-card="3" data-slide="1">
+                                    <div class="outstation-title">Center Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>CWA Registration Open</p>
+                                            <p>Register by July 30, 2023</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Choir Practice Schedule</p>
+                                            <p>Updated for July-August</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Sacrament Preparation</p>
+                                            <p>Classes begin August 12</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Marurui Church -->
+                                <div class="card-carousel-item" data-card="3" data-slide="2">
+                                    <div class="outstation-title">Marurui Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Building Fund Drive</p>
+                                            <p>Contributions welcome</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Sunday School Teachers</p>
+                                            <p>New volunteers needed</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Church Cleaning</p>
+                                            <p>Saturday, July 22, 9:00 AM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- St. Gabriel Church -->
+                                <div class="card-carousel-item" data-card="3" data-slide="3">
+                                    <div class="outstation-title">St. Gabriel Church</div>
+                                    <div class="card-content">
+                                        <div class="card-item">
+                                            <p>Baptism Registration</p>
+                                            <p>Open until August 5</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Parish Council Meeting</p>
+                                            <p>July 25, 6:00 PM</p>
+                                        </div>
+                                        <div class="card-item">
+                                            <p>Food Drive</p>
+                                            <p>Donations accepted all month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-carousel-controls">
+                                <button class="card-carousel-btn prev-btn" data-card="3">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="card-carousel-indicators">
+                                    <span class="card-carousel-indicator active" data-card="3" data-slide-to="1"></span>
+                                    <span class="card-carousel-indicator" data-card="3" data-slide-to="2"></span>
+                                    <span class="card-carousel-indicator" data-card="3" data-slide-to="3"></span>
+                                </div>
+                                <button class="card-carousel-btn next-btn" data-card="3">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/announcements" class="link">View All Notices <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Panel -->
+    <section class="quick-access">
+        <div class="container">
+            <h2 class="section-title">Quick Access</h2>
+            <div class="quick-access-cards">
+                <a href="/sacraments/anointing" class="quick-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Anointing of the Sick</h3>
+                    <p>Request anointing for yourself or a loved one</p>
+                </a>
+
+                <a href="/mass-times" class="quick-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Mass Times</h3>
+                    <p>View our schedule of Masses at all outstations</p>
+                </a>
+
+                <a href="/resources" class="quick-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Resources</h3>
+                    <p>Access prayers, readings, and spiritual materials</p>
+                </a>
+
+                <a href="/announcements" class="quick-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Weekly Announcements</h3>
+                    <p>Stay updated with our parish announcements</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Parish Member Registration -->
+    <section class="registration">
+        <div class="container">
+            <h2>New Parish Member?</h2>
+            <p>We're delighted you're considering joining our parish community. Register today to connect with a Jumuiya in your area.</p>
+            <button class="btn btn-white" id="registerBtn" style="font-size: 1rem;">Register Here</button>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">New Parish Member Registration</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="form-label">Residential Address</label>
+                        <input type="text" id="address" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="outstation" class="form-label">Preferred Outstation</label>
+                        <select id="outstation" class="form-select" required>
+                            <option value="">Select an outstation</option>
+                            <option value="center">Center Church</option>
+                            <option value="marurui">Marurui Church</option>
+                            <option value="stgabriel">St. Gabriel Church</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumuiya" class="form-label">Interested in joining a Jumuiya?</label>
+                        <select id="jumuiya" class="form-select" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="later">Maybe later</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" form="registrationForm" class="btn btn-primary" style="font-size: 1rem;">Submit Registration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="sacraments.html">Sacraments</a></li>
+                        <li><a href="mass-times.html">Mass Times</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Additional Links -->
+                <div class="footer-section">
+                    <h3>More Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="offering.html">Offerings</a></li>
+                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                        <li><a href="resources.html">Resources</a></li> 
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Our Outstations -->
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+
+        // Card Carousel functionality
+        function setupCardCarousel(cardId) {
+            const items = document.querySelectorAll(`.card-carousel-item[data-card="${cardId}"]`);
+            const indicators = document.querySelectorAll(`.card-carousel-indicator[data-card="${cardId}"]`);
+            const prevBtn = document.querySelector(`.prev-btn[data-card="${cardId}"]`);
+            const nextBtn = document.querySelector(`.next-btn[data-card="${cardId}"]`);
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                // Hide all slides
+                items.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Remove active class from all indicators
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                
+                // Show the selected slide and activate indicator
+                items[index].classList.add('active');
+                indicators[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            // Event listeners for indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+
+            // Event listeners for prev/next buttons
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + items.length) % items.length;
+                showSlide(currentSlide);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % items.length;
+                showSlide(currentSlide);
+            });
+        }
+
+        // Setup all carousels
+        setupCardCarousel(1);
+        setupCardCarousel(2);
+        setupCardCarousel(3);
+
+        // Registration Modal functionality
+        const registerBtn = document.getElementById('registerBtn');
+        const registerModal = document.getElementById('registerModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        registerBtn.addEventListener('click', function() {
+            registerModal.style.display = 'block';
+        });
+
+        function closeModalFunc() {
+            registerModal.style.display = 'none';
+        }
+
+        closeModal.addEventListener('click', closeModalFunc);
+        cancelBtn.addEventListener('click', closeModalFunc);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === registerModal) {
+                closeModalFunc();
+            }
+        });
+
+        // Form submission
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for registering! We will contact you soon.');
+            closeModalFunc();
+        });
+
+        // Priest Message Modal functionality
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const priestMessageModal = document.getElementById('priestMessageModal');
+        const closePriestModal = document.getElementById('closePriestModal');
+
+        readMoreBtn.addEventListener('click', function() {
+            priestMessageModal.style.display = 'block';
+        });
+
+        function closePriestModalFunc() {
+            priestMessageModal.style.display = 'none';
+        }
+
+        closePriestModal.addEventListener('click', closePriestModalFunc);
+
+        // Close priest modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === priestMessageModal) {
+                closePriestModalFunc();
+            }
+        });
+    </script>
+</body>
+</html>

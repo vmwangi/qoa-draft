@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offerings - Queen of Apostles Parish</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --primary: #2a9df4;
+    --primary-dark: #1e88e5;
+    --primary-light: #e3f2fd;
+    --white: #ffffff;
+    --black: #000000;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --amber-700: #b45309;
+    --amber-100: #fef3c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: var(--gray-800);
+    background-color: var(--gray-50);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Announcement Banner */
+.announcement-banner {
+    background-color: var(--amber-100);
+    color: var(--amber-700);
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.announcement-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.nav-menu a {
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--gray-800);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.mobile-menu a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 220px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 1rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+/* Outstation Tabs */
+.outstation-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 2rem 0 1rem;
+    justify-content: center;
+}
+
+.outstation-tab {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.outstation-tab:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.outstation-tab.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+/* Offering Categories */
+.offering-section {
+    padding: 3rem 0 5rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outstation-content {
+    display: none;
+}
+
+.outstation-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.category-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.category-text {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.category-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: all 0.2s;
+}
+
+.category-link:hover {
+    color: var(--primary-dark);
+}
+
+.category-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.category-link:hover i {
+    transform: translateX(3px);
+}
+
+.category-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 1.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: color 0.2s;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--gray-100);
+}
+
+.modal-close:hover {
+    color: var(--gray-800);
+    background-color: var(--gray-200);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.modal-body {
+    margin-bottom: 1.5rem;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-body li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.modal-btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+}
+
+.modal-btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-btn-secondary {
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    border: none;
+}
+
+.modal-btn-secondary:hover {
+    background-color: var(--gray-300);
+}
+
+/* Payment Instructions */
+.payment-instructions {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--gray-50);
+    border-radius: 0.5rem;
+    border: 1px solid var(--gray-200);
+}
+
+.payment-instructions h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+}
+
+.payment-step {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.payment-step-number {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.payment-step-text {
+    color: var(--gray-600);
+}
+
+.payment-info {
+    margin-bottom: 1rem;
+}
+
+.payment-info-title {
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.payment-info-text {
+    color: var(--gray-600);
+}
+
+/* Footer */
+footer {
+    background-color: var(--gray-900);
+    color: var(--white);
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem 0 0 0.375rem;
+    outline: none;
+    height: 3rem;
+}
+
+.newsletter-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.newsletter-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+}
+
+.outstation {
+    margin-bottom: 0.75rem;
+}
+
+.outstation a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.outstation a:hover {
+    color: var(--primary);
+}
+
+.outstation a i {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-800);
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Announcement Banner -->
+<div class="announcement-banner">
+    <div class="container">
+        <div class="announcement-banner-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Important Notice: Special prayer service this Friday at 6 PM.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Header & Navigation -->
+<header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                
+                <nav class="nav-menu">
+                    <a href="#">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="sacraments.html">Sacraments</a>
+                    <a href="mass-times.html">Mass Times</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <a href="calendar.html">Calendar</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="sacraments.html">Sacraments</a>
+                <a href="mass-times.html">Mass Times</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="calendar.html">Calendar</a>
+                <a href="offering.html">Offering</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1>Offerings</h1>
+        <p>Support the mission and ministry of our parish</p>
+    </div>
+</section>
+
+<!-- Outstation Tabs -->
+<div class="container">
+    <div class="outstation-tabs">
+        <div class="outstation-tab active" data-outstation="center">Center Church</div>
+        <div class="outstation-tab" data-outstation="marurui">Marurui Church</div>
+        <div class="outstation-tab" data-outstation="stgabriel">St. Gabriel Church</div>
+    </div>
+</div>
+
+<!-- Offering Categories -->
+<section class="offering-section">
+    <div class="container">
+        <!-- Center Church Content -->
+        <div class="outstation-content active" id="center-content">
+            <h2 class="section-title">Center Church Offerings</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of offerings you can make at Center Church.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
+                    <div class="category-badge">Most Common</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Tithe</h3>
+                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <a class="category-link" onclick="openModal('center-tithe-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Thanksgiving</h3>
+                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <a class="category-link" onclick="openModal('center-thanksgiving-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Development</h3>
+                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Special Collections Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Special Collections</h3>
+                        <p class="category-text">Special collections support specific causes, such as missions, seminarians, Catholic education, and emergency relief efforts.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Harvest Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Harvest</h3>
+                        <p class="category-text">Harvest offerings are given during our annual Harvest Festival, celebrating God's provision and supporting parish ministries.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Mass Intentions</h3>
+                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Marurui Church Content -->
+        <div class="outstation-content" id="marurui-content">
+            <h2 class="section-title">Marurui Church Offerings</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of offerings you can make at Marurui Church.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
+                    <div class="category-badge">Most Common</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Tithe</h3>
+                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Thanksgiving</h3>
+                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Development</h3>
+                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Youth Ministry Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Youth Ministry</h3>
+                        <p class="category-text">Support our youth ministry programs, including retreats, camps, and weekly activities that help young people grow in their faith.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Outreach Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Outreach</h3>
+                        <p class="category-text">Support our outreach programs that serve the poor, the sick, and those in need in our community through food, clothing, and other assistance.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Mass Intentions</h3>
+                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- St. Gabriel Church Content -->
+        <div class="outstation-content" id="stgabriel-content">
+            <h2 class="section-title">St. Gabriel Church Offerings</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of offerings you can make at St. Gabriel Church.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
+                    <div class="category-badge">Most Common</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Tithe</h3>
+                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Thanksgiving</h3>
+                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Development</h3>
+                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Children's Ministry Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Children's Ministry</h3>
+                        <p class="category-text">Support our children's ministry programs, including Sunday School, Vacation Bible School, and other activities that help children grow in their faith.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Music Ministry Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Music Ministry</h3>
+                        <p class="category-text">Support our music ministry, including the choir, instruments, and music resources that enhance our worship services.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Mass Intentions</h3>
+                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <a class="category-link" onclick="alert('More information coming soon!')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<!-- Center Church Modals -->
+<div class="modal" id="center-tithe-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('center-tithe-modal')">×</span>
+        <h2 class="modal-title">Tithe - Center Church</h2>
+        <div class="modal-body">
+            <p>Tithing is the practice of giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+            <p>In Malachi 3:10, God challenges us: "Bring the whole tithe into the storehouse, that there may be food in my house. Test me in this," says the LORD Almighty, "and see if I will not throw open the floodgates of heaven and pour out so much blessing that there will not be room enough to store it."</p>
+            <p>Your tithe supports:</p>
+            <ul>
+                <li>Parish operations and maintenance</li>
+                <li>Staff salaries</li>
+                <li>Ministry programs</li>
+                <li>Outreach and charitable works</li>
+            </ul>
+            
+            <div class="payment-instructions">
+                <h4>Mobile Money Instructions</h4>
+                <div class="payment-info">
+                    <p class="payment-info-title">Paybill Number</p>
+                    <p class="payment-info-text">123456</p>
+                </div>
+                <div class="payment-info">
+                    <p class="payment-info-title">Account Number Format</p>
+                    <p class="payment-info-text">[Your Name] Tithe</p>
+                    <p class="payment-info-text">Example: John Kamau Tithe</p>
+                </div>
+                <div class="payment-steps">
+                    <div class="payment-step">
+                        <div class="payment-step-number">1</div>
+                        <div class="payment-step-text">Go to M-PESA on your phone</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">2</div>
+                        <div class="payment-step-text">Select "Lipa na M-PESA"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">3</div>
+                        <div class="payment-step-text">Select "Paybill"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">4</div>
+                        <div class="payment-step-text">Enter Business Number: 123456</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">5</div>
+                        <div class="payment-step-text">Enter Account Number: [Your Name] Tithe</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">6</div>
+                        <div class="payment-step-text">Enter Amount</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">7</div>
+                        <div class="payment-step-text">Enter your M-PESA PIN</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">8</div>
+                        <div class="payment-step-text">Confirm the transaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-tithe-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="center-thanksgiving-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('center-thanksgiving-modal')">×</span>
+        <h2 class="modal-title">Thanksgiving - Center Church</h2>
+        <div class="modal-body">
+            <p>Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+            <p>Your thanksgiving offering supports various parish activities and ministries.</p>
+            <p>Benefits of giving a thanksgiving offering:</p>
+            <ul>
+                <li>Express gratitude to God</li>
+                <li>Support parish programs</li>
+                <li>Strengthen community bonds</li>
+            </ul>
+            
+            <div class="payment-instructions">
+                <h4>Mobile Money Instructions</h4>
+                <div class="payment-info">
+                    <p class="payment-info-title">Paybill Number</p>
+                    <p class="payment-info-text">123456</p>
+                </div>
+                <div class="payment-info">
+                    <p class="payment-info-title">Account Number Format</p>
+                    <p class="payment-info-text">[Your Name] Thanksgiving</p>
+                    <p class="payment-info-text">Example: John Kamau Thanksgiving</p>
+                </div>
+                <div class="payment-steps">
+                    <div class="payment-step">
+                        <div class="payment-step-number">1</div>
+                        <div class="payment-step-text">Go to M-PESA on your phone</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">2</div>
+                        <div class="payment-step-text">Select "Lipa na M-PESA"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">3</div>
+                        <div class="payment-step-text">Select "Paybill"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">4</div>
+                        <div class="payment-step-text">Enter Business Number: 123456</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">5</div>
+                        <div class="payment-step-text">Enter Account Number: [Your Name] Thanksgiving</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">6</div>
+                        <div class="payment-step-text">Enter Amount</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">7</div>
+                        <div class="payment-step-text">Enter your M-PESA PIN</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">8</div>
+                        <div class="payment-step-text">Confirm the transaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-thanksgiving-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="sacraments.html">Sacraments</a></li>
+                        <li><a href="mass-times.html">Mass Times</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Additional Links -->
+                <div class="footer-section">
+                    <h3>More Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="offering.html">Offerings</a></li>
+                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                        <li><a href="resources.html">Resources</a></li> 
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Our Outstations -->
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modals = document.getElementsByClassName('modal');
+    for (let modal of modals) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+}
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.display === 'block';
+    mobileMenu.style.display = isOpen ? 'none' : 'block';
+    mobileMenuBtn.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+});
+
+// Outstation tabs
+const tabs = document.querySelectorAll('.outstation-tab');
+const contents = document.querySelectorAll('.outstation-content');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const outstation = tab.getAttribute('data-outstation');
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        contents.forEach(c => {
+            c.classList.remove('active');
+            if (c.id === `${outstation}-content`) {
+                c.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

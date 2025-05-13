@@ -204,6 +204,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden; /* Ensure images don't overflow */
         }
 
         .hero-bg {
@@ -212,11 +213,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
             background-size: cover;
             background-position: center;
             filter: brightness(0.7);
             z-index: -1;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-bg.active {
+            opacity: 1;
         }
 
         .hero-content {
@@ -227,6 +233,8 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .container {
@@ -299,6 +307,30 @@
 
         .btn-secondary:hover {
             background-color: var(--gray-400);
+        }
+
+        /* Hero Navigation Dots */
+        .hero-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-dot.active {
+            background-color: var(--white);
         }
 
         /* Welcome Message */
@@ -1227,9 +1259,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Dynamic Background -->
     <section class="hero">
-        <div class="hero-bg"></div>
+        <!-- Dynamic Background Images -->
+        <div class="hero-bg active" style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');"></div>
+        <div class="hero-bg" style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/queens2-iO2Gp30U7yng8WSahgaFMi3JXED9P4.jpeg');"></div>
+        <div class="hero-bg" style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/queens3-DcpTy8SoVw9nnypqvG4U1ciuFIrZQK.jpeg');"></div>
+        
+        <!-- Hero Content -->
         <div class="container">
             <div class="hero-content">
                 <h1>Welcome to Queen of Apostles Catholic Church</h1>
@@ -1239,6 +1276,13 @@
                     <button class="btn btn-outline" id="registerBtnHero">Register as a Parishioner</button>
                 </div>
             </div>
+        </div>
+        
+        <!-- Hero Navigation Dots -->
+        <div class="hero-dots">
+            <span class="hero-dot active" data-index="0"></span>
+            <span class="hero-dot" data-index="1"></span>
+            <span class="hero-dot" data-index="2"></span>
         </div>
     </section>
 
@@ -1803,6 +1847,51 @@
             }
         });
 
+        // Hero Background Slider functionality
+        function setupHeroSlider() {
+            const heroBackgrounds = document.querySelectorAll('.hero-bg');
+            const heroDots = document.querySelectorAll('.hero-dot');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(index) {
+                // Hide all backgrounds
+                heroBackgrounds.forEach(bg => {
+                    bg.classList.remove('active');
+                });
+
+                // Remove active class from all dots
+                heroDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+
+                // Show the selected background and activate dot
+                heroBackgrounds[index].classList.add('active');
+                heroDots[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            // Auto-advance slides
+            function startSlideShow() {
+                slideInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % heroBackgrounds.length;
+                    showSlide(currentSlide);
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            // Event listeners for dots
+            heroDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval); // Stop auto-advance when user interacts
+                    showSlide(index);
+                    startSlideShow(); // Restart auto-advance
+                });
+            });
+
+            // Initialize the slider
+            startSlideShow();
+        }
+
         // Card Carousel functionality
         function setupCardCarousel(cardId) {
             const items = document.querySelectorAll(`.card-carousel-item[data-card="${cardId}"]`);
@@ -1851,9 +1940,12 @@
         }
 
         // Setup all carousels
-        setupCardCarousel(1);
-        setupCardCarousel(2);
-        setupCardCarousel(3);
+        document.addEventListener('DOMContentLoaded', function() {
+            setupHeroSlider();
+            setupCardCarousel(1);
+            setupCardCarousel(2);
+            setupCardCarousel(3);
+        });
 
         // Registration Modal functionality
         const registerBtnHero = document.getElementById('registerBtnHero');

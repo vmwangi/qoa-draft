@@ -85,7 +85,7 @@ header {
 }
 
 .nav-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on larger screens */
 }
 
 .nav-menu a {
@@ -109,7 +109,7 @@ header {
 }
 
 .mobile-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on mobile */
     background-color: var(--white);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -126,6 +126,87 @@ header {
 .mobile-menu a:hover {
     color: var(--primary);
 }
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Allows it to sit next to other nav items */
+}
+
+.dropdown-toggle {
+    display: flex; /* Align icon with text */
+    align-items: center;
+    gap: 0.25rem; /* Space between text and icon */
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the toggle */
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px; /* Minimum width for the dropdown */
+    z-index: 100; /* Ensure it appears above other content */
+    border-radius: 0.375rem;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.dropdown-menu a {
+    color: var(--gray-800);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block; /* Make each link a block element */
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary);
+}
+
+/* Show the dropdown menu on hover for desktop */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Push icon to the right */
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.mobile-dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: var(--gray-50); /* Slightly different background for clarity */
+    padding-left: 1rem; /* Indent the mobile dropdown items */
+}
+
+.mobile-dropdown-menu a {
+    padding: 0.5rem 1rem; /* Adjust padding for nested items */
+    border-bottom: none; /* Remove border for nested items */
+}
+
+.mobile-dropdown-menu.active {
+    display: block; /* Show when active */
+}
+
+/* Rotate the icon when the mobile dropdown is active */
+.mobile-dropdown-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.active i {
+    transform: rotate(180deg);
+}
+
 
 /* Hero Section */
 .hero {
@@ -628,6 +709,7 @@ header {
     border: 1px solid var(--gray-300);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    border-radius: 0.25rem; /* Added border-radius for consistency */
 }
 
 .form-input:focus,
@@ -776,7 +858,7 @@ footer {
     .jumuiya-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .groups-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -786,22 +868,23 @@ footer {
     .jumuiya-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .groups-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .nav-menu {
-        display: flex;
-        gap: 1.5rem;
-    }
-    
+
+    /* Show mobile menu button on medium screens */
     .mobile-menu-btn {
         display: block;
+    }
+
+    /* Hide desktop nav menu on medium screens */
+    .nav-menu {
+        display: none;
     }
 }
 
@@ -809,20 +892,27 @@ footer {
     .jumuiya-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .groups-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
+    /* Hide mobile menu button on large screens */
     .mobile-menu-btn {
         display: none;
     }
-    
+
+    /* Show desktop nav menu on large screens */
     .nav-menu {
         display: flex;
         gap: 1.5rem;
     }
-    
+
+    /* Hide mobile menu completely on large screens */
+    .mobile-menu {
+        display: none !important;
+    }
+
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -842,43 +932,56 @@ footer {
 
 <!-- Header & Navigation -->
 <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="/" class="logo">Queen of Apostles</a>
-                
-                <nav class="nav-menu">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="mass-times.html">Mass Times</a>
-                    <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <a href="#">Home</a>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="logo">Queen of Apostles</a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="sacraments.html">Sacraments</a>
                 <a href="mass-times.html">Mass Times</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="calendar.html">Calendar</a>
-                <a href="offering.html">Offering</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="offering.html">Give</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sacraments.html">Sacraments</a>
+                        <a href="youth.html">PMC, MYM and Youth</a>
+                        <a href="media.html">Media</a>
+                        <a href="resources.html">Other Resources</a>
+                        <a href="feedback.html">Feedback</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mass-times.html">Mass Times</a>
+            <a href="groups.html">Jumuiya & Groups</a>
+            <a href="offering.html">Give</a>
+            <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown-menu">
+                <a href="sacraments.html">Sacraments</a>
+                <a href="youth.html">PMC, MYM and Youth</a>
+                <a href="media.html">Media</a>
+                <a href="resources.html">Other Resources</a>
+                <a href="feedback.html">Feedback</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-<!-- Hero Section --> 
+
+<!-- Hero Section -->
 
 <section class="hero">
     <div class="hero-bg"></div>
@@ -893,13 +996,13 @@ footer {
     <div class="container">
         <h2 class="section-title">Small Christian Communities (Jumuiya)</h2>
         <p class="section-text">Small Christian Communities (Jumuiya) are the basic units of our parish. Join a Jumuiya near you to grow in faith and community.</p>
-        
+
         <div class="outstation-tabs">
             <button class="outstation-tab active" data-outstation="center">Center Church</button>
             <button class="outstation-tab" data-outstation="marurui">Marurui Church</button>
             <button class="outstation-tab" data-outstation="stgabriel">St. Gabriel Church</button>
         </div>
-        
+
         <div class="outstation-content active" id="center-jumuiya">
             <div class="jumuiya-grid">
                 <div class="jumuiya-card">
@@ -918,7 +1021,7 @@ footer {
                         <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Mary Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -932,10 +1035,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Wednesdays, 5:30 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Mary Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="Holy Family Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -949,10 +1052,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Thursdays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('Holy Family Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Paul Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -966,10 +1069,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Fridays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Paul Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Anne Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -983,10 +1086,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Mondays, 5:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Anne Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. John Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1000,10 +1103,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Saturdays, 3:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. John Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Francis Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1017,10 +1120,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Tuesdays, 5:30 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Francis Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Theresa Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1034,11 +1137,11 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Wednesdays, 6:30 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Theresa Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1047,7 +1150,7 @@ footer {
                 <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-        
+
         <div class="outstation-content" id="marurui-jumuiya">
             <div class="jumuiya-grid">
                 <div class="jumuiya-card">
@@ -1063,10 +1166,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Tuesdays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Peter Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Theresa Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1080,10 +1183,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Wednesdays, 5:30 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Theresa Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Monica Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1097,10 +1200,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Thursdays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Monica Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Catherine Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1114,10 +1217,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Fridays, 5:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Catherine Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Anthony Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1131,10 +1234,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Mondays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Anthony Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Agnes Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1148,10 +1251,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Saturdays, 10:00 AM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Agnes Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Cecilia Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1165,10 +1268,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Sundays, 3:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Cecilia Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Lucy Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1182,11 +1285,11 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Tuesdays, 7:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Lucy Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1194,7 +1297,7 @@ footer {
                 <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-        
+
         <div class="outstation-content" id="stgabriel-jumuiya">
             <div class="jumuiya-grid">
                 <div class="jumuiya-card">
@@ -1210,10 +1313,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Tuesdays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Gabriel Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Michael Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1227,10 +1330,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Wednesdays, 5:30 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Michael Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Raphael Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1244,10 +1347,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Thursdays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Raphael Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="St. Uriel Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1261,10 +1364,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Fridays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('St. Uriel Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="Holy Trinity Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1278,10 +1381,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Mondays, 6:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('Holy Trinity Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="Holy Family Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1295,10 +1398,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Saturdays, 4:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('Holy Family Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="Sacred Heart Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1312,10 +1415,10 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Fridays, 3:00 PM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('Sacred Heart Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="jumuiya-card">
                     <img src="https://placehold.co/400x200" alt="Immaculate Heart Jumuiya" class="jumuiya-img">
                     <div class="jumuiya-content">
@@ -1329,11 +1432,11 @@ footer {
                             <i class="fas fa-clock"></i>
                             <span>Saturdays, 10:00 AM</span>
                         </div>
-                        <a class="jumuiya-link" onclick="showJumuiyaAlert('Immaculate Heart Jumuiya')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
+                        <a class="jumuiya-link" onclick="openModal('join-jumuiya-modal')">Join This Jumuiya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1349,13 +1452,13 @@ footer {
     <div class="container">
         <h2 class="section-title">Ministry Groups</h2>
         <p class="section-text">Join one of our parish groups to serve the Church and grow in faith.</p>
-        
+
         <div class="outstation-tabs">
             <button class="outstation-tab active" data-outstation="center-groups">Center Church</button>
             <button class="outstation-tab" data-outstation="marurui-groups">Marurui Church</button>
             <button class="outstation-tab" data-outstation="stgabriel-groups">St. Gabriel Church</button>
         </div>
-        
+
         <div class="outstation-content active" id="center-groups">
             <div class="groups-grid">
                 <div class="group-card">
@@ -1372,7 +1475,7 @@ footer {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="CMA" class="group-img">
                     <div class="group-content">
@@ -1383,11 +1486,11 @@ footer {
                             <span>3rd Sunday of the month</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Catholic Men Association')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Youth" class="group-img">
                     <div class="group-content">
@@ -1398,11 +1501,11 @@ footer {
                             <span>Every Friday at 5:30 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Youth Group')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Choir" class="group-img">
                     <div class="group-content">
@@ -1413,11 +1516,11 @@ footer {
                             <span>Practice: Thursdays, 6:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Parish Choir')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Altar Servers" class="group-img">
                     <div class="group-content">
@@ -1428,11 +1531,11 @@ footer {
                             <span>Training: 1st Saturday, 10 AM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Altar Servers')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Lectors" class="group-img">
                     <div class="group-content">
@@ -1443,11 +1546,11 @@ footer {
                             <span>Training: 2nd Saturday, 10 AM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Lectors')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Legion of Mary" class="group-img">
                     <div class="group-content">
@@ -1458,11 +1561,11 @@ footer {
                             <span>Meetings: Saturdays, 9:00 AM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Legion of Mary')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Prayer Group" class="group-img">
                     <div class="group-content">
@@ -1473,12 +1576,12 @@ footer {
                             <span>Meetings: Mondays, 7:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Prayer Group')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1486,7 +1589,7 @@ footer {
                 <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-        
+
         <div class="outstation-content" id="marurui-groups">
             <div class="groups-grid">
                 <div class="group-card">
@@ -1499,11 +1602,11 @@ footer {
                             <span>2nd Sunday of the month</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('CWA Marurui')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="CMA Marurui" class="group-img">
                     <div class="group-content">
@@ -1514,11 +1617,11 @@ footer {
                             <span>3rd Sunday of the month</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('CMA Marurui')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Youth Marurui" class="group-img">
                     <div class="group-content">
@@ -1529,11 +1632,11 @@ footer {
                             <span>Every Saturday at 3:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Youth Group Marurui')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Choir Marurui" class="group-img">
                     <div class="group-content">
@@ -1544,12 +1647,12 @@ footer {
                             <span>Practice: Fridays, 5:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Marurui Choir')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1557,7 +1660,7 @@ footer {
                 <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-        
+
         <div class="outstation-content" id="stgabriel-groups">
             <div class="groups-grid">
                 <div class="group-card">
@@ -1570,11 +1673,11 @@ footer {
                             <span>2nd Sunday of the month</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('CWA St. Gabriel')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="CMA St. Gabriel" class="group-img">
                     <div class="group-content">
@@ -1585,11 +1688,11 @@ footer {
                             <span>3rd Sunday of the month</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('CMA St. Gabriel')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Youth St. Gabriel" class="group-img">
                     <div class="group-content">
@@ -1600,11 +1703,11 @@ footer {
                             <span>Every Sunday at 2:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('Youth Group St. Gabriel')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="group-card">
                     <img src="https://placehold.co/400x200" alt="Choir St. Gabriel" class="group-img">
                     <div class="group-content">
@@ -1615,12 +1718,12 @@ footer {
                             <span>Practice: Saturdays, 4:00 PM</span>
                         </div>
                         <div class="group-actions">
-                            <a href="#" class="group-link" onclick="showGroupAlert('St. Gabriel Choir')">Join This Group <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="group-link" onclick="openModal('join-group-modal')">Join This Group <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination">
                 <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                 <button class="pagination-btn active">1</button>
@@ -1636,7 +1739,7 @@ footer {
     <div class="container">
         <div class="contact-us-content">
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-text">Have questions about our Jumuiya or ministry groups? We're here to help! Contact our parish office for more information or to find the right group for you.</p> 
+            <p class="section-text">Have questions about our Jumuiya or ministry groups? We're here to help! Contact our parish office for more information or to find the right group for you.</p>
             <a href="/contact.html" class="contact-us-btn">Contact Us</a>
         </div>
     </div>
@@ -1645,7 +1748,7 @@ footer {
 <!-- Join Jumuiya Modal -->
 <div class="modal" id="join-jumuiya-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('join-jumuiya-modal')">&times;</span>
+        <span class="modal-close" onclick="closeModal('join-jumuiya-modal')">×</span>
         <h2 class="modal-title">Join a Jumuiya</h2>
         <div class="modal-body">
             <form id="jumuiyaForm">
@@ -1678,11 +1781,7 @@ footer {
                     <label class="form-label" for="jumuiya">Preferred Jumuiya</label>
                     <select id="jumuiya" class="form-select" required>
                         <option value="">Select a Jumuiya</option>
-                        <option value="stjoseph">St. Joseph Jumuiya</option>
-                        <option value="stmary">St. Mary Jumuiya</option>
-                        <option value="holyfamily">Holy Family Jumuiya</option>
-                        <option value="stpaul">St. Paul Jumuiya</option>
-                        <option value="stanne">St. Anne Jumuiya</option>
+                        <!-- Options will be populated based on selected outstation -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -1692,7 +1791,7 @@ footer {
             </form>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Submit Request</button>
+            <button class="modal-btn modal-btn-primary" id="submitJumuiyaForm">Submit Request</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('join-jumuiya-modal')">Cancel</button>
         </div>
     </div>
@@ -1701,7 +1800,7 @@ footer {
 <!-- Join Group Modal -->
 <div class="modal" id="join-group-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('join-group-modal')">&times;</span>
+        <span class="modal-close" onclick="closeModal('join-group-modal')">×</span>
         <h2 class="modal-title">Join a Ministry Group</h2>
         <div class="modal-body">
             <form id="groupForm">
@@ -1730,12 +1829,7 @@ footer {
                     <label class="form-label" for="ministryGroup">Ministry Group</label>
                     <select id="ministryGroup" class="form-select" required>
                         <option value="">Select a Group</option>
-                        <option value="cwa">Catholic Women Association (CWA)</option>
-                        <option value="cma">Catholic Men Association (CMA)</option>
-                        <option value="youth">Youth Group</option>
-                        <option value="choir">Choir</option>
-                        <option value="altarservers">Altar Servers</option>
-                        <option value="lectors">Lectors</option>
+                        <!-- Options will be populated based on selected outstation -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -1749,11 +1843,12 @@ footer {
             </form>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Submit Request</button>
+            <button class="modal-btn modal-btn-primary" id="submitGroupForm">Submit Request</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('join-group-modal')">Cancel</button>
         </div>
     </div>
 </div>
+
 
 <!-- Footer -->
 <footer>
@@ -1779,7 +1874,7 @@ footer {
                     <ul class="footer-links">
                         <li><a href="offering.html">Offerings</a></li>
                         <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li> 
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
 
@@ -1818,12 +1913,12 @@ footer {
                     </div>
                     <div class="outstation">
                         <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1831,21 +1926,39 @@ footer {
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
+    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
 
     mobileMenuBtn.addEventListener('click', function() {
+        // Toggle the display of the main mobile menu
         if (mobileMenu.style.display === 'block') {
             mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown if the main menu is closed
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
         } else {
             mobileMenu.style.display = 'block';
         }
     });
 
+    // Mobile dropdown toggle
+    mobileDropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
+        mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
+    });
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
+        // Check if the click is outside the mobile menu and the mobile menu button
         if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
             mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown when the main menu is closed by clicking outside
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
         }
     });
+
 
     // Outstation Tabs for Jumuiya
     const jumuiyaTabs = document.querySelectorAll('.jumuiya-section .outstation-tab');
@@ -1855,13 +1968,13 @@ footer {
         tab.addEventListener('click', function() {
             // Remove active class from all tabs
             jumuiyaTabs.forEach(t => t.classList.remove('active'));
-            
+
             // Add active class to clicked tab
             this.classList.add('active');
-            
+
             // Hide all content
             jumuiyaContents.forEach(content => content.classList.remove('active'));
-            
+
             // Show content for clicked tab
             const outstation = this.getAttribute('data-outstation');
             document.getElementById(`${outstation}-jumuiya`).classList.add('active');
@@ -1876,16 +1989,16 @@ footer {
         tab.addEventListener('click', function() {
             // Remove active class from all tabs
             groupsTabs.forEach(t => t.classList.remove('active'));
-            
+
             // Add active class to clicked tab
             this.classList.add('active');
-            
+
             // Hide all content
             groupsContents.forEach(content => content.classList.remove('active'));
-            
+
             // Show content for clicked tab
             const outstation = this.getAttribute('data-outstation');
-            document.getElementById(outstation).classList.add('active');
+            document.getElementById(`${outstation}-groups`).classList.add('active'); // Corrected ID here
         });
     });
 
@@ -1894,12 +2007,12 @@ footer {
         document.getElementById(modalId).style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
     }
-    
+
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
         document.body.style.overflow = 'auto'; // Re-enable scrolling
     }
-    
+
     // Close modal when clicking outside of modal content
     window.addEventListener('click', function(event) {
         const modals = document.querySelectorAll('.modal');
@@ -1910,35 +2023,55 @@ footer {
             }
         });
     });
-    
-    // Alert functions for non-modal links
-    function showJumuiyaAlert(jumuiyaName) {
-        alert(`To join ${jumuiyaName}, please contact the parish office at +254 123 456 789 or email info@queenofapostles.org`);
-    }
-    
-    function showGroupAlert(groupName) {
-        alert(`To join ${groupName}, please contact the parish office at +254 123 456 789 or email info@queenofapostles.org`);
-    }
-    
-    // Pagination functionality
+
+    // Handle "Join This Jumuiya" link clicks to open the modal
+    const joinJumuiyaLinks = document.querySelectorAll('.jumuiya-link');
+    joinJumuiyaLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            openModal('join-jumuiya-modal');
+            // Optional: Pre-fill the Jumuiya name in the modal form
+            const jumuiyaTitle = this.closest('.jumuiya-card').querySelector('.jumuiya-title').innerText;
+            document.getElementById('jumuiya').value = ''; // Reset dropdown
+            // You would need to dynamically add the correct option here based on the clicked Jumuiya
+            // For now, the user will select from the dropdown
+        });
+    });
+
+    // Handle "Join This Group" link clicks to open the modal
+    const joinGroupLinks = document.querySelectorAll('.group-link');
+    joinGroupLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            openModal('join-group-modal');
+             // Optional: Pre-fill the Group name in the modal form
+            const groupTitle = this.closest('.group-card').querySelector('.group-title').innerText;
+            document.getElementById('ministryGroup').value = ''; // Reset dropdown
+            // You would need to dynamically add the correct option here based on the clicked Group
+            // For now, the user will select from the dropdown
+        });
+    });
+
+
+    // Pagination functionality (basic alert for demonstration)
     const paginationBtns = document.querySelectorAll('.pagination-btn');
-    
+
     paginationBtns.forEach(btn => {
         if (!btn.classList.contains('disabled')) {
             btn.addEventListener('click', function() {
                 const parentPagination = this.closest('.pagination');
                 const paginationBtns = parentPagination.querySelectorAll('.pagination-btn');
-                
+
                 paginationBtns.forEach(b => {
                     if (!b.classList.contains('disabled') && !b.innerHTML.includes('fa-chevron')) {
                         b.classList.remove('active');
                     }
                 });
-                
+
                 if (!this.innerHTML.includes('fa-chevron')) {
                     this.classList.add('active');
                 }
-                
+
                 // In a real implementation, this would load the next page of content
                 // For this demo, we'll just show an alert
                 if (this.innerHTML.includes('fa-chevron-right')) {
@@ -1951,6 +2084,120 @@ footer {
             });
         }
     });
+
+    // Handle Modal Form Submissions (basic alert for demonstration)
+    const jumuiyaForm = document.getElementById('jumuiyaForm');
+    const groupForm = document.getElementById('groupForm');
+    const submitJumuiyaFormBtn = document.getElementById('submitJumuiyaForm');
+    const submitGroupFormBtn = document.getElementById('submitGroupForm');
+
+    submitJumuiyaFormBtn.addEventListener('click', function() {
+        // In a real application, you would validate the form and send data
+        alert('Jumuiya Join Request Submitted!');
+        closeModal('join-jumuiya-modal');
+        jumuiyaForm.reset();
+    });
+
+     submitGroupFormBtn.addEventListener('click', function() {
+        // In a real application, you would validate the form and send data
+        alert('Ministry Group Join Request Submitted!');
+        closeModal('join-group-modal');
+        groupForm.reset();
+    });
+
+    // Populate Jumuiya dropdown based on selected Outstation (basic example)
+    const jumuiyaOutstationSelect = document.getElementById('outstation');
+    const jumuiyaSelect = document.getElementById('jumuiya');
+
+    const jumuiyasByOutstation = {
+        center: [
+            { value: 'stjoseph', text: 'St. Joseph Jumuiya' },
+            { value: 'stmary', text: 'St. Mary Jumuiya' },
+            { value: 'holyfamily', text: 'Holy Family Jumuiya' },
+            { value: 'stpaul', text: 'St. Paul Jumuiya' },
+            { value: 'stanne', text: 'St. Anne Jumuiya' },
+            { value: 'stjohn', text: 'St. John Jumuiya' },
+            { value: 'stfrancis', text: 'St. Francis Jumuiya' },
+            { value: 'sttheresa', text: 'St. Theresa Jumuiya' },
+        ],
+        marurui: [
+            { value: 'stpeter', text: 'St. Peter Jumuiya' },
+            { value: 'sttheresa', text: 'St. Theresa Jumuiya' },
+            { value: 'stmonica', text: 'St. Monica Jumuiya' },
+            { value: 'stcatherine', text: 'St. Catherine Jumuiya' },
+            { value: 'stanthony', text: 'St. Anthony Jumuiya' },
+            { value: 'stagnes', text: 'St. Agnes Jumuiya' },
+            { value: 'stcecilia', text: 'St. Cecilia Jumuiya' },
+            { value: 'stlucy', text: 'St. Lucy Jumuiya' },
+        ],
+        stgabriel: [
+            { value: 'stgabriel', text: 'St. Gabriel Jumuiya' },
+            { value: 'stmichael', text: 'St. Michael Jumuiya' },
+            { value: 'straphael', text: 'St. Raphael Jumuiya' },
+            { value: 'sturiel', text: 'St. Uriel Jumuiya' },
+            { value: 'holytrinity', text: 'Holy Trinity Jumuiya' },
+            { value: 'holyfamily', text: 'Holy Family Jumuiya' },
+            { value: 'sacredheart', text: 'Sacred Heart Jumuiya' },
+            { value: 'immaculateheart', text: 'Immaculate Heart Jumuiya' },
+        ]
+    };
+
+    jumuiyaOutstationSelect.addEventListener('change', function() {
+        const selectedOutstation = this.value;
+        jumuiyaSelect.innerHTML = '<option value="">Select a Jumuiya</option>'; // Clear existing options
+        if (selectedOutstation && jumuiyasByOutstation[selectedOutstation]) {
+            jumuiyasByOutstation[selectedOutstation].forEach(jumuiya => {
+                const option = document.createElement('option');
+                option.value = jumuiya.value;
+                option.text = jumuiya.text;
+                jumuiyaSelect.appendChild(option);
+            });
+        }
+    });
+
+     // Populate Ministry Group dropdown based on selected Outstation (basic example)
+    const groupOutstationSelect = document.getElementById('outstationGroup');
+    const ministryGroupSelect = document.getElementById('ministryGroup');
+
+    const groupsByOutstation = {
+        center: [
+            { value: 'cwa', text: 'Catholic Women Association (CWA)' },
+            { value: 'cma', text: 'Catholic Men Association (CMA)' },
+            { value: 'youth', text: 'Youth Group' },
+            { value: 'choir', text: 'Parish Choir' },
+            { value: 'altarservers', text: 'Altar Servers' },
+            { value: 'lectors', text: 'Lectors' },
+            { value: 'legionofmary', text: 'Legion of Mary' },
+            { value: 'prayergroup', text: 'Prayer Group' },
+        ],
+        marurui: [
+            { value: 'cwa', text: 'Catholic Women Association (CWA)' },
+            { value: 'cma', text: 'Catholic Men Association (CMA)' },
+            { value: 'youth', text: 'Youth Group' },
+            { value: 'choir', text: 'Marurui Choir' },
+        ],
+        stgabriel: [
+            { value: 'cwa', text: 'Catholic Women Association (CWA)' },
+            { value: 'cma', text: 'Catholic Men Association (CMA)' },
+            { value: 'youth', text: 'Youth Group' },
+            { value: 'choir', text: 'St. Gabriel Choir' },
+        ]
+    };
+
+    groupOutstationSelect.addEventListener('change', function() {
+        const selectedOutstation = this.value;
+        ministryGroupSelect.innerHTML = '<option value="">Select a Group</option>'; // Clear existing options
+        if (selectedOutstation && groupsByOutstation[selectedOutstation]) {
+            groupsByOutstation[selectedOutstation].forEach(group => {
+                const option = document.createElement('option');
+                option.value = group.value;
+                option.text = group.text;
+                ministryGroupSelect.appendChild(option);
+            });
+        }
+    });
+
+
 </script>
 </body>
 </html>

@@ -85,7 +85,7 @@ header {
 }
 
 .nav-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on larger screens */
 }
 
 .nav-menu a {
@@ -109,7 +109,7 @@ header {
 }
 
 .mobile-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on mobile */
     background-color: var(--white);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -126,6 +126,87 @@ header {
 .mobile-menu a:hover {
     color: var(--primary);
 }
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Allows it to sit next to other nav items */
+}
+
+.dropdown-toggle {
+    display: flex; /* Align icon with text */
+    align-items: center;
+    gap: 0.25rem; /* Space between text and icon */
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the toggle */
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px; /* Minimum width for the dropdown */
+    z-index: 100; /* Ensure it appears above other content */
+    border-radius: 0.375rem;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.dropdown-menu a {
+    color: var(--gray-800);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block; /* Make each link a block element */
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary);
+}
+
+/* Show the dropdown menu on hover for desktop */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Push icon to the right */
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.mobile-dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: var(--gray-50); /* Slightly different background for clarity */
+    padding-left: 1rem; /* Indent the mobile dropdown items */
+}
+
+.mobile-dropdown-menu a {
+    padding: 0.5rem 1rem; /* Adjust padding for nested items */
+    border-bottom: none; /* Remove border for nested items */
+}
+
+.mobile-dropdown-menu.active {
+    display: block; /* Show when active */
+}
+
+/* Rotate the icon when the mobile dropdown is active */
+.mobile-dropdown-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.active i {
+    transform: rotate(180deg);
+}
+
 
 /* Hero Section */
 .hero {
@@ -378,6 +459,134 @@ header {
     font-style: italic;
 }
 
+/* Chatbot */
+.chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-dark);
+}
+
+.chatbot-button i {
+    font-size: 24px;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.bot-message {
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.user-message {
+    background-color: var(--primary);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.chatbot-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--gray-300);
+    border-radius: 20px;
+    outline: none;
+}
+
+.chatbot-input button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* Footer */
 footer {
     background-color: var(--gray-900);
@@ -512,25 +721,33 @@ footer {
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
     }
-    
-    .nav-menu {
-        display: flex;
-        gap: 1.5rem;
-    }
-    
+
+    /* Show mobile menu button on medium screens */
     .mobile-menu-btn {
         display: block;
+    }
+
+    /* Hide desktop nav menu on medium screens */
+    .nav-menu {
+        display: none;
     }
 }
 
 @media (min-width: 1024px) {
+    /* Hide mobile menu button on large screens */
     .mobile-menu-btn {
         display: none;
     }
-    
+
+    /* Show desktop nav menu on large screens */
     .nav-menu {
         display: flex;
         gap: 1.5rem;
+    }
+
+    /* Hide mobile menu completely on large screens */
+    .mobile-menu {
+        display: none !important;
     }
 }
 </style>
@@ -548,41 +765,53 @@ footer {
 
 <!-- Header & Navigation -->
 <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="/" class="logo">Queen of Apostles</a>
-                
-                <nav class="nav-menu">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="mass-times.html">Mass Times</a>
-                    <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <a href="#">Home</a>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="logo">Queen of Apostles</a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="sacraments.html">Sacraments</a>
                 <a href="mass-times.html">Mass Times</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="calendar.html">Calendar</a>
-                <a href="offering.html">Offering</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="offering.html">Give</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sacraments.html">Sacraments</a>
+                        <a href="youth.html">PMC, MYM and Youth</a>
+                        <a href="media.html">Media</a>
+                        <a href="resources.html">Other Resources</a>
+                        <a href="feedback.html">Feedback</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mass-times.html">Mass Times</a>
+            <a href="groups.html">Jumuiya & Groups</a>
+            <a href="offering.html">Give</a>
+            <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown-menu">
+                <a href="sacraments.html">Sacraments</a>
+                <a href="youth.html">PMC, MYM and Youth</a>
+                <a href="media.html">Media</a>
+                <a href="resources.html">Other Resources</a>
+                <a href="feedback.html">Feedback</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -598,13 +827,13 @@ footer {
     <div class="container">
         <h2 class="section-title">Mass Schedule</h2>
         <p class="section-text">Find Mass times for all our locations. We welcome you to join us in worship.</p>
-        
+
         <div class="schedule-tabs">
             <button class="schedule-tab active" data-tab="center">Center Church</button>
             <button class="schedule-tab" data-tab="marurui">Marurui Church</button>
             <button class="schedule-tab" data-tab="stgabriel">St. Gabriel Church</button>
         </div>
-        
+
         <!-- Center Church Schedule -->
         <div class="schedule-content active" id="center-schedule">
             <table class="mass-table">
@@ -643,12 +872,12 @@ footer {
                     </tr>
                 </tbody>
             </table>
-            
+
             <div class="mass-note">
                 <p><strong>Note:</strong> Holy Days of Obligation have additional Mass times. Please check the parish bulletin or call the parish office for details.</p>
             </div>
         </div>
-        
+
         <!-- Marurui Church Schedule -->
         <div class="schedule-content" id="marurui-schedule">
             <table class="mass-table">
@@ -672,12 +901,12 @@ footer {
                     </tr>
                 </tbody>
             </table>
-            
+
             <div class="mass-note">
                 <p><strong>Note:</strong> Special celebrations may have different Mass times. Please check with the outstation coordinator for details.</p>
             </div>
         </div>
-        
+
         <!-- St. Gabriel Church Schedule -->
         <div class="schedule-content" id="stgabriel-schedule">
             <table class="mass-table">
@@ -701,7 +930,7 @@ footer {
                     </tr>
                 </tbody>
             </table>
-            
+
             <div class="mass-note">
                 <p><strong>Note:</strong> Special celebrations may have different Mass times. Please check with the outstation coordinator for details.</p>
             </div>
@@ -714,7 +943,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Special Masses & Celebrations</h2>
         <p class="section-text">In addition to our regular Mass schedule, we celebrate special Masses throughout the liturgical year.</p>
-        
+
         <div class="special-masses-list">
             <div class="special-mass-item">
                 <h3 class="special-mass-title">Holy Days of Obligation</h3>
@@ -728,7 +957,7 @@ footer {
                 </div>
                 <p class="special-mass-description">Holy Days of Obligation are special feast days on which Catholics are obligated to attend Mass. These include the Solemnity of Mary (January 1), the Assumption (August 15), All Saints Day (November 1), the Immaculate Conception (December 8), and Christmas (December 25).</p>
             </div>
-            
+
             <div class="special-mass-item">
                 <h3 class="special-mass-title">Ash Wednesday</h3>
                 <div class="special-mass-info">
@@ -741,7 +970,7 @@ footer {
                 </div>
                 <p class="special-mass-description">Ash Wednesday marks the beginning of Lent, a 40-day period of prayer, fasting, and almsgiving in preparation for Easter. Ashes are distributed at all Masses as a sign of our mortality and need for repentance.</p>
             </div>
-            
+
             <div class="special-mass-item">
                 <h3 class="special-mass-title">Holy Week & Easter</h3>
                 <div class="special-mass-info">
@@ -754,7 +983,7 @@ footer {
                 </div>
                 <p class="special-mass-description">Holy Week commemorates the final days of Jesus' life, his passion, death, and resurrection. Special liturgies are celebrated throughout the week, culminating in the Easter Vigil on Saturday night and Easter Sunday Masses.</p>
             </div>
-            
+
             <div class="special-mass-item">
                 <h3 class="special-mass-title">Parish Feast Day</h3>
                 <div class="special-mass-info">
@@ -780,10 +1009,10 @@ footer {
     <div class="container">
         <h2 class="section-title">Confession Schedule</h2>
         <p class="section-text">The Sacrament of Reconciliation is available at the following times, or by appointment.</p>
-        
+
         <div class="confession-card">
             <h3 class="confession-title">Regular Confession Times</h3>
-            
+
             <div class="confession-times">
                 <div class="confession-time-item">
                     <div class="confession-day">Wednesday:</div>
@@ -806,104 +1035,146 @@ footer {
                     <div class="confession-hours">8:30 AM - 9:30 AM (St. Gabriel Church)</div>
                 </div>
             </div>
-            
+
             <p class="confession-note">Additional confession times are scheduled during Advent and Lent. For appointments or inquiries about confession at any location, please contact the parish office at +254 123 456 789.</p>
         </div>
     </div>
 </section>
 
+<!-- Chatbot Widget -->
+<div class="chatbot-widget">
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Parish Assistant</div>
+            <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message..." id="chatbotInput">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comment"></i>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer>
-        <div class="container">
-            <div class="footer-content">
-                <!-- Quick Links -->
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="sacraments.html">Sacraments</a></li>
-                        <li><a href="mass-times.html">Mass Times</a></li>
-                        <li><a href="groups.html">Jumuiya & Groups</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+    <div class="container">
+        <div class="footer-content">
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sacraments.html">Sacraments</a></li>
+                    <li><a href="mass-times.html">Mass Times</a></li>
+                    <li><a href="groups.html">Jumuiya & Groups</a></li>
+                </ul>
+            </div>
+
+            <!-- Additional Links -->
+            <div class="footer-section">
+                <h3>More Links</h3>
+                <ul class="footer-links">
+                    <li><a href="offering.html">Give</a></li>
+                    <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Church Road, City</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 123 456 789</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@queenofapostles.org</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-link"></i> <!-- Using a link icon for the contact page -->
+                    <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
                 </div>
 
-                <!-- Additional Links -->
-                <div class="footer-section">
-                    <h3>More Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="offering.html">Offerings</a></li>
-                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li> 
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>123 Church Road, City</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+254 123 456 789</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@queenofapostles.org</span>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <!-- Our Outstations -->
-                <div class="footer-section">
-                    <h3>Our Outstations</h3>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
-                    </div> 
+                <!-- Social Media -->
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            <!-- Our Outstations -->
+            <div class="footer-section">
+                <h3>Our Outstations</h3>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
+    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
 
     mobileMenuBtn.addEventListener('click', function() {
+        // Toggle the display of the main mobile menu
         if (mobileMenu.style.display === 'block') {
             mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown if the main menu is closed
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
         } else {
             mobileMenu.style.display = 'block';
         }
     });
 
+    // Mobile dropdown toggle
+    mobileDropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
+        mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
+    });
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
+        // Check if the click is outside the mobile menu and the mobile menu button
         if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
             mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown when the main menu is closed by clicking outside
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
         }
     });
+
 
     // Schedule Tabs
     const scheduleTabs = document.querySelectorAll('.schedule-tab');
@@ -913,17 +1184,82 @@ footer {
         tab.addEventListener('click', () => {
             // Remove active class from all tabs
             scheduleTabs.forEach(t => t.classList.remove('active'));
-            
+
             // Add active class to clicked tab
             tab.classList.add('active');
-            
+
             // Hide all content
             scheduleContents.forEach(content => content.classList.remove('active'));
-            
+
             // Show corresponding content
             const tabId = tab.getAttribute('data-tab');
             document.getElementById(`${tabId}-schedule`).classList.add('active');
         });
+    });
+
+    // Chatbot functionality
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const sendMessage = document.getElementById('sendMessage');
+
+    chatbotButton.addEventListener('click', function() {
+        chatbotContainer.style.display = 'flex';
+    });
+
+    closeChatbot.addEventListener('click', function() {
+        chatbotContainer.style.display = 'none';
+    });
+
+    function addMessage(message, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = message;
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
+    }
+
+    function handleUserMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatbotInput.value = '';
+
+            // Simple bot response (you can expand this logic)
+            setTimeout(() => {
+                let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                // Simple keyword responses
+                if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                    response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                    response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                    response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                } else if (message.toLowerCase().includes('sacraments')) {
+                     response = "Information about the sacraments is available on our Sacraments page: sacraments.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                     response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                     response = "Our parish calendar with upcoming events is available here: calendar.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('about')) {
+                     response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html"; // Replace with actual link
+                }
+
+
+                addMessage(response, false);
+            }, 1000); // Simulate thinking time
+        }
+    }
+
+    sendMessage.addEventListener('click', handleUserMessage);
+    chatbotInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
     });
 </script>
 </body>

@@ -85,7 +85,7 @@
     }
 
     .nav-menu {
-        display: none;
+        display: none; /* Hidden by default, shown on larger screens */
     }
 
     .nav-menu a {
@@ -109,7 +109,7 @@
     }
 
     .mobile-menu {
-        display: none;
+        display: none; /* Hidden by default, shown on mobile */
         background-color: var(--white);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
@@ -126,6 +126,87 @@
     .mobile-menu a:hover {
         color: var(--primary);
     }
+
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative;
+        display: inline-block; /* Allows it to sit next to other nav items */
+    }
+
+    .dropdown-toggle {
+        display: flex; /* Align icon with text */
+        align-items: center;
+        gap: 0.25rem; /* Space between text and icon */
+    }
+
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%; /* Position below the toggle */
+        left: 0;
+        background-color: var(--white);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        min-width: 160px; /* Minimum width for the dropdown */
+        z-index: 100; /* Ensure it appears above other content */
+        border-radius: 0.375rem;
+        overflow: hidden; /* Ensures rounded corners apply to children */
+    }
+
+    .dropdown-menu a {
+        color: var(--gray-800);
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        display: block; /* Make each link a block element */
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: var(--gray-100);
+        color: var(--primary);
+    }
+
+    /* Show the dropdown menu on hover for desktop */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Mobile Dropdown Styles */
+    .mobile-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Push icon to the right */
+        padding: 0.75rem 1rem;
+        color: var(--gray-800);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid var(--gray-100);
+        cursor: pointer; /* Indicate it's clickable */
+    }
+
+    .mobile-dropdown-menu {
+        display: none; /* Hidden by default */
+        background-color: var(--gray-50); /* Slightly different background for clarity */
+        padding-left: 1rem; /* Indent the mobile dropdown items */
+    }
+
+    .mobile-dropdown-menu a {
+        padding: 0.5rem 1rem; /* Adjust padding for nested items */
+        border-bottom: none; /* Remove border for nested items */
+    }
+
+    .mobile-dropdown-menu.active {
+        display: block; /* Show when active */
+    }
+
+    /* Rotate the icon when the mobile dropdown is active */
+    .mobile-dropdown-toggle i {
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-dropdown-toggle.active i {
+        transform: rotate(180deg);
+    }
+
 
     /* Hero Section */
     .hero {
@@ -276,12 +357,13 @@
     }
 
     .accordion-item.active .accordion-content {
-        max-height: 1000px;
+        max-height: 1000px; /* Adjust as needed */
     }
 
     .requirements-list {
         list-style-type: none;
         margin-top: 1rem;
+        padding-left: 0; /* Remove default padding */
     }
 
     .requirements-list li {
@@ -471,6 +553,16 @@
         background-color: var(--primary-dark);
     }
 
+    .btn-secondary { /* Added style for secondary button in modal footer */
+        background-color: var(--gray-200);
+        color: var(--gray-800);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--gray-300);
+    }
+
+
     /* Resources Link Section */
     .resources-link-section {
         padding: 4rem 0;
@@ -514,7 +606,7 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 100;
-        overflow: auto;
+        overflow-y: auto;
         padding: 2rem 1rem;
     }
 
@@ -605,7 +697,7 @@
         font-size: 1rem;
         transition: border-color 0.2s;
         appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3Csvg%3E");
         background-position: right 0.75rem center;
         background-repeat: no-repeat;
         background-size: 1rem;
@@ -686,6 +778,133 @@
 
     .resource-modal-download i {
         margin-right: 0.5rem;
+    }
+
+    /* Chatbot */
+    .chatbot-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .chatbot-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .chatbot-button:hover {
+        transform: scale(1.1);
+        background-color: var(--primary-dark);
+    }
+
+    .chatbot-button i {
+        font-size: 24px;
+    }
+
+    .chatbot-container {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .chatbot-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chatbot-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .chatbot-messages {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message {
+        max-width: 80%;
+        padding: 10px 15px;
+        border-radius: 18px;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .bot-message {
+        background-color: var(--gray-100);
+        color: var(--gray-800);
+        align-self: flex-start;
+        border-bottom-left-radius: 5px;
+    }
+
+    .user-message {
+        background-color: var(--primary);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 5px;
+    }
+
+    .chatbot-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .chatbot-input input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid var(--gray-300);
+        border-radius: 20px;
+        outline: none;
+    }
+
+    .chatbot-input button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* Footer */
@@ -834,18 +1053,20 @@
         .footer-content {
             grid-template-columns: repeat(4, 1fr);
         }
-        
-        .nav-menu {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
+
+        /* Show mobile menu button on medium screens */
         .mobile-menu-btn {
             display: block;
+        }
+
+        /* Hide desktop nav menu on medium screens */
+        .nav-menu {
+            display: none;
         }
     }
 
     @media (min-width: 1024px) {
+        /* Hide mobile menu button on large screens */
         .mobile-menu-btn {
             display: none;
         }
@@ -853,10 +1074,16 @@
         .resources-grid {
             grid-template-columns: repeat(3, 1fr);
         }
-        
+
+        /* Show desktop nav menu on large screens */
         .nav-menu {
             display: flex;
             gap: 1.5rem;
+        }
+
+        /* Hide mobile menu completely on large screens */
+        .mobile-menu {
+            display: none !important;
         }
     }
 </style>
@@ -874,41 +1101,54 @@
 
 <!-- Header & Navigation -->
 <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="/" class="logo">Queen of Apostles</a>
-                
-                <nav class="nav-menu">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="mass-times.html">Mass Times</a>
-                    <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <a href="#">Home</a>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="logo">Queen of Apostles</a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="sacraments.html">Sacraments</a>
                 <a href="mass-times.html">Mass Times</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="calendar.html">Calendar</a>
-                <a href="offering.html">Offering</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="offering.html">Give</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sacraments.html">Sacraments</a>
+                        <a href="youth.html">PMC, MYM and Youth</a>
+                        <a href="media.html">Media</a>
+                        <a href="resources.html">Other Resources</a>
+                        <a href="feedback.html">Feedback</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mass-times.html">Mass Times</a>
+            <a href="groups.html">Jumuiya & Groups</a>
+            <a href="offering.html">Give</a>
+            <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown-menu">
+                <a href="sacraments.html">Sacraments</a>
+                <a href="youth.html">PMC, MYM and Youth</a>
+                <a href="media.html">Media</a>
+                <a href="resources.html">Other Resources</a>
+                <a href="feedback.html">Feedback</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
 
 <!-- Hero Section -->
 <section class="hero">
@@ -926,7 +1166,7 @@
     <div class="container">
         <h2 class="section-title">Sacrament Guide</h2>
         <p class="section-text">The seven sacraments are signs of grace instituted by Christ to give his divine life to us through the work of the Holy Spirit. Learn about each sacrament, its requirements, and how to receive it at Queen of Apostles Parish.</p>
-        
+
         <div class="accordion">
             <div class="accordion-item">
                 <div class="accordion-header">
@@ -936,19 +1176,19 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>The Anointing of the Sick is a sacrament of healing that provides spiritual and sometimes physical strength during illness, especially near the time of death.</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>The person should be baptized Catholic</li>
                             <li>The person should be seriously ill, facing surgery, or weakened by old age</li>
                             <li>The sacrament can be received multiple times if the illness worsens</li>
                         </ul>
-                        
+
                         <p>For emergency situations, please call the parish office immediately at any time.</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-water"></i> Baptism</h3>
@@ -957,7 +1197,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>Baptism is the first sacrament of Christian initiation, freeing us from original sin and making us members of the Church, Christ's body.</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>Completed registration form</li>
@@ -966,12 +1206,12 @@
                             <li>Godparents must be practicing Catholics who have received Confirmation</li>
                             <li>Parents and godparents must attend pre-baptismal classes</li>
                         </ul>
-                        
+
                         <a href="#" class="download-link"><i class="fas fa-download"></i> Download Baptism Registration Form</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-bread-slice"></i> First Holy Communion</h3>
@@ -980,7 +1220,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>First Holy Communion is the reception of the Eucharist for the first time, usually during childhood, where we receive the Body and Blood of Christ.</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>Child must be baptized Catholic</li>
@@ -989,12 +1229,12 @@
                             <li>Regular attendance at Sunday Mass</li>
                             <li>Baptismal certificate must be submitted</li>
                         </ul>
-                        
+
                         <a href="#" class="download-link"><i class="fas fa-download"></i> Download First Communion Registration Form</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-dove"></i> Confirmation</h3>
@@ -1003,7 +1243,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>Confirmation completes the grace of Baptism by a special outpouring of the Holy Spirit, which seals and strengthens us as witnesses of Christ.</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>Must be baptized Catholic</li>
@@ -1014,12 +1254,12 @@
                             <li>Selection of a Confirmation sponsor who is a practicing Catholic</li>
                             <li>Selection of a Confirmation name (saint's name)</li>
                         </ul>
-                        
+
                         <a href="#" class="download-link"><i class="fas fa-download"></i> Download Confirmation Registration Form</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-hands"></i> Reconciliation</h3>
@@ -1028,7 +1268,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>The Sacrament of Reconciliation (Confession) offers forgiveness of sins committed after Baptism, reconciling us with God and the Church.</p>
-                        
+
                         <h4>Regular Confession Times:</h4>
                         <ul class="requirements-list">
                             <li>Saturdays: 3:00 PM - 4:30 PM</li>
@@ -1036,7 +1276,7 @@
                             <li>First Fridays: 9:00 AM - 10:00 AM</li>
                             <li>By appointment (contact the parish office)</li>
                         </ul>
-                        
+
                         <h4>First Reconciliation (Children):</h4>
                         <ul class="requirements-list">
                             <li>Child must be baptized Catholic</li>
@@ -1046,7 +1286,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-ring"></i> Matrimony</h3>
@@ -1055,7 +1295,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>The Sacrament of Matrimony is a covenant by which a man and a woman establish a partnership for life, ordered to the good of the spouses and the procreation and education of children.</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>At least one party must be a baptized Catholic</li>
@@ -1066,12 +1306,12 @@
                             <li>Completion of pre-nuptial investigation</li>
                             <li>Marriage license from civil authorities</li>
                         </ul>
-                        
+
                         <a href="#" class="download-link"><i class="fas fa-download"></i> Download Marriage Preparation Checklist</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="accordion-item">
                 <div class="accordion-header">
                     <h3 class="accordion-title"><i class="fas fa-pray"></i> Holy Orders</h3>
@@ -1080,7 +1320,7 @@
                 <div class="accordion-content">
                     <div class="accordion-body">
                         <p>Holy Orders is the sacrament through which the mission entrusted by Christ to his apostles continues to be exercised in the Church until the end of time. It includes three degrees: episcopate (bishops), presbyterate (priests), and diaconate (deacons).</p>
-                        
+
                         <h4>Requirements:</h4>
                         <ul class="requirements-list">
                             <li>Must be a baptized, confirmed Catholic male in good standing</li>
@@ -1089,7 +1329,7 @@
                             <li>For priesthood: typically requires a bachelor's degree and 4-5 years of seminary</li>
                             <li>For permanent diaconate: typically requires 4-5 years of formation</li>
                         </ul>
-                        
+
                         <p>If you feel called to the priesthood or diaconate, please speak with our parish priest for guidance and discernment.</p>
                     </div>
                 </div>
@@ -1103,7 +1343,7 @@
     <div class="container">
         <h2 class="section-title">Spiritual Resources</h2>
         <p class="section-text">Enrich your spiritual life with these resources for prayer, reflection, and growth in faith.</p>
-        
+
         <div class="resources-grid">
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Daily+Prayers" alt="Daily Prayers Placeholder" class="resource-img">
@@ -1113,7 +1353,7 @@
                     <a class="resource-link" data-modal="prayersModal">View Collection <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Novenas" alt="Novenas Placeholder" class="resource-img">
                 <div class="resource-info">
@@ -1122,7 +1362,7 @@
                     <a class="resource-link" data-modal="novenasModal">View Collection <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Scripture+Study" alt="Scripture Study Placeholder" class="resource-img">
                 <div class="resource-info">
@@ -1131,7 +1371,7 @@
                     <a class="resource-link" data-modal="scriptureModal">Browse Guides <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Rosary+Guide" alt="Rosary Guide Placeholder" class="resource-img">
                 <div class="resource-info">
@@ -1140,7 +1380,7 @@
                     <a class="resource-link" data-modal="rosaryModal">View Guide <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Liturgical+Calendar" alt="Liturgical Calendar Placeholder" class="resource-img">
                 <div class="resource-info">
@@ -1149,7 +1389,7 @@
                     <a class="resource-link" data-modal="calendarModal">View Calendar <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/400x200?text=Spiritual+Reading" alt="Spiritual Reading Placeholder" class="resource-img">
                 <div class="resource-info">
@@ -1167,7 +1407,7 @@
     <div class="container">
         <h2 class="section-title">Request Forms</h2>
         <p class="section-text">Use these forms to request sacraments or sacramental records from our parish.</p>
-        
+
         <div class="forms-grid">
             <div class="form-card">
                 <div class="form-header">
@@ -1179,7 +1419,7 @@
                     <button class="form-btn" data-modal="baptism-form-modal">Request Baptism</button>
                 </div>
             </div>
-            
+
             <div class="form-card">
                 <div class="form-header">
                     <h3 class="form-title">Marriage Request</h3>
@@ -1190,7 +1430,7 @@
                     <button class="form-btn" data-modal="marriage-form-modal">Request Marriage</button>
                 </div>
             </div>
-            
+
             <div class="form-card">
                 <div class="form-header">
                     <h3 class="form-title">Sacramental Records</h3>
@@ -1201,7 +1441,7 @@
                     <button class="form-btn" data-modal="records-form-modal">Request Records</button>
                 </div>
             </div>
-            
+
             <div class="form-card">
                 <div class="form-header">
                     <h3 class="form-title">Anointing of the Sick</h3>
@@ -1625,101 +1865,158 @@
     </div>
 </div>
 
+
+<!-- Chatbot Widget -->
+<div class="chatbot-widget">
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Parish Assistant</div>
+            <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message..." id="chatbotInput">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comment"></i>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer>
-        <div class="container">
-            <div class="footer-content">
-                <!-- Quick Links -->
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="sacraments.html">Sacraments</a></li>
-                        <li><a href="mass-times.html">Mass Times</a></li>
-                        <li><a href="groups.html">Jumuiya & Groups</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+    <div class="container">
+        <div class="footer-content">
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sacraments.html">Sacraments</a></li>
+                    <li><a href="mass-times.html">Mass Times</a></li>
+                    <li><a href="groups.html">Jumuiya & Groups</a></li>
+                </ul>
+            </div>
+
+            <!-- Additional Links -->
+            <div class="footer-section">
+                <h3>More Links</h3>
+                <ul class="footer-links">
+                    <li><a href="offering.html">Give</a></li>
+                    <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Church Road, City</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 123 456 789</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@queenofapostles.org</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-link"></i> <!-- Using a link icon for the contact page -->
+                    <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
                 </div>
 
-                <!-- Additional Links -->
-                <div class="footer-section">
-                    <h3>More Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="offering.html">Offerings</a></li>
-                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li> 
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>123 Church Road, City</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+254 123 456 789</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@queenofapostles.org</span>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <!-- Our Outstations -->
-                <div class="footer-section">
-                    <h3>Our Outstations</h3>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
-                    </div> 
+                <!-- Social Media -->
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            <!-- Our Outstations -->
+            <div class="footer-section">
+                <h3>Our Outstations</h3>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
+    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
 
     mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+        // Toggle the display of the main mobile menu
+        if (mobileMenu.style.display === 'block') {
             mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown if the main menu is closed
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
+        } else {
+            mobileMenu.style.display = 'block';
         }
     });
+
+    // Mobile dropdown toggle
+    mobileDropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
+        mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        // Check if the click is outside the mobile menu and the mobile menu button
+        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown when the main menu is closed by clicking outside
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
+        }
+    });
+
 
     // Accordion functionality
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
         const header = item.querySelector('.accordion-header');
         const content = item.querySelector('.accordion-content');
-        
+
         header.addEventListener('click', () => {
+            // Close other open accordions
+            accordionItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = 0;
+                }
+            });
+
+            // Toggle the clicked accordion
             item.classList.toggle('active');
             content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + 'px' : 0;
         });
@@ -1728,38 +2025,33 @@
     // Make the first accordion item active by default
     const anointingItem = accordionItems[0];
     anointingItem.classList.add('active');
-    anointingItem.querySelector('.accordion-content').style.maxHeight = 
+    anointingItem.querySelector('.accordion-content').style.maxHeight =
         anointingItem.querySelector('.accordion-content').scrollHeight + 'px';
+
 
     // Modal functionality
     function openModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
     }
 
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
     }
 
-    // Form buttons
-    document.querySelectorAll('.form-btn[data-modal]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modalId = btn.getAttribute('data-modal');
+    // Open modal when clicking buttons with data-modal attribute
+    document.querySelectorAll('[data-modal]').forEach(element => {
+        element.addEventListener('click', () => {
+            const modalId = element.getAttribute('data-modal');
             openModal(modalId);
         });
     });
 
-    // Resource links
-    document.querySelectorAll('.resource-link').forEach(link => {
-        link.addEventListener('click', () => {
-            const modalId = link.getAttribute('data-modal');
-            openModal(modalId);
-        });
-    });
-
-    // Close buttons
-    document.querySelectorAll('.modal-close, .form-btn[data-modal-close]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modalId = btn.getAttribute('data-modal-close') || btn.closest('.modal').id;
+    // Close modal when clicking elements with data-modal-close attribute or modal-close class
+    document.querySelectorAll('[data-modal-close], .modal-close').forEach(element => {
+        element.addEventListener('click', () => {
+            const modalId = element.getAttribute('data-modal-close') || element.closest('.modal').id;
             closeModal(modalId);
         });
     });
@@ -1770,18 +2062,90 @@
         modals.forEach(modal => {
             if (event.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
             }
         });
     });
 
-    // Form submission
-    document.querySelectorAll('form').forEach(form => {
+
+    // Handle Form Submissions (basic alert for demonstration)
+    document.querySelectorAll('.modal form').forEach(form => {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Your form has been submitted. We will contact you shortly.');
             const modal = this.closest('.modal');
-            modal.style.display = 'none';
+            closeModal(modal.id); // Close the modal after submission
+            form.reset(); // Reset the form
         });
+    });
+
+    // Chatbot functionality
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const sendMessage = document.getElementById('sendMessage');
+
+    chatbotButton.addEventListener('click', function() {
+        chatbotContainer.style.display = 'flex';
+    });
+
+    closeChatbot.addEventListener('click', function() {
+        chatbotContainer.style.display = 'none';
+    });
+
+    function addMessage(message, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = message;
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
+    }
+
+    function handleUserMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatbotInput.value = '';
+
+            // Simple bot response (you can expand this logic)
+            setTimeout(() => {
+                let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                // Simple keyword responses
+                if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                    response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                    response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                    response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                } else if (message.toLowerCase().includes('sacraments')) {
+                     response = "Information about the sacraments is available on our Sacraments page: sacraments.html"; // Replace with actual link. You are currently on this page!";
+                } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                     response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                     response = "Our parish calendar with upcoming events is available here: calendar.html"; // Replace with actual link. You are currently on this page!";
+                } else if (message.toLowerCase().includes('about')) {
+                     response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('give') || message.toLowerCase().includes('donate') || message.toLowerCase().includes('offering')) {
+                     response = "You can find information on how to give to the parish on the Give page: offering.html"; // Replace with actual link. You are currently on this page!";
+                } else if (message.toLowerCase().includes('resources') || message.toLowerCase().includes('prayers') || message.toLowerCase().includes('homily') || message.toLowerCase().includes('bulletin')) {
+                     response = "You can find various spiritual resources, homilies, and bulletins on the Resources page: resources.html"; // Replace with actual link. You are currently on this page!";
+                }
+
+
+                addMessage(response, false);
+            }, 1000); // Simulate thinking time
+        }
+    }
+
+    sendMessage.addEventListener('click', handleUserMessage);
+    chatbotInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
     });
 </script>
 </body>

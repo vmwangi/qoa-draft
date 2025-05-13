@@ -86,7 +86,7 @@ header {
 }
 
 .nav-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on larger screens */
 }
 
 .nav-menu a {
@@ -110,7 +110,7 @@ header {
 }
 
 .mobile-menu {
-    display: none;
+    display: none; /* Hidden by default, shown on mobile */
     background-color: var(--white);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -127,6 +127,87 @@ header {
 .mobile-menu a:hover {
     color: var(--primary);
 }
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Allows it to sit next to other nav items */
+}
+
+.dropdown-toggle {
+    display: flex; /* Align icon with text */
+    align-items: center;
+    gap: 0.25rem; /* Space between text and icon */
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the toggle */
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px; /* Minimum width for the dropdown */
+    z-index: 100; /* Ensure it appears above other content */
+    border-radius: 0.375rem;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.dropdown-menu a {
+    color: var(--gray-800);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block; /* Make each link a block element */
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary);
+}
+
+/* Show the dropdown menu on hover for desktop */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.mobile-dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: var(--gray-50); /* Slightly different background for clarity */
+    padding-left: 1rem; /* Indent the mobile dropdown items */
+}
+
+.mobile-dropdown-menu a {
+    padding: 0.5rem 1rem; /* Adjust padding for nested items */
+    border-bottom: none; /* Remove border for nested items */
+}
+
+.mobile-dropdown-menu.active {
+    display: block; /* Show when active */
+}
+
+/* Rotate the icon when the mobile dropdown is active */
+.mobile-dropdown-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.active i {
+    transform: rotate(180deg);
+}
+
 
 /* Hero Section */
 .hero {
@@ -913,52 +994,47 @@ header {
 }
 
 .modal-body ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
+    list-style: none; /* Removed default list style */
+    margin-left: 0; /* Removed default margin */
+    padding-left: 0; /* Removed default padding */
+    margin-top: 1rem;
 }
 
 .modal-body li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem; /* Increased spacing */
+    padding: 0.75rem 1rem; /* Added padding */
+    background-color: var(--gray-50); /* Added background */
+    border-radius: 0.5rem; /* Added border-radius */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center;
+    transition: background-color 0.2s;
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+.modal-body li:hover {
+    background-color: var(--gray-100);
 }
 
-.modal-btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 1rem;
+.modal-body li i {
+    color: var(--primary);
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
 }
 
-.modal-btn-primary {
-    background-color: var(--primary);
-    color: var(--white);
-    border: none;
-}
-
-.modal-btn-primary:hover {
-    background-color: var(--primary-dark);
-}
-
-.modal-btn-secondary {
-    background-color: var(--gray-200);
+.modal-body li a {
     color: var(--gray-800);
-    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    flex-grow: 1; /* Allow link text to take available space */
 }
 
-.modal-btn-secondary:hover {
-    background-color: var(--gray-300);
+.modal-body li a:hover {
+    color: var(--primary);
 }
 
 .resource-files-list {
     list-style: none;
     margin-top: 1rem;
+    padding: 0; /* Ensure no default padding */
 }
 
 .resource-file-item {
@@ -1004,8 +1080,135 @@ header {
 }
 
 .resource-file-download:hover {
-    color: var coro-dark);
+    color: var(--primary-dark); /* Corrected variable name */
     transform: translateY(-2px);
+}
+
+/* Chatbot */
+.chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-dark);
+}
+
+.chatbot-button i {
+    font-size: 24px;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.bot-message {
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.user-message {
+    background-color: var(--primary);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.chatbot-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--gray-300);
+    border-radius: 20px;
+    outline: none;
+}
+
+.chatbot-input button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer */
@@ -1136,19 +1339,19 @@ footer {
     .resources-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .notices-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .homilies-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .bulletins-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1158,41 +1361,49 @@ footer {
     .resources-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .notices-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .homilies-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .bulletins-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
     }
-    
-    .nav-menu {
-        display: flex;
-        gap: 1.5rem;
-    }
-    
+
+    /* Show mobile menu button on medium screens */
     .mobile-menu-btn {
         display: block;
+    }
+
+    /* Hide desktop nav menu on medium screens */
+    .nav-menu {
+        display: none;
     }
 }
 
 @media (min-width: 1024px) {
+    /* Hide mobile menu button on large screens */
     .mobile-menu-btn {
         display: none;
     }
-    
+
+    /* Show desktop nav menu on large screens */
     .nav-menu {
         display: flex;
         gap: 1.5rem;
+    }
+
+    /* Hide mobile menu completely on large screens */
+    .mobile-menu {
+        display: none !important;
     }
 }
 </style>
@@ -1210,41 +1421,53 @@ footer {
 
 <!-- Header & Navigation -->
 <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="/" class="logo">Queen of Apostles</a>
-                
-                <nav class="nav-menu">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="mass-times.html">Mass Times</a>
-                    <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <a href="#">Home</a>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="logo">Queen of Apostles</a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="sacraments.html">Sacraments</a>
                 <a href="mass-times.html">Mass Times</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="calendar.html">Calendar</a>
-                <a href="offering.html">Offering</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="offering.html">Give</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sacraments.html">Sacraments</a>
+                        <a href="youth.html">PMC, MYM and Youth</a>
+                        <a href="media.html">Media</a>
+                        <a href="resources.html">Other Resources</a>
+                        <a href="feedback.html">Feedback</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mass-times.html">Mass Times</a>
+            <a href="groups.html">Jumuiya & Groups</a>
+            <a href="offering.html">Give</a>
+            <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown-menu">
+                <a href="sacraments.html">Sacraments</a>
+                <a href="youth.html">PMC, MYM and Youth</a>
+                <a href="media.html">Media</a>
+                <a href="resources.html">Other Resources</a>
+                <a href="feedback.html">Feedback</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -1260,7 +1483,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Spiritual Resources</h2>
         <p class="section-subtitle">Explore our collection of spiritual resources to help you grow in your faith journey.</p>
-        
+
         <div class="resources-grid">
             <div class="resource-card">
                 <img src="https://placehold.co/200x400" alt="Daily Prayers" class="resource-img">
@@ -1270,7 +1493,7 @@ footer {
                     <a class="resource-link" onclick="openModal('daily-prayers-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/200x400" alt="Novenas" class="resource-img">
                 <div class="resource-content">
@@ -1279,7 +1502,7 @@ footer {
                     <a class="resource-link" onclick="openModal('novenas-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="resource-card">
                 <img src="https://placehold.co/200x400" alt="Rosary Guide" class="resource-img">
                 <div class="resource-content">
@@ -1297,7 +1520,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Archdiocese Notices</h2>
         <p class="section-subtitle">Stay informed about important announcements and events from the Archdiocese.</p>
-        
+
         <div class="notices-grid">
             <div class="notice-card">
                 <div class="notice-content">
@@ -1307,7 +1530,7 @@ footer {
                     <a class="notice-link" onclick="openModal('notice1-modal')">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="notice-card">
                 <div class="notice-content">
                     <p class="notice-date">March 25, 2023</p>
@@ -1316,7 +1539,7 @@ footer {
                     <a class="notice-link" onclick="openModal('notice2-modal')">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="notice-card">
                 <div class="notice-content">
                     <p class="notice-date">March 15, 2023</p>
@@ -1326,7 +1549,7 @@ footer {
                 </div>
             </div>
         </div>
-        
+
         <div class="section-button">
             <a href="#" class="btn">See Past Notices <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -1338,7 +1561,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Homily Archive</h2>
         <p class="section-subtitle">Listen to and read homilies from our parish priests.</p>
-        
+
         <div class="homily-search">
             <form class="search-form">
                 <div class="search-row">
@@ -1354,7 +1577,7 @@ footer {
                 </div>
             </form>
         </div>
-        
+
         <div class="homilies-grid">
             <div class="homily-card">
                 <div class="homily-content">
@@ -1362,7 +1585,7 @@ footer {
                     <h3 class="homily-title">The Resurrection: New Life in Christ</h3>
                     <p class="homily-celebrant">Fr. John Kamau</p>
                     <p class="homily-text">In this Easter homily, Fr. John reflects on the meaning of the Resurrection and how it brings new life to all believers.</p>
-                    
+
                     <div class="audio-player">
                         <audio controls style="width: 100%;">
                             <source src="#" type="audio/mpeg">
@@ -1376,21 +1599,21 @@ footer {
                             <span class="audio-speed">Playback Speed</span>
                         </div>
                     </div>
-                    
+
                     <div class="homily-actions">
                         <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
                         <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="homily-card">
                 <div class="homily-content">
                     <p class="homily-date">April 2, 2023 - Palm Sunday</p>
                     <h3 class="homily-title">The Passion of Christ: A Journey of Love</h3>
                     <p class="homily-celebrant">Fr. Peter Njoroge</p>
                     <p class="homily-text">Fr. Peter reflects on the Passion of Christ and how it demonstrates God's immense love for humanity.</p>
-                    
+
                     <div class="audio-player">
                         <audio controls style="width: 100%;">
                             <source src="#" type="audio/mpeg">
@@ -1404,21 +1627,21 @@ footer {
                             <span class="audio-speed">Playback Speed</span>
                         </div>
                     </div>
-                    
+
                     <div class="homily-actions">
                         <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
                         <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="homily-card">
                 <div class="homily-content">
                     <p class="homily-date">March 26, 2023 - 5th Sunday of Lent</p>
                     <h3 class="homily-title">The Raising of Lazarus: A Sign of Hope</h3>
                     <p class="homily-celebrant">Fr. James Mwangi</p>
                     <p class="homily-text">Fr. James explores the story of the raising of Lazarus and what it teaches us about hope and resurrection.</p>
-                    
+
                     <div class="audio-player">
                         <audio controls style="width: 100%;">
                             <source src="#" type="audio/mpeg">
@@ -1432,7 +1655,7 @@ footer {
                             <span class="audio-speed">Playback Speed</span>
                         </div>
                     </div>
-                    
+
                     <div class="homily-actions">
                         <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
                         <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
@@ -1440,7 +1663,7 @@ footer {
                 </div>
             </div>
         </div>
-        
+
         <div class="section-button">
             <a href="#" class="btn">See Past Homilies <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -1452,7 +1675,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Bulletins & Newsletters</h2>
         <p class="section-subtitle">Stay informed about parish events, announcements, and activities through our weekly bulletins and monthly newsletters.</p>
-        
+
         <div class="bulletins-grid">
             <div class="bulletin-card">
                 <img src="https://placehold.co/200x400" alt="April 2023 Newsletter" class="bulletin-img">
@@ -1463,7 +1686,7 @@ footer {
                     <a class="bulletin-link" onclick="openModal('april-newsletter-modal')">Read Newsletter <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="bulletin-card">
                 <img src="https://placehold.co/200x400" alt="April 9, 2023 Bulletin" class="bulletin-img">
                 <div class="bulletin-content">
@@ -1473,7 +1696,7 @@ footer {
                     <a class="bulletin-link" onclick="openModal('easter-bulletin-modal')">Read Bulletin <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
+
             <div class="bulletin-card">
                 <img src="https://placehold.co/200x400" alt="April 2, 2023 Bulletin" class="bulletin-img">
                 <div class="bulletin-content">
@@ -1492,7 +1715,7 @@ footer {
     <div class="container">
         <h2 class="section-title">Testimonies</h2>
         <p class="section-subtitle">Read inspiring testimonies from our parishioners about how God has worked in their lives.</p>
-        
+
         <div class="testimonies-carousel">
             <div class="testimony-slide active">
                 <div class="testimony-card">
@@ -1500,40 +1723,40 @@ footer {
                     <p class="testimony-author">- Mary Wanjiku</p>
                 </div>
             </div>
-            
+
             <div class="testimony-slide">
                 <div class="testimony-card">
                     <p class="testimony-text">"After being away from the Church for many years, I felt welcomed back with open arms. The parish's reconciliation program helped me reconnect with my faith."</p>
                     <p class="testimony-author">- John Kamau</p>
                 </div>
             </div>
-            
+
             <div class="testimony-slide">
                 <div class="testimony-card">
                     <p class="testimony-text">"The youth ministry at our parish has been a blessing for my children. They have grown in their faith and made lifelong friends."</p>
                     <p class="testimony-author">- Sarah Njeri</p>
                 </div>
             </div>
-            
+
             <div class="testimony-slide">
                 <div class="testimony-card">
                     <p class="testimony-text">"Volunteering at the parish food drive opened my eyes to the needs in our community and deepened my commitment to service."</p>
                     <p class="testimony-author">- Peter Mwangi</p>
                 </div>
             </div>
-            
+
             <div class="testimony-slide">
                 <div class="testimony-card">
                     <p class="testimony-text">"The marriage preparation program helped my spouse and I build a stronger foundation for our life together, rooted in faith."</p>
                     <p class="testimony-author">- Ann Wambui</p>
                 </div>
             </div>
-            
+
             <div class="carousel-controls">
                 <button class="carousel-control" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
                 <button class="carousel-control" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
             </div>
-            
+
             <div class="carousel-dots">
                 <span class="carousel-dot active" onclick="currentSlide(0)"></span>
                 <span class="carousel-dot" onclick="currentSlide(1)"></span>
@@ -1542,7 +1765,7 @@ footer {
                 <span class="carousel-dot" onclick="currentSlide(4)"></span>
             </div>
         </div>
-        
+
         <div class="share-testimony-link">
             <a class="btn" onclick="openModal('share-testimony-modal')">Share Your Testimony <i class="fas fa-heart"></i></a>
             <a href="#" class="btn btn-outline">View All Testimonies <i class="fas fa-arrow-right"></i></a>
@@ -1558,7 +1781,7 @@ footer {
         <h2 class="modal-title">Daily Prayers</h2>
         <div class="modal-body">
             <p>Our Daily Prayers resource includes prayers to help you start and end your day with God, as well as prayers for specific intentions and needs.</p>
-            
+
             <ul class="resource-files-list">
                 <li class="resource-file-item">
                     <i class="fas fa-file-pdf resource-file-icon"></i>
@@ -1595,7 +1818,7 @@ footer {
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-secondary">Close</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('daily-prayers-modal')">Close</button>
         </div>
     </div>
 </div>
@@ -1607,7 +1830,7 @@ footer {
         <h2 class="modal-title">Novenas</h2>
         <div class="modal-body">
             <p>Our Novenas collection includes prayers to various saints and for different intentions to help deepen your prayer life.</p>
-            
+
             <ul class="resource-files-list">
                 <li class="resource-file-item">
                     <i class="fas fa-file-pdf resource-file-icon"></i>
@@ -1652,7 +1875,7 @@ footer {
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-secondary">Close</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('novenas-modal')">Close</button>
         </div>
     </div>
 </div>
@@ -1664,7 +1887,7 @@ footer {
         <h2 class="modal-title">Rosary Guide</h2>
         <div class="modal-body">
             <p>Our Rosary Guide includes comprehensive instructions and meditations for praying the Rosary, including all the mysteries and accompanying prayers.</p>
-            
+
             <ul class="resource-files-list">
                 <li class="resource-file-item">
                     <i class="fas fa-file-pdf resource-file-icon"></i>
@@ -1709,7 +1932,7 @@ footer {
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-secondary">Close</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('rosary-guide-modal')">Close</button>
         </div>
     </div>
 </div>
@@ -1721,7 +1944,7 @@ footer {
         <h2 class="modal-title">Share Your Testimony</h2>
         <div class="modal-body">
             <p>We'd love to hear how God has worked in your life. Please share your testimony using the form below.</p>
-            
+
             <form class="testimony-form">
                 <div class="form-group">
                     <label for="name" class="form-label">Your Name</label>
@@ -1752,119 +1975,422 @@ footer {
     </div>
 </div>
 
+<!-- Archdiocese Notice Modals (Example - you'll need one for each notice) -->
+<div class="modal" id="notice1-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('notice1-modal')">×</span>
+        <h2 class="modal-title">Archdiocesan Pastoral Council Meeting</h2>
+        <div class="modal-body">
+            <p><strong>Date:</strong> April 20, 2023</p>
+            <p><strong>Location:</strong> Cathedral</p>
+            <p>The Archdiocesan Pastoral Council will convene for its quarterly meeting. Key agenda items include pastoral planning updates, financial reports, and discussions on upcoming archdiocesan initiatives. All parish pastoral council chairpersons and secretaries are required to attend. Please arrive by 9:00 AM for registration. Lunch will be provided.</p>
+            <p>For more information, please contact the Archdiocesan office.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('notice1-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="notice2-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('notice2-modal')">×</span>
+        <h2 class="modal-title">Archdiocesan Youth Conference</h2>
+        <div class="modal-body">
+            <p><strong>Dates:</strong> June 15-18, 2023</p>
+            <p><strong>Location:</strong> [Specify Location]</p>
+            <p>The annual Archdiocesan Youth Conference is a vibrant gathering for young Catholics across the Archdiocese. The conference will feature inspiring speakers, workshops, prayer sessions, music, and fellowship. It's a great opportunity for youth to deepen their faith and connect with peers.</p>
+            <p>Registration is open to all youth ages 13-18. Please contact your parish youth coordinator for registration forms and details on transportation.</p>
+            <p>Early bird registration deadline: May 15, 2023.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('notice2-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="notice3-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('notice3-modal')">×</span>
+        <h2 class="modal-title">Archdiocesan Pilgrimage to Holy Land</h2>
+        <div class="modal-body">
+            <p><strong>Dates:</strong> October 10-20, 2023</p>
+            <p>Embark on a spiritual journey to the Holy Land with fellow pilgrims from the Archdiocese. Visit sacred sites, walk in the footsteps of Jesus, and deepen your connection to the roots of our faith. The pilgrimage package includes flights, accommodation, meals, guided tours, and spiritual reflections.</p>
+            <p>Limited spots available. Interested parishioners should contact their parish office or the Archdiocesan Pilgrimage Office for detailed itineraries and registration information.</p>
+            <p>Deadline for registration: August 30, 2023.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('notice3-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bulletin/Newsletter Modals (Example - you'll need one for each) -->
+<div class="modal" id="april-newsletter-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('april-newsletter-modal')">×</span>
+        <h2 class="modal-title">April 2023 Parish Newsletter</h2>
+        <div class="modal-body">
+            <p>Download the April 2023 edition of our Parish Monthly Newsletter.</p>
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Queen_of_Apostles_Newsletter_April_2023.pdf</div>
+                        <div class="resource-file-size">PDF • 5.8 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('april-newsletter-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="easter-bulletin-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('easter-bulletin-modal')">×</span>
+        <h2 class="modal-title">Easter Sunday Bulletin - April 9, 2023</h2>
+        <div class="modal-body">
+            <p>Download the bulletin for Easter Sunday, April 9, 2023.</p>
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Queen_of_Apostles_Bulletin_2023-04-09.pdf</div>
+                        <div class="resource-file-size">PDF • 2.1 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('easter-bulletin-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="palm-sunday-bulletin-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('palm-sunday-bulletin-modal')">×</span>
+        <h2 class="modal-title">Palm Sunday Bulletin - April 2, 2023</h2>
+        <div class="modal-body">
+            <p>Download the bulletin for Palm Sunday, April 2, 2023.</p>
+            <ul class="resource-files-list">
+                <li class="resource-file-item">
+                    <i class="fas fa-file-pdf resource-file-icon"></i>
+                    <div class="resource-file-info">
+                        <div class="resource-file-name">Queen_of_Apostles_Bulletin_2023-04-02.pdf</div>
+                        <div class="resource-file-size">PDF • 1.9 MB</div>
+                    </div>
+                    <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('palm-sunday-bulletin-modal')">Close</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Chatbot Widget -->
+<div class="chatbot-widget">
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Parish Assistant</div>
+            <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message..." id="chatbotInput">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comment"></i>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer>
-        <div class="container">
-            <div class="footer-content">
-                <!-- Quick Links -->
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="sacraments.html">Sacraments</a></li>
-                        <li><a href="mass-times.html">Mass Times</a></li>
-                        <li><a href="groups.html">Jumuiya & Groups</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+    <div class="container">
+        <div class="footer-content">
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sacraments.html">Sacraments</a></li>
+                    <li><a href="mass-times.html">Mass Times</a></li>
+                    <li><a href="groups.html">Jumuiya & Groups</a></li>
+                </ul>
+            </div>
+
+            <!-- Additional Links -->
+            <div class="footer-section">
+                <h3>More Links</h3>
+                <ul class="footer-links">
+                    <li><a href="offering.html">Give</a></li>
+                    <li><a href="youth.html">PMC, MYM and Youth</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Church Road, City</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 123 456 789</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@queenofapostles.org</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-link"></i> <!-- Using a link icon for the contact page -->
+                    <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
                 </div>
 
-                <!-- Additional Links -->
-                <div class="footer-section">
-                    <h3>More Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="offering.html">Offerings</a></li>
-                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li> 
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>123 Church Road, City</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+254 123 456 789</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@queenofapostles.org</span>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <!-- Our Outstations -->
-                <div class="footer-section">
-                    <h3>Our Outstations</h3>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
-                    </div> 
+                <!-- Social Media -->
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            <!-- Our Outstations -->
+            <div class="footer-section">
+                <h3>Our Outstations</h3>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="outstation">
+                    <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 <script>
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-let slideIndex = 0;
-const slides = document.querySelectorAll('.testimony-slide');
-const dots = document.querySelectorAll('.carousel-dot');
-
-function showSlides(n) {
-    if (n >= slides.length) slideIndex = 0;
-    if (n < 0) slideIndex = slides.length - 1;
-    
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    slides[slideIndex].classList.add('active');
-    dots[slideIndex].classList.add('active');
-}
-
-function changeSlide(n) {
-    slideIndex += n;
-    showSlides(slideIndex);
-}
-
-function currentSlide(n) {
-    slideIndex = n;
-    showSlides(slideIndex);
-}
-
-showSlides(slideIndex);
-
-document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-});
+    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
+    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
+
+    mobileMenuBtn.addEventListener('click', function() {
+        // Toggle the display of the main mobile menu
+        if (mobileMenu.style.display === 'block') {
+            mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown if the main menu is closed
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
+        } else {
+            mobileMenu.style.display = 'block';
+        }
+    });
+
+    // Mobile dropdown toggle
+    mobileDropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
+        mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        // Check if the click is outside the mobile menu and the mobile menu button
+        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            mobileMenu.style.display = 'none';
+            // Also hide the mobile dropdown when the main menu is closed by clicking outside
+            mobileDropdownMenu.classList.remove('active');
+            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
+        }
+    });
+
+
+    // Modal Functionality
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Close modal when clicking outside of modal content
+    window.addEventListener('click', function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    // Testimonies Carousel
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.testimony-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function showSlides(n) {
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        slides[slideIndex].classList.add('active');
+        dots[slideIndex].classList.add('active');
+    }
+
+    function changeSlide(n) {
+        slideIndex += n;
+        showSlides(slideIndex);
+    }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides(slideIndex);
+    }
+
+    // Initialize the carousel
+    showSlides(slideIndex);
+
+    // Optional: Auto-advance carousel (uncomment to enable)
+    // let autoSlideTimer;
+    // function startAutoSlide() {
+    //     autoSlideTimer = setInterval(() => {
+    //         changeSlide(1);
+    //     }, 5000); // Change slide every 5 seconds
+    // }
+    // function stopAutoSlide() {
+    //     clearInterval(autoSlideTimer);
+    // }
+    // startAutoSlide(); // Start auto-slide on page load
+
+    // Pause auto-slide on hover (optional)
+    // const carouselContainer = document.querySelector('.testimonies-carousel');
+    // carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+    // carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+
+    // Handle Testimony Form Submission (basic alert for demonstration)
+    const testimonyForm = document.querySelector('#share-testimony-modal .testimony-form'); // Select the form within the modal
+
+    testimonyForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // In a real application, you would validate the form and send data
+        alert('Thank you for sharing your testimony! It will be reviewed.');
+        closeModal('share-testimony-modal');
+        testimonyForm.reset();
+    });
+
+    // Handle Modal Button Clicks (for "Close" buttons)
+    const modalCloseButtons = document.querySelectorAll('.modal-btn-secondary');
+    modalCloseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+
+    // Chatbot functionality
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const sendMessage = document.getElementById('sendMessage');
+
+    chatbotButton.addEventListener('click', function() {
+        chatbotContainer.style.display = 'flex';
+    });
+
+    closeChatbot.addEventListener('click', function() {
+        chatbotContainer.style.display = 'none';
+    });
+
+    function addMessage(message, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = message;
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
+    }
+
+    function handleUserMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatbotInput.value = '';
+
+            // Simple bot response (you can expand this logic)
+            setTimeout(() => {
+                let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                // Simple keyword responses
+                if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                    response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                    response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                    response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                } else if (message.toLowerCase().includes('sacraments')) {
+                     response = "Information about the sacraments is available on our Sacraments page: sacraments.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                     response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                     response = "Our parish calendar with upcoming events is available here: calendar.html"; // Replace with actual link. You are currently on this page!";
+                } else if (message.toLowerCase().includes('about')) {
+                     response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html"; // Replace with actual link
+                } else if (message.toLowerCase().includes('give') || message.toLowerCase().includes('donate') || message.toLowerCase().includes('offering')) {
+                     response = "You can find information on how to give to the parish on the Give page: offering.html"; // Replace with actual link. You are currently on this page!";
+                } else if (message.toLowerCase().includes('resources') || message.toLowerCase().includes('prayers') || message.toLowerCase().includes('homily') || message.toLowerCase().includes('bulletin')) {
+                     response = "You can find various spiritual resources, homilies, and bulletins on the Resources page: resources.html"; // Replace with actual link. You are currently on this page!";
+                }
+
+
+                addMessage(response, false);
+            }, 1000); // Simulate thinking time
+        }
+    }
+
+    sendMessage.addEventListener('click', handleUserMessage);
+    chatbotInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
 </script>
 </body>
 </html>

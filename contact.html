@@ -85,7 +85,7 @@ text-decoration: none;
 }
 
 .nav-menu {
-display: none;
+display: none; /* Hidden by default, shown on larger screens */
 }
 
 .nav-menu a {
@@ -109,7 +109,7 @@ cursor: pointer;
 }
 
 .mobile-menu {
-display: none;
+display: none; /* Hidden by default, shown on mobile */
 background-color: var(--white);
 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -127,7 +127,88 @@ border-bottom: 1px solid var(--gray-100);
 color: var(--primary);
 }
 
-/* Hero Section */ 
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Allows it to sit next to other nav items */
+}
+
+.dropdown-toggle {
+    display: flex; /* Align icon with text */
+    align-items: center;
+    gap: 0.25rem; /* Space between text and icon */
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the toggle */
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px; /* Minimum width for the dropdown */
+    z-index: 100; /* Ensure it appears above other content */
+    border-radius: 0.375rem;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.dropdown-menu a {
+    color: var(--gray-800);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block; /* Make each link a block element */
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary);
+}
+
+/* Show the dropdown menu on hover for desktop */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Push icon to the right */
+    padding: 0.75rem 1rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.mobile-dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: var(--gray-50); /* Slightly different background for clarity */
+    padding-left: 1rem; /* Indent the mobile dropdown items */
+}
+
+.mobile-dropdown-menu a {
+    padding: 0.5rem 1rem; /* Adjust padding for nested items */
+    border-bottom: none; /* Remove border for nested items */
+}
+
+.mobile-dropdown-menu.active {
+    display: block; /* Show when active */
+}
+
+/* Rotate the icon when the mobile dropdown is active */
+.mobile-dropdown-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.active i {
+    transform: rotate(180deg);
+}
+
+
+/* Hero Section */
 .hero {
     position: relative;
     height: 220px;
@@ -529,24 +610,32 @@ font-size: 0.875rem;
     grid-template-columns: repeat(4, 1fr);
 }
 
-.nav-menu {
-    display: flex;
-    gap: 1.5rem;
-}
-
+/* Show mobile menu button on medium screens */
 .mobile-menu-btn {
     display: block;
+}
+
+/* Hide desktop nav menu on medium screens */
+.nav-menu {
+    display: none;
 }
 }
 
 @media (min-width: 1024px) {
+/* Hide mobile menu button on large screens */
 .mobile-menu-btn {
     display: none;
 }
 
+/* Show desktop nav menu on large screens */
 .nav-menu {
     display: flex;
     gap: 1.5rem;
+}
+
+/* Hide mobile menu completely on large screens */
+.mobile-menu {
+    display: none !important;
 }
 
 .staff-grid {
@@ -568,41 +657,54 @@ font-size: 0.875rem;
 
 <!-- Header & Navigation -->
 <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="/" class="logo">Queen of Apostles</a>
-                
-                <nav class="nav-menu">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="mass-times.html">Mass Times</a>
-                    <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <a href="#">Home</a>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="logo">Queen of Apostles</a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="sacraments.html">Sacraments</a>
                 <a href="mass-times.html">Mass Times</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="calendar.html">Calendar</a>
-                <a href="offering.html">Offering</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+                <a href="offering.html">Give</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="sacraments.html">Sacraments</a>
+                        <a href="youth.html">PMC, MYM and Youth</a>
+                        <a href="media.html">Media</a>
+                        <a href="resources.html">Other Resources</a>
+                        <a href="feedback.html">Feedback</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="mass-times.html">Mass Times</a>
+            <a href="groups.html">Jumuiya & Groups</a>
+            <a href="offering.html">Give</a>
+            <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown-menu">
+                <a href="sacraments.html">Sacraments</a>
+                <a href="youth.html">PMC, MYM and Youth</a>
+                <a href="media.html">Media</a>
+                <a href="resources.html">Other Resources</a>
+                <a href="feedback.html">Feedback</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
 
 <!-- Hero Section -->
 <section class="hero">
@@ -618,7 +720,7 @@ font-size: 0.875rem;
 <div class="container">
     <h2 class="section-title">Get in Touch</h2>
     <p class="section-text">We welcome your questions, comments, and feedback. Here's how you can reach us.</p>
-    
+
     <div class="contact-grid">
         <div class="contact-card">
             <div class="contact-icon">
@@ -629,7 +731,7 @@ font-size: 0.875rem;
             <p class="contact-text">+254 123 456 789</p>
             <a href="tel:+254123456789" class="contact-link"><i class="fas fa-phone"></i></a>
         </div>
-        
+
         <div class="contact-card">
             <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
@@ -639,7 +741,7 @@ font-size: 0.875rem;
             <p class="contact-text">info@queenofapostles.org</p>
             <a href="mailto:info@queenofapostles.org" class="contact-link"><i class="fas fa-envelope"></i></a>
         </div>
-        
+
         <div class="contact-card">
             <div class="contact-icon">
                 <i class="fas fa-map-marker-alt"></i>
@@ -658,24 +760,24 @@ font-size: 0.875rem;
 <div class="container">
     <h2 class="section-title">Send Us a Message</h2>
     <p class="section-text">Fill out the form below and we'll get back to you as soon as possible.</p>
-    
+
     <div class="contact-form-container">
         <form id="contactForm">
             <div class="form-group">
                 <label class="form-label" for="name">Full Name</label>
                 <input type="text" id="name" class="form-input" required>
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="email">Email Address</label>
                 <input type="email" id="email" class="form-input" required>
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="phone">Phone Number</label>
                 <input type="tel" id="phone" class="form-input">
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="subject">Subject</label>
                 <select id="subject" class="form-select" required>
@@ -688,12 +790,12 @@ font-size: 0.875rem;
                     <option value="other">Other</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="message">Message</label>
                 <textarea id="message" class="form-textarea" required></textarea>
             </div>
-            
+
             <button type="submit" class="form-submit">Send Message</button>
         </form>
     </div>
@@ -705,7 +807,7 @@ font-size: 0.875rem;
 <div class="container">
     <h2 class="section-title">Our Location</h2>
     <p class="section-text">Find us at our main parish location and outstations.</p>
-    
+
     <div class="map-container">
         <iframe src="https://www.google.com/maps/d/embed?mid=1KFCqg7fjU7KS3YI-N9vIILX9hZc&ehbc=2E312F" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
         <div class="map-info">
@@ -717,7 +819,7 @@ font-size: 0.875rem;
 </div>
 </section>
 
-<!-- Footer --> 
+<!-- Footer -->
 <footer>
         <div class="container">
             <div class="footer-content">
@@ -741,7 +843,7 @@ font-size: 0.875rem;
                     <ul class="footer-links">
                         <li><a href="offering.html">Offerings</a></li>
                         <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li> 
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
 
@@ -780,12 +882,12 @@ font-size: 0.875rem;
                     </div>
                     <div class="outstation">
                         <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -794,29 +896,47 @@ font-size: 0.875rem;
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
+const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
+
 
 mobileMenuBtn.addEventListener('click', function() {
+    // Toggle the display of the main mobile menu
     if (mobileMenu.style.display === 'block') {
         mobileMenu.style.display = 'none';
+        // Also hide the mobile dropdown if the main menu is closed
+        mobileDropdownMenu.classList.remove('active');
+        mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
     } else {
         mobileMenu.style.display = 'block';
     }
 });
 
+// Mobile dropdown toggle
+mobileDropdownToggle.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default link behavior
+    mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
+    mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
+});
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
-    if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains  function(event) {
+    // Check if the click is outside the mobile menu and the mobile menu button
     if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
         mobileMenu.style.display = 'none';
+        // Also hide the mobile dropdown when the main menu is closed by clicking outside
+        mobileDropdownMenu.classList.remove('active');
+        mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
     }
 });
+
 
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
     // Here you would typically send the form data to a server
     // For demonstration purposes, we'll just show an alert
     alert('Thank you for your message! We will get back to you soon.');

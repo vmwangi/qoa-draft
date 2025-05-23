@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMA & CWA - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-light: #dbeafe;
+            --secondary: #f97316;
+            --secondary-dark: #ea580c;
+            --secondary-light: #ffedd5;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+            --section-cma-bg: #f0f9ff;
+            --section-cwa-bg: #fff7ed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 100;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 300px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/queens3-DcpTy8SoVw9nnypqvG4U1ciuFIrZQK.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Styles - MODERNIZED */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-cma {
+            background-color: var(--section-cma-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-cma::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+
+        .section-cwa {
+            background-color: var(--section-cwa-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-cwa::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(249, 115, 22, 0.05);
+            border-radius: 50%;
+            transform: translate(-150px, 150px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        .section-cwa .section-title::after {
+            background-color: var(--secondary);
+        }
+
+        .section-text {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .section-info {
+            flex: 1;
+        }
+
+        .section-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-cwa .section-info h3 {
+            color: var(--secondary);
+        }
+
+        .section-info ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-info li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-info li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .section-cwa .section-info li::before {
+            color: var(--secondary);
+        }
+
+        .section-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+        }
+
+        .section-cwa .btn {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.25);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .section-cwa .btn:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 6px 8px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Gallery Styles - MODERNIZED */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Image Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
+        /* Form Modal Styles */
+        .form-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .form-modal-content {
+            background-color: var(--white);
+            margin: 0 auto;
+            max-width: 600px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .form-modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+
+        #cwa-join-modal .form-modal-header {
+            background-color: var(--secondary);
+        }
+
+        .form-modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .form-modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .form-modal-close:hover {
+            opacity: 1;
+        }
+
+        .form-modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        #cwa-join-modal .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        #cwa-join-modal .form-textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .form-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        #cwa-join-modal .form-btn {
+            background-color: var(--secondary);
+            box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
+        }
+
+        .form-btn.btn-secondary {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            box-shadow: none;
+        }
+
+        .form-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+        }
+
+        #cwa-join-modal .form-btn:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.25);
+        }
+
+        .form-btn.btn-secondary:hover {
+            background-color: var(--gray-300);
+            box-shadow: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                <nav class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div>
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a>
+                            <a href="feedback.html">Share Feedback</a>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div>
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>CMA & CWA</h1>
+            <p>Strengthening Faith and Community</p>
+        </div>
+    </section>
+
+    <!-- Parish CMA Section - MODERNIZED -->
+    <section class="section section-cma">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Parish CMA</h2>
+                <p class="section-text">The Catholic Men's Association (CMA) at Queen of Apostles Parish is a vibrant community of men dedicated to spiritual growth, fellowship, and service. Through regular meetings, retreats, and charitable activities, CMA members support each other in living out their faith and contributing to the parish and wider community.</p>
+            </div>
+            
+            <div class="section-content">
+                <div class="section-info">
+                    <h3>What We Do</h3>
+                    <ul> 
+                        <li>Monthly spiritual retreats and formation</li>
+                        <li>Community service and outreach programs</li>
+                        <li>Support for parish initiatives and events</li>
+                        <li>Mentorship for young men in the parish</li>
+                    </ul>
+                </div>
+                
+                <div class="photo-gallery">
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/3b82f6/ffffff?text=CMA+Meeting')">
+                        <img src="https://placehold.co/300x225/3b82f6/ffffff?text=CMA+Meeting" alt="CMA Meeting">
+                    </div>
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/2563eb/ffffff?text=CMA+Retreat')">
+                        <img src="https://placehold.co/300x225/2563eb/ffffff?text=CMA+Retreat" alt="CMA Retreat">
+                    </div>
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/dbeafe/1e3a8a?text=CMA+Service')">
+                        <img src="https://placehold.co/300x225/dbeafe/1e3a8a?text=CMA+Service" alt="CMA Service">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-button">
+                <button class="btn" data-modal="cma-join-modal">Join CMA <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parish CWA Section - MODERNIZED -->
+    <section class="section section-cwa">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Parish CWA</h2>
+                <p class="section-text">The Catholic Women's Association (CWA) fosters a sisterhood of faith, prayer, and action among women in our parish. The CWA organizes spiritual events, community outreach, and support for families, empowering women to live their faith vibrantly and serve those in need.</p>
+            </div>
+            
+            <div class="section-content">
+                <div class="photo-gallery">
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/f97316/ffffff?text=CWA+Prayer')">
+                        <img src="https://placehold.co/300x225/f97316/ffffff?text=CWA+Prayer" alt="CWA Prayer">
+                    </div>
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/ea580c/ffffff?text=CWA+Outreach')">
+                        <img src="https://placehold.co/300x225/ea580c/ffffff?text=CWA+Outreach" alt="CWA Outreach">
+                    </div>
+                    <div class="gallery-item" onclick="openImageModal('https://placehold.co/600x400/ffedd5/7c2d12?text=CWA+Event')">
+                        <img src="https://placehold.co/300x225/ffedd5/7c2d12?text=CWA+Event" alt="CWA Event">
+                    </div>
+                </div>
+                
+                <div class="section-info">
+                    <h3>What We Do</h3>
+                    <ul>
+                        <li>Regular prayer meetings and spiritual formation</li>
+                        <li>Family support and counseling services</li>
+                        <li>Charitable works and community outreach</li>
+                        <li>Parish event organization and support</li>
+                        <li>Mentorship for young women in the parish</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-button">
+                <button class="btn" data-modal="cwa-join-modal">Join CWA <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeImageModal()">×</span>
+            <img id="modalImage" src="/placeholder.svg" alt="Gallery Image">
+        </div>
+    </div>
+
+    <!-- CMA Join Modal -->
+    <div class="form-modal" id="cma-join-modal">
+        <div class="form-modal-content">
+            <button class="form-modal-close">×</button>
+            <div class="form-modal-header">
+                <h2 class="form-modal-title">Join Parish CMA</h2>
+            </div>
+            <div class="form-modal-body">
+                <form id="cmaJoinForm">
+                    <div class="form-group">
+                        <label class="form-label" for="cmaName">Full Name</label>
+                        <input type="text" id="cmaName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cmaPhone">Phone Number</label>
+                        <input type="tel" id="cmaPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cmaEmail">Email Address</label>
+                        <input type="email" id="cmaEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cmaMessage">Why do you want to join CMA?</label>
+                        <textarea id="cmaMessage" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Interest</button>
+                <button class="form-btn btn-secondary" data-modal-close="cma-join-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CWA Join Modal -->
+    <div class="form-modal" id="cwa-join-modal">
+        <div class="form-modal-content">
+            <button class="form-modal-close">×</button>
+            <div class="form-modal-header">
+                <h2 class="form-modal-title">Join Parish CWA</h2>
+            </div>
+            <div class="form-modal-body">
+                <form id="cwaJoinForm">
+                    <div class="form-group">
+                        <label class="form-label" for="cwaName">Full Name</label>
+                        <input type="text" id="cwaName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cwaPhone">Phone Number</label>
+                        <input type="tel" id="cwaPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cwaEmail">Email Address</label>
+                        <input type="email" id="cwaEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cwaMessage">Why do you want to join CWA?</label>
+                        <textarea id="cwaMessage" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Interest</button>
+                <button class="form-btn btn-secondary" data-modal-close="cwa-join-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-link"></i>
+                        <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="center-church.html">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Image Modal Functionality
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close image modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+                document.querySelectorAll('.form-modal').forEach(modal => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // Form Modal Functionality
+        function openFormModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFormModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('[data-modal]').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal');
+                openFormModal(modalId);
+            });
+        });
+
+        document.querySelectorAll('[data-modal-close], .form-modal-close').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal-close') || element.closest('.form-modal').id;
+                closeFormModal(modalId);
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.form-modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Handle Form Submissions
+        document.querySelectorAll('.form-modal form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Your interest has been submitted. We will contact you shortly.');
+                const modal = this.closest('.form-modal');
+                closeFormModal(modal.id);
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

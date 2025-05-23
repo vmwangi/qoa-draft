@@ -290,6 +290,100 @@
             text-align: center;
         }
 
+        /* Gallery Styles */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
         /* Mass Schedule */
         .mass-table {
             width: 100%;
@@ -684,7 +778,29 @@
     <section class="section section-about">
         <div class="container">
             <h2 class="section-title">About Marurui Church</h2>
-            <p class="section-text"><strong>Goal:</strong> To provide a spiritual home for the Marurui community, promoting faith, unity, and service.</p>
+            
+            <!-- Photo Gallery -->
+            <div class="photo-gallery">
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/4caf50/ffffff?text=Church+Building')">
+                    <img src="https://placehold.co/300x225/4caf50/ffffff?text=Church+Building" alt="Marurui Church Building">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/388e3c/ffffff?text=Interior+Space')">
+                    <img src="https://placehold.co/300x225/388e3c/ffffff?text=Interior+Space" alt="Interior Worship Space">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/2e7d32/ffffff?text=Community+Gathering')">
+                    <img src="https://placehold.co/300x225/2e7d32/ffffff?text=Community+Gathering" alt="Community Gathering">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/43a047/ffffff?text=Youth+Activities')">
+                    <img src="https://placehold.co/300x225/43a047/ffffff?text=Youth+Activities" alt="Youth Activities">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/66bb6a/ffffff?text=Outdoor+Events')">
+                    <img src="https://placehold.co/300x225/66bb6a/ffffff?text=Outdoor+Events" alt="Outdoor Events">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/81c784/ffffff?text=Small+Communities')">
+                    <img src="https://placehold.co/300x225/81c784/ffffff?text=Small+Communities" alt="Small Christian Communities">
+                </div>
+            </div>
+            
             <p class="section-text">Marurui Church, an outstation of Queen of Apostles Parish, was founded in 1985 to serve the growing Catholic population in the Marurui area. It has become a cornerstone of the community, known for its vibrant liturgical celebrations and active small Christian communities.</p>
         </div>
     </section>
@@ -795,6 +911,14 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="/placeholder.svg" alt="Gallery Image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -899,6 +1023,28 @@
                 mobileMenu.style.display = 'none';
                 mobileDropdownMenus.forEach(menu => menu.classList.remove('active'));
                 mobileDropdownToggles.forEach(toggle => toggle.classList.remove('active'));
+            }
+        });
+
+        // Modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
             }
         });
     </script>

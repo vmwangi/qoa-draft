@@ -290,6 +290,100 @@
             text-align: center;
         }
 
+        /* Gallery Styles */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
         /* Mass Schedule */
         .mass-table {
             width: 100%;
@@ -684,7 +778,29 @@
     <section class="section section-about">
         <div class="container">
             <h2 class="section-title">About St. Gabriel Church</h2>
-            <p class="section-text"><strong>Goal:</strong> To nurture a faith-filled community in the Githurai area through worship, catechesis, and outreach.</p>
+            
+            <!-- Photo Gallery -->
+            <div class="photo-gallery">
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/ff9800/ffffff?text=Church+Facade')">
+                    <img src="https://placehold.co/300x225/ff9800/ffffff?text=Church+Facade" alt="St. Gabriel Church Facade">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/f57c00/ffffff?text=Worship+Hall')">
+                    <img src="https://placehold.co/300x225/f57c00/ffffff?text=Worship+Hall" alt="Worship Hall">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/ef6c00/ffffff?text=Choir+Practice')">
+                    <img src="https://placehold.co/300x225/ef6c00/ffffff?text=Choir+Practice" alt="Choir Practice">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/e65100/ffffff?text=Children+Ministry')">
+                    <img src="https://placehold.co/300x225/e65100/ffffff?text=Children+Ministry" alt="Children's Ministry">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/ff8f00/ffffff?text=Community+Outreach')">
+                    <img src="https://placehold.co/300x225/ff8f00/ffffff?text=Community+Outreach" alt="Community Outreach">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://placehold.co/600x400/ffb300/ffffff?text=Parish+Celebrations')">
+                    <img src="https://placehold.co/300x225/ffb300/ffffff?text=Parish+Celebrations" alt="Parish Celebrations">
+                </div>
+            </div>
+            
             <p class="section-text">St. Gabriel Church, an outstation of Queen of Apostles Parish, was established in 1990 to serve the Catholic faithful in Githurai. Known for its welcoming atmosphere, it offers a range of spiritual and community activities to strengthen the faith of its members.</p>
         </div>
     </section>
@@ -795,6 +911,14 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="/placeholder.svg" alt="Gallery Image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -899,6 +1023,28 @@
                 mobileMenu.style.display = 'none';
                 mobileDropdownMenus.forEach(menu => menu.classList.remove('active'));
                 mobileDropdownToggles.forEach(toggle => toggle.classList.remove('active'));
+            }
+        });
+
+        // Modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
             }
         });
     </script>

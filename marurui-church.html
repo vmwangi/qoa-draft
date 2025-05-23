@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marurui Church - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+            --section-about-bg: #f0f9ff; /* Light blue for About */
+            --section-mass-bg: #fff7ed; /* Light orange for Mass Schedule */
+            --section-confession-bg: #f3f4f6; /* Light gray for Confession */
+            --section-leadership-bg: #ecfdf5; /* Light green for Leadership */
+            --section-location-bg: #fef2f2; /* Light red for Location */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 100;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 220px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/queens2-iO2Gp30U7yng8WSahgaFMi3JXED9P4.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-about {
+            background-color: var(--section-about-bg);
+        }
+
+        .section-mass {
+            background-color: var(--section-mass-bg);
+        }
+
+        .section-confession {
+            background-color: var(--section-confession-bg);
+        }
+
+        .section-leadership {
+            background-color: var(--section-leadership-bg);
+        }
+
+        .section-location {
+            background-color: var(--section-location-bg);
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-text {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Mass Schedule */
+        .mass-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .mass-table th,
+        .mass-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mass-table th {
+            background-color: var(--primary-light);
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        .mass-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .mass-table tr:hover {
+            background-color: var(--gray-50);
+        }
+
+        .mass-note {
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .mass-note p {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        /* Confession Schedule */
+        .confession-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .confession-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .confession-times {
+            margin-bottom: 1.5rem;
+        }
+
+        .confession-time-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .confession-day {
+            font-weight: 600;
+            color: var(--gray-800);
+            width: 120px;
+        }
+
+        .confession-hours {
+            color: var(--gray-600);
+        }
+
+        .confession-note {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .leadership-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .leadership-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-role {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        /* Location Section */
+        .location-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .location-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.375rem 0 0 0.375rem;
+            outline: none;
+            height: 3rem;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0 0.375rem 0.375rem 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                <nav class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div> 
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a> 
+                            <a href="feedback.html">Share Feedback</a>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div> 
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
+                    <a href="media.html">Media</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Marurui Church</h1>
+            <p>Queen of Apostles Parish</p>
+        </div>
+    </section>
+
+    <!-- Goal and History -->
+    <section class="section section-about">
+        <div class="container">
+            <h2 class="section-title">About Marurui Church</h2>
+            <p class="section-text"><strong>Goal:</strong> To provide a spiritual home for the Marurui community, promoting faith, unity, and service.</p>
+            <p class="section-text">Marurui Church, an outstation of Queen of Apostles Parish, was founded in 1985 to serve the growing Catholic population in the Marurui area. It has become a cornerstone of the community, known for its vibrant liturgical celebrations and active small Christian communities.</p>
+        </div>
+    </section>
+
+    <!-- Mass Schedule -->
+    <section class="section section-mass">
+        <div class="container">
+            <h2 class="section-title">Mass Schedule</h2>
+            <p class="section-text">Join us for Mass at Marurui Church.</p>
+            <table class="mass-table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>8:00 AM</td>
+                        <td>Swahili</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>10:00 AM</td>
+                        <td>English</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mass-note">
+                <p><strong>Note:</strong> Special celebrations may have different Mass times. Please check with the outstation coordinator for details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confession Schedule -->
+    <section class="section section-confession">
+        <div class="container">
+            <h2 class="section-title">Confession Schedule</h2>
+            <p class="section-text">The Sacrament of Reconciliation is available at the following times, or by appointment.</p>
+            <div class="confession-card">
+                <h3 class="confession-title">Regular Confession Times</h3>
+                <div class="confession-times">
+                    <div class="confession-time-item">
+                        <div class="confession-day">Saturday:</div>
+                        <div class="confession-hours">4:00 PM - 5:00 PM</div>
+                    </div>
+                </div>
+                <p class="confession-note">Additional confession times are scheduled during Advent and Lent. For appointments, please contact the parish office at +254 123 456 789.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Church Leadership -->
+    <section class="section section-leadership">
+        <div class="container">
+            <h2 class="section-title">Our Church Leadership</h2>
+            <p class="section-text">Meet the dedicated leaders guiding our outstation community.</p>
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <div class="leadership-name">Fr. Michael Njoroge</div>
+                    <div class="leadership-role">Outstation Priest</div>
+                </div>
+                <div class="leadership-card">
+                    <div class="leadership-name">Ms. Lucy Wambui</div>
+                    <div class="leadership-role">Outstation Coordinator</div>
+                </div>
+                <div class="leadership-card">
+                    <div class="leadership-name">Mr. James Ndungu</div>
+                    <div class="leadership-role">Finance Committee Chair</div>
+                </div>
+                <div class="leadership-card">
+                    <div class="leadership-name">Mrs. Grace Mumbi</div>
+                    <div class="leadership-role">Choir Leader</div>
+                </div>
+                <div class="leadership-card">
+                    <div class="leadership-name">Ms. Esther Wangari</div>
+                    <div class="leadership-role">Youth Coordinator</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location and Office Hours -->
+    <section class="section section-location">
+        <div class="container">
+            <h2 class="section-title">Location & Office Hours</h2>
+            <div class="location-card">
+                <h3 class="location-title">Visit Us</h3>
+                <div class="location-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Marurui Road, Nairobi</span>
+                </div>
+                <div class="location-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 123 456 789</span>
+                </div>
+                <div class="location-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>maruruichurch@queenofapostles.org</span>
+                </div>
+                <div class="location-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Office Hours: Monday - Friday, 9:00 AM - 3:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links"> 
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-link"></i>
+                        <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="center-church.html">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        const mobileDropdownMenus = document.querySelectorAll('.mobile-dropdown-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownMenus.forEach(menu => menu.classList.remove('active'));
+                mobileDropdownToggles.forEach(toggle => toggle.classList.remove('active'));
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        mobileDropdownToggles.forEach((toggle, index) => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const menu = mobileDropdownMenus[index];
+                const isActive = menu.classList.contains('active');
+                mobileDropdownMenus.forEach(m => m.classList.remove('active'));
+                mobileDropdownToggles.forEach(t => t.classList.remove('active'));
+                if (!isActive) {
+                    menu.classList.add('active');
+                    toggle.classList.add('active');
+                }
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownMenus.forEach(menu => menu.classList.remove('active'));
+                mobileDropdownToggles.forEach(toggle => toggle.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

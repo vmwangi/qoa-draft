@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Give - Queen of Apostles Parish</title>
+<title>Sadaka - Queen of Apostles Parish</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -107,7 +107,7 @@ header {
     display: inline-block;
 }
 
-.dropdown-menu { /* Changed from .dropdown-content for consistency */
+.dropdown-menu {
     display: none;
     position: absolute;
     background-color: var(--white);
@@ -117,7 +117,7 @@ header {
     border-radius: 0.375rem;
 }
 
-.dropdown-menu a { /* Changed from .dropdown-content a */
+.dropdown-menu a {
     color: var(--gray-800);
     padding: 0.75rem 1rem;
     text-decoration: none;
@@ -126,12 +126,12 @@ header {
     transition: background-color 0.2s, color 0.2s;
 }
 
-.dropdown-menu a:hover { /* Changed from .dropdown-content a:hover */
+.dropdown-menu a:hover {
     background-color: var(--gray-100);
     color: var(--primary);
 }
 
-.dropdown:hover .dropdown-menu { /* Changed from .dropdown:hover .dropdown-content */
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
@@ -172,7 +172,7 @@ header {
     color: var(--primary);
 }
 
-.mobile-dropdown-menu { /* Changed from .mobile-dropdown-content */
+.mobile-dropdown-menu {
     display: none;
     background-color: var(--gray-50);
     padding-left: 1.5rem;
@@ -191,7 +191,6 @@ header {
 .mobile-dropdown-toggle.active i {
     transform: rotate(180deg);
 }
-
 
 /* Hero Section */
 .hero {
@@ -269,8 +268,8 @@ header {
     color: var(--white);
 }
 
-/* Giving Categories */
-.giving-section {
+/* Donations Section */
+.donations-section {
     padding: 3rem 0 5rem;
 }
 
@@ -835,30 +834,25 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    /* Show mobile menu button on medium screens */
     .mobile-menu-btn {
         display: block;
     }
 
-    /* Hide desktop nav menu on medium screens */
     .nav-menu {
         display: none;
     }
 }
 
 @media (min-width: 1024px) {
-    /* Hide mobile menu button on large screens */
     .mobile-menu-btn {
         display: none;
     }
 
-    /* Show desktop nav menu on large screens */
     .nav-menu {
         display: flex;
         gap: 1.5rem;
     }
 
-    /* Hide mobile menu completely on large screens */
     .mobile-menu {
         display: none !important;
     }
@@ -871,7 +865,7 @@ footer {
     <div class="container">
         <div class="announcement-banner-content">
             <i class="fas fa-exclamation-circle"></i>
-            <p>Important Notice: Special prayer service this Friday at 6 PM.</p>
+            <p>Important Notice: Special mass this Friday at 6 PM.</p>
         </div>
     </div>
 </div>
@@ -881,59 +875,70 @@ footer {
         <div class="container">
             <div class="navbar">
                 <a href="/" class="logo">Queen of Apostles</a>
-
                 <nav class="nav-menu">
                     <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="mass-times.html">Mass Times</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div> 
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
                     <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="offering.html">Give</a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="sacraments.html">Sacraments</a>
-                            <a href="youth.html">PMC, MYM and Youth</a>
-                            <a href="calendar.html">Calendar</a>
-                            <a href="media.html">Media</a>
-                            <a href="resources.html">Other Resources</a>
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a> 
                             <a href="feedback.html">Share Feedback</a>
                         </div>
                     </div>
                 </nav>
-
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="container">
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="mass-times.html">Mass Times</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div> 
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="offering.html">Give</a>
                 <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
                 <div class="mobile-dropdown-menu">
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="youth.html">PMC, MYM and Youth</a>
-                    <a href="calendar.html">Calendar</a>
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
                     <a href="media.html">Media</a>
-                    <a href="resources.html">Other Resources</a>
                     <a href="feedback.html">Feedback</a>
                 </div>
             </div>
         </div>
     </header>
 
-
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-        <h1>Give</h1>
+        <h1>Donate</h1>
         <p>Support the mission and ministry of our parish</p>
     </div>
 </section>
@@ -947,43 +952,47 @@ footer {
     </div>
 </div>
 
-<!-- Giving Categories -->
-<section class="giving-section">
+<!-- Donations Section -->
+<section class="donations-section">
     <div class="container">
         <!-- Center Church Content -->
         <div class="outstation-content active" id="center-content">
-            <h2 class="section-title">Center Church Giving</h2>
-            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of giving you can make at Center Church.</p>
-
+            <h2 class="section-title">Center Church Donations</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of donations you can make at Center Church.</p>
             <div class="categories-grid">
                 <div class="category-card">
-                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Sadaka Image Placeholder</div>
                     <div class="category-badge">Most Common</div>
                     <div class="category-content">
+                        <h3 class="category-title">Sadaka</h3>
+                        <p class="category-text">Sadaka donations are general contributions to support the ongoing operations and ministries of the Church, reflecting a heart of generosity and faith.</p>
+                        <a class="category-link" onclick="openModal('center-sadaka-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
+                    <div class="category-content">
                         <h3 class="category-title">Tithe</h3>
-                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <p class="category-text">Tithing is donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
                         <a class="category-link" onclick="openModal('center-tithe-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="category-card">
-                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
-                    <div class="category-content">
-                        <h3 class="category-title">Thanksgiving</h3>
-                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
-                        <a class="category-link" onclick="openModal('center-thanksgiving-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Development</h3>
-                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <p class="category-text">Development donations support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
                         <a class="category-link" onclick="openModal('center-development-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanks Giving Image Placeholder</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Thanks Giving</h3>
+                        <p class="category-text">Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <a class="category-link" onclick="openModal('center-thanksgiving-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Special Collections Image Placeholder</div>
                     <div class="category-content">
@@ -992,61 +1001,46 @@ footer {
                         <a class="category-link" onclick="openModal('center-special-collections-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="category-card">
-                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Harvest Image Placeholder</div>
-                    <div class="category-content">
-                        <h3 class="category-title">Harvest</h3>
-                        <p class="category-text">Harvest offerings are given during our annual Harvest Festival, celebrating God's provision and supporting parish ministries.</p>
-                        <a class="category-link" onclick="openModal('center-harvest-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Mass Intentions</h3>
-                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <p class="category-text">Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
                         <a class="category-link" onclick="openModal('center-mass-intentions-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Marurui Church Content -->
         <div class="outstation-content" id="marurui-content">
-            <h2 class="section-title">Marurui Church Giving</h2>
-            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of giving you can make at at Marurui Church.</p>
-
+            <h2 class="section-title">Marurui Church Donations</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of donations you can make at Marurui Church.</p>
             <div class="categories-grid">
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
                     <div class="category-badge">Most Common</div>
                     <div class="category-content">
                         <h3 class="category-title">Tithe</h3>
-                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <p class="category-text">Tithing is donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
                         <a class="category-link" onclick="openModal('marurui-tithe-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
-                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanks Giving Image Placeholder</div>
                     <div class="category-content">
-                        <h3 class="category-title">Thanksgiving</h3>
-                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <h3 class="category-title">Thanks Giving</h3>
+                        <p class="category-text">Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
                         <a class="category-link" onclick="openModal('marurui-thanksgiving-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Development</h3>
-                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <p class="category-text">Development donations support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
                         <a class="category-link" onclick="openModal('marurui-development-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Youth Ministry Image Placeholder</div>
                     <div class="category-content">
@@ -1055,7 +1049,6 @@ footer {
                         <a class="category-link" onclick="openModal('marurui-youth-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Outreach Image Placeholder</div>
                     <div class="category-content">
@@ -1064,52 +1057,46 @@ footer {
                         <a class="category-link" onclick="openModal('marurui-outreach-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Mass Intentions</h3>
-                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <p class="category-text">Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
                         <a class="category-link" onclick="openModal('marurui-mass-intentions-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- St. Gabriel Church Content -->
         <div class="outstation-content" id="stgabriel-content">
-            <h2 class="section-title">St. Gabriel Church Giving</h2>
-            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of giving you can make at St. Gabriel Church.</p>
-
+            <h2 class="section-title">St. Gabriel Church Donations</h2>
+            <p class="section-subtitle">Your generous contributions support the mission and ministry of our parish. Below are the different types of donations you can make at St. Gabriel Church.</p>
             <div class="categories-grid">
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Tithe Image Placeholder</div>
                     <div class="category-badge">Most Common</div>
                     <div class="category-content">
                         <h3 class="category-title">Tithe</h3>
-                        <p class="category-text">Tithing is giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+                        <p class="category-text">Tithing is donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
                         <a class="category-link" onclick="openModal('stgabriel-tithe-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
-                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanksgiving Image Placeholder</div>
+                    <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Thanks Giving Image Placeholder</div>
                     <div class="category-content">
-                        <h3 class="category-title">Thanksgiving</h3>
-                        <p class="category-text">Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+                        <h3 class="category-title">Thanks Giving</h3>
+                        <p class="category-text">Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
                         <a class="category-link" onclick="openModal('stgabriel-thanksgiving-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Development Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Development</h3>
-                        <p class="category-text">Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+                        <p class="category-text">Development donations support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
                         <a class="category-link" onclick="openModal('stgabriel-development-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Children's Ministry Image Placeholder</div>
                     <div class="category-content">
@@ -1118,21 +1105,19 @@ footer {
                         <a class="category-link" onclick="openModal('stgabriel-children-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Music Ministry Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Music Ministry</h3>
-                        <p class="category-text parlor">Support our music ministry at St. Gabriel Church, including the choir, instruments, and music resources that enhance our worship services.</p>
+                        <p class="category-text">Support our music ministry at St. Gabriel Church, including the choir, instruments, and music resources that enhance our worship services.</p>
                         <a class="category-link" onclick="openModal('stgabriel-music-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="category-card">
                     <div class="category-img" style="background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1rem;">Mass Intentions Image Placeholder</div>
                     <div class="category-content">
                         <h3 class="category-title">Mass Intentions</h3>
-                        <p class="category-text">Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
+                        <p class="category-text">Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul or for a special intention.</p>
                         <a class="category-link" onclick="openModal('stgabriel-mass-intentions-modal')">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1143,12 +1128,79 @@ footer {
 
 <!-- Modals -->
 <!-- Center Church Modals -->
+<div class="modal" id="center-sadaka-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('center-sadaka-modal')">×</span>
+        <h2 class="modal-title">Sadaka - Center Church</h2>
+        <div class="modal-body">
+            <p>Sadaka donations are general contributions to support the ongoing operations and ministries of the Church, reflecting a heart of generosity and faith.</p>
+            <p>Your Sadaka donation supports:</p>
+            <ul>
+                <li>Parish operations and maintenance</li>
+                <li>Ministry programs</li>
+                <li>Outreach and charitable works</li>
+                <li>Community events and activities</li>
+            </ul>
+            <div class="payment-instructions">
+                <h4>Mobile Money Instructions</h4>
+                <div class="payment-info">
+                    <p class="payment-info-title">Paybill Number</p>
+                    <p class="payment-info-text">123456</p>
+                </div>
+                <div class="payment-info">
+                    <p class="payment-info-title">Account Number Format</p>
+                    <p class="payment-info-text">Your Name Sadaka</p>
+                    <p class="payment-info-text">Example: John Kamau Sadaka</p>
+                </div>
+                <div class="payment-steps">
+                    <div class="payment-step">
+                        <div class="payment-step-number">1</div>
+                        <div class="payment-step-text">Go to M-PESA on your phone</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">2</div>
+                        <div class="payment-step-text">Select "Lipa na M-PESA"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">3</div>
+                        <div class="payment-step-text">Select "Paybill"</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">4</div>
+                        <div class="payment-step-text">Enter Business Number: 123456</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">5</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Sadaka</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">6</div>
+                        <div class="payment-step-text">Enter Amount</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">7</div>
+                        <div class="payment-step-text">Enter your M-PESA PIN</div>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">8</div>
+                        <div class="payment-step-text">Confirm the transaction</div>
+                    </div>
+                </div>
+            </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-sadaka-modal')">Close</button>
+        </div>
+    </div>
+</div>
 <div class="modal" id="center-tithe-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('center-tithe-modal')">×</span>
         <h2 class="modal-title">Tithe - Center Church</h2>
         <div class="modal-body">
-            <p>Tithing is the practice of giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+            <p>Tithing is the practice of donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
             <p>In Malachi 3:10, God challenges us: "Bring the whole tithe into the storehouse, that there may be food in my house. Test me in this," says the LORD Almighty, "and see if I will not throw open the floodgates of heaven and pour out so much blessing that there will not be room enough to store it."</p>
             <p>Your tithe supports:</p>
             <ul>
@@ -1157,7 +1209,6 @@ footer {
                 <li>Ministry programs</li>
                 <li>Outreach and charitable works</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1166,12 +1217,12 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Tithe</p>
+                    <p class="payment-info-text">Your Name Tithe</p>
                     <p class="payment-info-text">Example: John Kamau Tithe</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
-                        <div class="payment-step-number">1</div>
+                        <div tabindex="0" class="payment-step-number">1</div>
                         <div class="payment-step-text">Go to M-PESA on your phone</div>
                     </div>
                     <div class="payment-step">
@@ -1188,7 +1239,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Tithe</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Tithe</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1204,28 +1255,27 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-tithe-modal')">Close</button>
         </div>
     </div>
 </div>
-
 <div class="modal" id="center-thanksgiving-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('center-thanksgiving-modal')">×</span>
-        <h2 class="modal-title">Thanksgiving - Center Church</h2>
+        <h2 class="modal-title">Thanks Giving - Center Church</h2>
         <div class="modal-body">
-            <p>Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
-            <p>Your thanksgiving offering supports various parish activities and ministries.</p>
-            <p>Benefits of giving a thanksgiving offering:</p>
+            <p>Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+            <p>Your Thanks Giving donation supports various parish activities and ministries.</p>
+            <p>Benefits of making a Thanks Giving donation:</p>
             <ul>
                 <li>Express gratitude to God</li>
                 <li>Support parish programs</li>
                 <li>Strengthen community bonds</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1234,8 +1284,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Thanksgiving</p>
-                    <p class="payment-info-text">Example: John Kamau Thanksgiving</p>
+                    <p class="payment-info-text">Your Name Thanks Giving</p>
+                    <p class="payment-info-text">Example: John Kamau Thanks Giving</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -1256,7 +1306,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Thanksgiving</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Thanks Giving</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1272,21 +1322,20 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-thanksgiving-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Center Church Development Modal -->
 <div class="modal" id="center-development-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('center-development-modal')">×</span>
         <h2 class="modal-title">Development - Center Church</h2>
         <div class="modal-body">
-            <p>Development offerings support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
+            <p>Development donations support parish building projects, renovations, and infrastructure improvements to better serve our growing community.</p>
             <p>Your contribution helps us maintain and improve our facilities, ensuring a welcoming and functional space for worship and community activities.</p>
             <p>Current Development Projects:</p>
             <ul>
@@ -1294,7 +1343,6 @@ footer {
                 <li>Expansion of the Children's Ministry Room</li>
                 <li>Installation of a new sound system</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1303,7 +1351,7 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Development</p>
+                    <p class="payment-info-text">Your Name Development</p>
                     <p class="payment-info-text">Example: John Kamau Development</p>
                 </div>
                 <div class="payment-steps">
@@ -1325,7 +1373,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Development</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Development</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1341,15 +1389,14 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-development-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Center Church Special Collections Modal -->
 <div class="modal" id="center-special-collections-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('center-special-collections-modal')">×</span>
@@ -1364,7 +1411,6 @@ footer {
                 <li>Seminarian Support</li>
                 <li>Caritas Kenya</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1373,7 +1419,7 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] [Collection Name]</p>
+                    <p class="payment-info-text">Your Name Collection Name</p>
                     <p class="payment-info-text">Example: Mary Wanjiku Missions</p>
                 </div>
                 <div class="payment-steps">
@@ -1395,7 +1441,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] [Collection Name]</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Collection Name</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1411,91 +1457,21 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-special-collections-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Center Church Harvest Modal -->
-<div class="modal" id="center-harvest-modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('center-harvest-modal')">×</span>
-        <h2 class="modal-title">Harvest - Center Church</h2>
-        <div class="modal-body">
-            <p>Harvest offerings are given during our annual Harvest Festival, celebrating God's provision and supporting parish ministries.</p>
-            <p>The Harvest Festival is a time of thanksgiving and community celebration. Your generous offering helps us continue our work throughout the year.</p>
-            <p>Ways to give during Harvest:</p>
-            <ul>
-                <li>Monetary donations</li>
-                <li>Donations of food and goods</li>
-                <li>Participation in the Harvest auction and activities</li>
-            </ul>
-
-            <div class="payment-instructions">
-                <h4>Mobile Money Instructions</h4>
-                <div class="payment-info">
-                    <p class="payment-info-title">Paybill Number</p>
-                    <p class="payment-info-text">123456</p>
-                </div>
-                <div class="payment-info">
-                    <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Harvest</p>
-                    <p class="payment-info-text">Example: Paul Ochieng Harvest</p>
-                </div>
-                <div class="payment-steps">
-                    <div class="payment-step">
-                        <div class="payment-step-number">1</div>
-                        <div class="payment-step-text">Go to M-PESA on your phone</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">2</div>
-                        <div class="payment-step-text">Select "Lipa na M-PESA"</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">3</div>
-                        <div class="payment-step-text">Select "Paybill"</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">4</div>
-                        <div class="payment-step-text">Enter Business Number: 123456</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Harvest</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">6</div>
-                        <div class="payment-step-text">Enter Amount</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">7</div>
-                        <div class="payment-step-text">Enter your M-PESA PIN</div>
-                    </div>
-                    <div class="payment-step">
-                        <div class="payment-step-number">8</div>
-                        <div class="payment-step-text">Confirm the transaction</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
-            <button class="modal-btn modal-btn-secondary" onclick="closeModal('center-harvest-modal')">Close</button>
-        </div>
-    </div>
-</div>
-
-<!-- Center Church Mass Intentions Modal -->
 <div class="modal" id="center-mass-intentions-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('center-mass-intentions-modal')">×</span>
         <h2 class="modal-title">Mass Intentions - Center Church</h2>
         <div class="modal-body">
-            <p>Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
-            <p>To request a Mass intention, please visit the parish office or contact us by phone or email. The suggested offering for a Mass intention is [Specify Amount].</p>
+            <p>Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
+            <p>To request a Mass intention, please visit the parish office or contact us by phone or email. The suggested donation for a Mass intention is Specify Amount.</p>
             <p>When requesting a Mass intention, please provide:</p>
             <ul>
                 <li>Your name and contact information</li>
@@ -1510,14 +1486,13 @@ footer {
         </div>
     </div>
 </div>
-
 <!-- Marurui Church Modals -->
 <div class="modal" id="marurui-tithe-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-tithe-modal')">×</span>
         <h2 class="modal-title">Tithe - Marurui Church</h2>
         <div class="modal-body">
-            <p>Tithing is the practice of giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+            <p>Tithing is the practice of donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
             <p>Your tithe supports the mission and ministry of Marurui Church, including:</p>
             <ul>
                 <li>Outstation operations and maintenance</li>
@@ -1525,7 +1500,6 @@ footer {
                 <li>Ministry programs</li>
                 <li>Community outreach</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1534,7 +1508,7 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Tithe</p>
+                    <p class="payment-info-text">Your Name Tithe</p>
                     <p class="payment-info-text">Example: Jane Akinyi Tithe</p>
                 </div>
                 <div class="payment-steps">
@@ -1556,7 +1530,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Tithe</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Tithe</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1572,28 +1546,27 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('marurui-tithe-modal')">Close</button>
         </div>
     </div>
 </div>
-
 <div class="modal" id="marurui-thanksgiving-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-thanksgiving-modal')">×</span>
-        <h2 class="modal-title">Thanksgiving - Marurui Church</h2>
+        <h2 class="modal-title">Thanks Giving - Marurui Church</h2>
         <div class="modal-body">
-            <p>Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
-            <p>Your thanksgiving offering supports various activities and ministries at Marurui Church.</p>
-            <p>Benefits of giving a thanksgiving offering:</p>
+            <p>Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+            <p>Your Thanks Giving donation supports various activities and ministries at Marurui Church.</p>
+            <p>Benefits of making a Thanks Giving donation:</p>
             <ul>
                 <li>Express gratitude to God</li>
                 <li>Support outstation programs</li>
                 <li>Strengthen community bonds</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1602,8 +1575,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Thanksgiving</p>
-                    <p class="payment-info-text">Example: Michael Otieno Thanksgiving</p>
+                    <p class="payment-info-text">Your Name Thanks Giving</p>
+                    <p class="payment-info-text">Example: Michael Otieno Thanks Giving</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -1624,7 +1597,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Thanksgiving</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Thanks Giving</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1640,21 +1613,20 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('marurui-thanksgiving-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Marurui Church Development Modal -->
 <div class="modal" id="marurui-development-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-development-modal')">×</span>
         <h2 class="modal-title">Development - Marurui Church</h2>
         <div class="modal-body">
-            <p>Development offerings support building projects, renovations, and infrastructure improvements at Marurui Church to better serve our growing community.</p>
+            <p>Development donations support building projects, renovations, and infrastructure improvements at Marurui Church to better serve our growing community.</p>
             <p>Your contribution helps us maintain and improve our outstation facilities, ensuring a welcoming and functional space for worship and community activities.</p>
             <p>Current Development Projects at Marurui:</p>
             <ul>
@@ -1662,7 +1634,6 @@ footer {
                 <li>Construction of a new Sunday School block</li>
                 <li>Installation of a borehole for water supply</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1671,7 +1642,7 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Development</p>
+                    <p class="payment-info-text">Your Name Development</p>
                     <p class="payment-info-text">Example: Grace Wambui Development</p>
                 </div>
                 <div class="payment-steps">
@@ -1693,7 +1664,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Development</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Development</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1709,15 +1680,14 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('marurui-development-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Marurui Church Youth Ministry Modal -->
 <div class="modal" id="marurui-youth-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-youth-modal')">×</span>
@@ -1732,7 +1702,6 @@ footer {
                 <li>Service projects</li>
                 <li>Faith formation programs</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1741,7 +1710,7 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Youth</p>
+                    <p class="payment-info-text">Your Name Youth</p>
                     <p class="payment-info-text">Example: Peter Njoroge Youth</p>
                 </div>
                 <div class="payment-steps">
@@ -1763,7 +1732,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Youth</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Youth</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1779,15 +1748,14 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('marurui-youth-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Marurui Church Outreach Modal -->
 <div class="modal" id="marurui-outreach-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-outreach-modal')">×</span>
@@ -1802,7 +1770,6 @@ footer {
                 <li>Support for local schools and orphanages</li>
                 <li>Assistance for families in crisis</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1811,8 +1778,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Outreach</p>
-                    <p class="payment-info-text">Example: Jane Akinyi Outreach</p>
+                    <p class="payment-info-text">Your Name Outreach</p>
+                    <p class="payment-info-text">Example: Ann Mumbi Outreach</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -1833,7 +1800,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Outreach</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Outreach</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1849,22 +1816,21 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('marurui-outreach-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- Marurui Church Mass Intentions Modal -->
 <div class="modal" id="marurui-mass-intentions-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('marurui-mass-intentions-modal')">×</span>
         <h2 class="modal-title">Mass Intentions - Marurui Church</h2>
         <div class="modal-body">
-            <p>Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
-            <p>To request a Mass intention at Marurui Church, please contact the outstation coordinator or visit the outstation office during designated hours. The suggested offering for a Mass intention is [Specify Amount].</p>
+            <p>Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
+            <p>To request a Mass intention, please visit the Marurui Church office or contact us by phone or email. The suggested donation for a Mass intention is Specify Amount.</p>
             <p>When requesting a Mass intention, please provide:</p>
             <ul>
                 <li>Your name and contact information</li>
@@ -1879,14 +1845,13 @@ footer {
         </div>
     </div>
 </div>
-
 <!-- St. Gabriel Church Modals -->
 <div class="modal" id="stgabriel-tithe-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-tithe-modal')">×</span>
         <h2 class="modal-title">Tithe - St. Gabriel Church</h2>
         <div class="modal-body">
-            <p>Tithing is the practice of giving 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
+            <p>Tithing is the practice of donating 10% of your income to support the work of the Church. It is a biblical practice that acknowledges God as the source of all blessings.</p>
             <p>Your tithe supports the mission and ministry of St. Gabriel Church, including:</p>
             <ul>
                 <li>Outstation operations and maintenance</li>
@@ -1894,7 +1859,6 @@ footer {
                 <li>Ministry programs</li>
                 <li>Community outreach</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1903,8 +1867,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Tithe</p>
-                    <p class="payment-info-text">Example: David Maina Tithe</p>
+                    <p class="payment-info-text">Your Name Tithe</p>
+                    <p class="payment-info-text">Example: Esther Njeri Tithe</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -1925,7 +1889,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Tithe</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Tithe</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -1941,28 +1905,27 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('stgabriel-tithe-modal')">Close</button>
         </div>
     </div>
 </div>
-
 <div class="modal" id="stgabriel-thanksgiving-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-thanksgiving-modal')">×</span>
-        <h2 class="modal-title">Thanksgiving - St. Gabriel Church</h2>
+        <h2 class="modal-title">Thanks Giving - St. Gabriel Church</h2>
         <div class="modal-body">
-            <p>Thanksgiving offerings are given in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
-            <p>Your thanksgiving offering supports various activities and ministries at St. Gabriel Church.</p>
-            <p>Benefits of giving a thanksgiving offering:</p>
+            <p>Thanks Giving donations are made in gratitude for God's blessings, such as birthdays, anniversaries, new jobs, or other special occasions.</p>
+            <p>Your Thanks Giving donation supports various activities and ministries at St. Gabriel Church.</p>
+            <p>Benefits of making a Thanks Giving donation:</p>
             <ul>
                 <li>Express gratitude to God</li>
                 <li>Support outstation programs</li>
                 <li>Strengthen community bonds</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -1971,8 +1934,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Thanksgiving</p>
-                    <p class="payment-info-text">Example: Sarah Nduta Thanksgiving</p>
+                    <p class="payment-info-text">Your Name Thanks Giving</p>
+                    <p class="payment-info-text">Example: David Mwangi Thanks Giving</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -1993,7 +1956,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Thanksgiving</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Thanks Giving</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -2009,29 +1972,27 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('stgabriel-thanksgiving-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- St. Gabriel Church Development Modal -->
 <div class="modal" id="stgabriel-development-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-development-modal')">×</span>
         <h2 class="modal-title">Development - St. Gabriel Church</h2>
         <div class="modal-body">
-            <p>Development offerings support building projects, renovations, and infrastructure improvements at St. Gabriel Church to better serve our growing community.</p>
+            <p>Development donations support building projects, renovations, and infrastructure improvements at St. Gabriel Church to better serve our growing community.</p>
             <p>Your contribution helps us maintain and improve our outstation facilities, ensuring a welcoming and functional space for worship and community activities.</p>
             <p>Current Development Projects at St. Gabriel:</p>
             <ul>
-                <li>Construction of a new parish hall</li>
-                <li>Renovation of the church roof</li>
-                <li>Installation of a new water tank</li>
+                <li>Renovation of the church sanctuary</li>
+                <li>Construction of a new community hall</li>
+                <li>Upgrading the church lighting system</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -2040,8 +2001,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Development</p>
-                    <p class="payment-info-text">Example: Joseph Kariuki Development</p>
+                    <p class="payment-info-text">Your Name Development</p>
+                    <p class="payment-info-text">Example: Joseph Kiptoo Development</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -2062,7 +2023,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Development</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Development</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -2078,30 +2039,28 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('stgabriel-development-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- St. Gabriel Church Children's Ministry Modal -->
 <div class="modal" id="stgabriel-children-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-children-modal')">×</span>
         <h2 class="modal-title">Children's Ministry - St. Gabriel Church</h2>
         <div class="modal-body">
             <p>Support our children's ministry programs at St. Gabriel Church, including Sunday School, Vacation Bible School, and other activities that help children grow in their faith.</p>
-            <p>Your contribution helps us provide resources, organize events, and support our volunteers in nurturing the faith of the youngest members of our community.</p>
+            <p>Your contribution helps us provide resources, organize events, and support our children's ministry coordinator in nurturing the faith of our youngest members.</p>
             <p>Children's Ministry Activities at St. Gabriel:</p>
             <ul>
-                <li>Sunday School classes</li>
+                <li>Weekly Sunday School classes</li>
                 <li>Vacation Bible School</li>
-                <li>Children's Liturgy of the Word</li>
-                <li>Special events and activities</li>
+                <li>Children's choir</li>
+                <li>Faith-based craft activities</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -2110,8 +2069,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Children</p>
-                    <p class="payment-info-text">Example: Elizabeth Wangari Children</p>
+                    <p class="payment-info-text">Your Name Children</p>
+                    <p class="payment-info-text">Example: Lucy Wanjiru Children</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -2132,7 +2091,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Children</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Children</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -2148,30 +2107,28 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('stgabriel-children-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- St. Gabriel Church Music Ministry Modal -->
 <div class="modal" id="stgabriel-music-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-music-modal')">×</span>
         <h2 class="modal-title">Music Ministry - St. Gabriel Church</h2>
         <div class="modal-body">
             <p>Support our music ministry at St. Gabriel Church, including the choir, instruments, and music resources that enhance our worship services.</p>
-            <p>Your contribution helps us provide beautiful music for our liturgies and support the talented musicians who lead us in worship.</p>
+            <p>Your contribution helps us maintain and expand our music ministry, providing a vibrant worship experience for our community.</p>
             <p>Music Ministry Activities at St. Gabriel:</p>
             <ul>
-                <li>Choir practice and performances</li>
-                <li>Instrumental music</li>
-                <li>Music workshops</li>
-                <li>Liturgical music planning</li>
+                <li>Choir rehearsals and performances</li>
+                <li>Purchase and maintenance of musical instruments</li>
+                <li>Music workshops and training</li>
+                <li>Special music events and concerts</li>
             </ul>
-
             <div class="payment-instructions">
                 <h4>Mobile Money Instructions</h4>
                 <div class="payment-info">
@@ -2180,8 +2137,8 @@ footer {
                 </div>
                 <div class="payment-info">
                     <p class="payment-info-title">Account Number Format</p>
-                    <p class="payment-info-text">[Your Name] Music</p>
-                    <p class="payment-info-text">Example: David Maina Music</p>
+                    <p class="payment-info-text">Your Name Music</p>
+                    <p class="payment-info-text">Example: Paul Kimani Music</p>
                 </div>
                 <div class="payment-steps">
                     <div class="payment-step">
@@ -2202,7 +2159,7 @@ footer {
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">5</div>
-                        <div class="payment-step-text">Enter Account Number: [Your Name] Music</div>
+                        <div class="payment-step-text">Enter Account Number: Your Name Music</div>
                     </div>
                     <div class="payment-step">
                         <div class="payment-step-number">6</div>
@@ -2218,22 +2175,21 @@ footer {
                     </div>
                 </div>
             </div>
+            <p>You can make your donation using MPESA push or direct transfers via Visa/Mastercard.</p>
         </div>
         <div class="modal-footer">
-            <button class="modal-btn modal-btn-primary">Download Instructions</button>
+            <button class="modal-btn modal-btn-primary">Donate Now</button>
             <button class="modal-btn modal-btn-secondary" onclick="closeModal('stgabriel-music-modal')">Close</button>
         </div>
     </div>
 </div>
-
-<!-- St. Gabriel Church Mass Intentions Modal -->
 <div class="modal" id="stgabriel-mass-intentions-modal">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('stgabriel-mass-intentions-modal')">×</span>
         <h2 class="modal-title">Mass Intentions - St. Gabriel Church</h2>
         <div class="modal-body">
-            <p>Mass intentions are offerings given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
-            <p>To request a Mass intention at St. Gabriel Church, please contact the outstation coordinator or visit the outstation office during designated hours. The suggested offering for a Mass intention is [Specify Amount].</p>
+            <p>Mass intentions are donations given when requesting a Mass to be celebrated for a specific intention, such as for the repose of a soul, for a special intention, or in thanksgiving.</p>
+            <p>To request a Mass intention, please visit the St. Gabriel Church office or contact us by phone or email. The suggested donation for a Mass intention is Specify Amount.</p>
             <p>When requesting a Mass intention, please provide:</p>
             <ul>
                 <li>Your name and contact information</li>
@@ -2249,24 +2205,23 @@ footer {
     </div>
 </div>
 
-
-<!-- Chatbot Widget -->
+<!-- Chatbot -->
 <div class="chatbot-widget">
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <div class="chatbot-title">Parish Assistant</div>
-            <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" placeholder="Type your message..." id="chatbotInput">
-            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment"></i>
+    </div>
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <span class="chatbot-title">Parish Assistant</span>
+            <button class="chatbot-close" id="chatbotClose">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">Hello! How can I assist you with your Donations today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
 </div>
 
@@ -2279,26 +2234,24 @@ footer {
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="sacraments.html">Sacraments</a></li>
-                        <li><a href="mass-times.html">Mass Times</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
                         <li><a href="groups.html">Jumuiya & Groups</a></li>
-                        <li><a href="Calendar.html">Calendar</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
                     </ul>
                 </div>
-
                 <!-- Additional Links -->
                 <div class="footer-section">
-                    <h3>More Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="offering.html">Give</a></li>
-                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="media.html">Media</a></li>
+                    <h3>Resources</h3>
+                    <ul class="footer-links"> 
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
                         <li><a href="feedback.html">Feedback</a></li>
                     </ul>
                 </div>
-
                 <!-- Contact Info -->
                 <div class="footer-section">
                     <h3>Contact Info</h3>
@@ -2318,7 +2271,6 @@ footer {
                         <i class="fas fa-link"></i>
                         <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
                     </div>
-
                     <!-- Social Media -->
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -2326,22 +2278,20 @@ footer {
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-
                 <!-- Our Outstations -->
                 <div class="footer-section">
                     <h3>Our Outstations</h3>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="center-church.html">Center Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
             </div>
@@ -2349,185 +2299,110 @@ footer {
     </footer>
 
 <script>
-// Mobile menu toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
-const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
 
-mobileMenuBtn.addEventListener('click', function() {
-    // Toggle the display of the main mobile menu
-    if (mobileMenu.style.display === 'block') {
-        mobileMenu.style.display = 'none';
-        // Also hide the mobile dropdown if the main menu is closed
-        mobileDropdownMenu.classList.remove('active');
-        mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
-    } else {
-        mobileMenu.style.display = 'block';
-    }
-});
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
 
-// Mobile dropdown toggle
-mobileDropdownToggle.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default link behavior
-    mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
-    mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
-});
+    mobileDropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileDropdownMenu.style.display = mobileDropdownMenu.style.display === 'block' ? 'none' : 'block';
+        mobileDropdownToggle.classList.toggle('active');
+    });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    // Check if the click is outside the mobile menu and the mobile menu button
-    if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-        mobileMenu.style.display = 'none';
-        // Also hide the mobile dropdown when the main menu is closed by clicking outside
-        mobileDropdownMenu.classList.remove('active');
-        mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
-    }
-});
+    // Outstation Tabs
+    const tabs = document.querySelectorAll('.outstation-tab');
+    const contents = document.querySelectorAll('.outstation-content');
 
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
 
-// Outstation tabs
-const tabs = document.querySelectorAll('.outstation-tab');
-const contents = document.querySelectorAll('.outstation-content');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const outstation = tab.getAttribute('data-outstation');
-
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        contents.forEach(c => {
-            c.classList.remove('active');
-            if (c.id === `${outstation}-content`) {
-                c.classList.add('active');
-            }
+            tab.classList.add('active');
+            document.getElementById(`${tab.dataset.outstation}-content`).classList.add('active');
         });
     });
-});
 
-// Modal functionality
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    // Modal Functions
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
     }
-}
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
     }
-}
 
-// Close modal when clicking outside
-window.addEventListener('click', function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
         }
     });
-});
 
-// Close modal when clicking the close button inside the modal
-document.querySelectorAll('.modal-close').forEach(closeBtn => {
-    closeBtn.addEventListener('click', function() {
-        const modal = this.closest('.modal');
-        if (modal) {
-            closeModal(modal.id);
-        }
+    // Chatbot Functionality
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+
+    chatbotButton.addEventListener('click', () => {
+        chatbotContainer.style.display = 'flex';
+        chatbotButton.style.display = 'none';
     });
-});
 
-// Handle "Learn More" link clicks to open modals
-document.querySelectorAll('.category-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        // The openModal call is already in the onclick attribute in HTML
-        // If you prefer to use event listeners, you would get the modal ID from the link's data attribute or similar
-        // Example: const modalId = this.getAttribute('data-modal-target'); openModal(modalId);
+    chatbotClose.addEventListener('click', () => {
+        chatbotContainer.style.display = 'none';
+        chatbotButton.style.display = 'flex';
     });
-});
 
-// Handle "Download Instructions" button clicks (basic alert for demonstration)
-document.querySelectorAll('.modal-btn-primary').forEach(button => {
-    button.addEventListener('click', function() {
-        alert('Download functionality is not implemented in this demo.');
-        // In a real application, you would trigger a file download here
-    });
-});
+    function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (!message) return;
 
-// Chatbot functionality
-const chatbotButton = document.getElementById('chatbotButton');
-const chatbotContainer = document.getElementById('chatbotContainer');
-const closeChatbot = document.getElementById('closeChatbot');
-const chatbotMessages = document.getElementById('chatbotMessages');
-const chatbotInput = document.getElementById('chatbotInput');
-const sendMessage = document.getElementById('sendMessage');
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.textContent = message;
+        chatbotMessages.appendChild(userMessage);
 
-chatbotButton.addEventListener('click', function() {
-    chatbotContainer.style.display = 'flex';
-});
-
-closeChatbot.addEventListener('click', function() {
-    chatbotContainer.style.display = 'none';
-});
-
-function addMessage(message, isUser) {
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message');
-    messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-    messageDiv.textContent = message;
-    chatbotMessages.appendChild(messageDiv);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
-}
-
-function handleUserMessage() {
-    const message = chatbotInput.value.trim();
-    if (message) {
-        addMessage(message, true);
-        chatbotInput.value = '';
-
-        // Simple bot response (you can expand this logic)
+        // Simulate bot response
         setTimeout(() => {
-            let response = "Thank you for your message. A parish staff member will get back to you soon.";
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = getBotResponse(message);
+            chatbotMessages.appendChild(botMessage);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 500);
 
-            // Simple keyword responses
-            if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
-                response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html"; // Replace with actual link
-            } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
-                response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
-            } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
-                response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
-            } else if (message.toLowerCase().includes('sacraments')) {
-                 response = "Information about the sacraments is available on our Sacraments page: sacraments.html"; // Replace with actual link
-            } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
-                 response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html"; // Replace with actual link
-            } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
-                 response = "Our parish calendar with upcoming events is available here: calendar.html"; // Replace with actual link. You are currently on this page!";
-            } else if (message.toLowerCase().includes('about')) {
-                 response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html"; // Replace with actual link
-            } else if (message.toLowerCase().includes('give') || message.toLowerCase().includes('donate') || message.toLowerCase().includes('offering')) {
-                 response = "You can find information on how to give to the parish on the Give page: offering.html"; // Replace with actual link. You are currently on this page!";
-            }
-
-
-            addMessage(response, false);
-        }, 1000); // Simulate thinking time
+        chatbotInput.value = '';
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
-}
 
-sendMessage.addEventListener('click', handleUserMessage);
-chatbotInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        handleUserMessage();
+    function getBotResponse(message) {
+        const msg = message.toLowerCase();
+        if (msg.includes('sadaka') || msg.includes('donate')) {
+            return 'You can make your Sadaka donation using M-PESA Paybill 123456 for Center Church, 789012 for Marurui, or 345678 for St. Gabriel. Enter your name followed by the donation type (e.g., John Kamau Sadaka). Alternatively, use MPESA push or direct transfers via Visa/Mastercard.';
+        } else if (msg.includes('mass intentions')) {
+            return 'To request a Mass intention, visit the parish office or contact us by phone or email. Provide your name, the intention, and preferred date. The suggested donation amount is specified at the office.';
+        } else if (msg.includes('tithe')) {
+            return 'Tithing involves donating 10% of your income to support the Church. Use the respective Paybill numbers for your outstation and include "Tithe" in the account number (e.g., Jane Akinyi Tithe).';
+        } else {
+            return 'I’m here to help with your Donations questions! Try asking about Sadaka, tithes, or Mass intentions, or visit the parish office for more details.';
+        }
     }
-});
+
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
 </script>
 </body>
 </html>

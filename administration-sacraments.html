@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration of Sacraments - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 100;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Dropdown Styles */
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown-menu a {
+            padding: 0.5rem 1rem;
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 220px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: none;
+            padding: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .section-text {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Sacrament Guide */
+        .sacrament-guide {
+            padding: 4rem 0;
+            background-color: var(--gray-50);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            padding: 1.25rem;
+            background-color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .accordion-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+        }
+
+        .accordion-title i {
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .accordion-icon {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            transition: transform 0.3s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-body {
+            padding: 1.25rem;
+            color: var(--gray-600);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .requirements-list {
+            list-style-type: none;
+            margin-top: 1rem;
+            padding-left: 0;
+        }
+
+        .requirements-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .download-link i {
+            margin-right: 0.5rem;
+        }
+
+        /* Resources Link Section */
+        .resources-link-section {
+            padding: 4rem 0;
+            background-color: var(--primary-light);
+        }
+
+        .resources-link-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resources-link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            background-color: var(--primary);
+            color: var(--white);
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .resources-link-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .resources-link-btn i {
+            margin-left: 0.5rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 0 auto;
+            max-width: 600px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--gray-50);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1rem;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .form-btn.btn-secondary {
+            background-color: var(--gray-400);
+        }
+
+        .form-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-btn.btn-secondary:hover {
+            background-color: var(--gray-500);
+        }
+
+        /* Chatbot */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-dark);
+        }
+
+        .chatbot-button i {
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bot-message {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                <nav class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div>
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a>
+                            <a href="feedback.html">Share Feedback</a>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div>
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Administration of Sacraments</h1>
+                <p>The seven sacred signs of grace instituted by Christ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacrament Guide -->
+    <section class="sacrament-guide">
+        <div class="container">
+            <p class="section-text">The seven sacraments are signs of grace instituted by Christ to give his divine life to us through the work of the Holy Spirit. Learn about each sacrament, its requirements, and how to receive it at Queen of Apostles Parish.</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-heart"></i> Anointing of the Sick</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The Anointing of the Sick is a sacrament of healing that provides spiritual and sometimes physical strength during illness, especially near the time of death.</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>The person should be baptized Catholic</li>
+                                <li>The person should be seriously ill, facing surgery, or weakened by old age</li>
+                                <li>The sacrament can be received multiple times if the illness worsens</li>
+                            </ul>
+
+                            <p>For emergency situations, please call the parish office immediately at any time.</p>
+                            <a href="#" class="download-link" data-modal="anointing-form-modal"><i class="fas fa-file-alt"></i> Request Anointing</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-water"></i> Baptism</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Baptism is the first sacrament of Christian initiation, freeing us from original sin and making us members of the Church, Christ's body.</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>Completed registration form</li>
+                                <li>Birth certificate of the child (for infant baptism)</li>
+                                <li>Parents must be registered parishioners</li>
+                                <li>Godparents must be practicing Catholics who have received Confirmation</li>
+                                <li>Parents and godparents must attend pre-baptismal classes</li>
+                            </ul>
+
+                            <a href="#" class="download-link" data-modal="baptism-form-modal"><i class="fas fa-download"></i> Request Baptism</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-bread-slice"></i> First Holy Communion</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>First Holy Communion is the reception of the Eucharist for the first time, usually during childhood, where we receive the Body and Blood of Christ.</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>Child must be baptized Catholic</li>
+                                <li>Child must be at least 7 years old</li>
+                                <li>Completion of two years of religious education</li>
+                                <li>Regular attendance at Sunday Mass</li>
+                                <li>Baptismal certificate must be submitted</li>
+                            </ul>
+
+                            <a href="#" class="download-link"><i class="fas fa-download"></i> Download First Communion Registration Form</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-dove"></i> Confirmation</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Confirmation completes the grace of Baptism by a special outpouring of the Holy Spirit, which seals and strengthens us as witnesses of Christ.</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>Must be baptized Catholic</li>
+                                <li>Must have received First Holy Communion</li>
+                                <li>Must be at least 14 years old</li>
+                                <li>Completion of two years of Confirmation preparation</li>
+                                <li>Regular attendance at Sunday Mass</li>
+                                <li>Selection of a Confirmation sponsor who is a practicing Catholic</li>
+                                <li>Selection of a Confirmation name (saint's name)</li>
+                            </ul>
+
+                            <a href="#" class="download-link"><i class="fas fa-download"></i> Download Confirmation Registration Form</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-hands"></i> Reconciliation</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The Sacrament of Reconciliation (Confession) offers forgiveness of sins committed after Baptism, reconciling us with God and the Church.</p>
+
+                            <h4>Regular Confession Times:</h4>
+                            <ul class="requirements-list">
+                                <li>Saturdays: 3:00 PM - 4:30 PM</li>
+                                <li>Thursdays: 5:00 PM - 6:00 PM</li>
+                                <li>First Fridays: 9:00 AM - 10:00 AM</li>
+                                <li>By appointment (contact the parish office)</li>
+                            </ul>
+
+                            <h4>First Reconciliation (Children):</h4>
+                            <ul class="requirements-list">
+                                <li>Child must be baptized Catholic</li>
+                                <li>Child must be at least 7 years old</li>
+                                <li>Completion of religious education classes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-ring"></i> Matrimony</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The Sacrament of Matrimony is a covenant by which a man and a woman establish a partnership for life, ordered to the good of the spouses and the procreation and education of children.</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>At least one party must be a baptized Catholic</li>
+                                <li>Both parties must be free to marry in the Catholic Church</li>
+                                <li>Couples must contact the parish at least 6 months before the desired wedding date</li>
+                                <li>Completion of pre-marriage preparation program</li>
+                                <li>Recent baptismal certificates (issued within 6 months)</li>
+                                <li>Completion of pre-nuptial investigation</li>
+                                <li>Marriage license from civil authorities</li>
+                            </ul>
+
+                            <a href="#" class="download-link" data-modal="marriage-form-modal"><i class="fas fa-download"></i> Request Marriage</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title"><i class="fas fa-pray"></i> Holy Orders</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Holy Orders is the sacrament through which the mission entrusted by Christ to his apostles continues to be exercised in the Church until the end of time. It includes three degrees: episcopate (bishops), presbyterate (priests), and diaconate (deacons).</p>
+
+                            <h4>Requirements:</h4>
+                            <ul class="requirements-list">
+                                <li>Must be a baptized, confirmed Catholic male in good standing</li>
+                                <li>Must have a genuine call to serve God and His people</li>
+                                <li>Must complete required education and formation</li>
+                                <li>For priesthood: typically requires a bachelor's degree and 4-5 years of seminary</li>
+                                <li>For permanent diaconate: typically requires 4-5 years of formation</li>
+                            </ul>
+
+                            <p>If you feel called to the priesthood or diaconate, please speak with our parish priest for guidance and discernment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Link Section -->
+    <section class="resources-link-section">
+        <div class="container">
+            <div class="resources-link-content">
+                <h2 class="section-title">More Spiritual Resources</h2>
+                <p class="section-text">Visit our Spiritual Resources page for prayers, novenas, rosary guides, homily archives, and more to support your faith journey.</p>
+                <a href="spiritual-resources.html" class="resources-link-btn">Explore Spiritual Resources <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Baptism Form Modal -->
+    <div class="modal" id="baptism-form-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Baptism Request Form</h2>
+            </div>
+            <div class="modal-body">
+                <form id="baptismForm">
+                    <div class="form-group">
+                        <label class="form-label" for="childName">Child's Full Name</label>
+                        <input type="text" id="childName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="childDOB">Child's Date of Birth</label>
+                        <input type="date" id="childDOB" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="parentName">Parent's Full Name</label>
+                        <input type="text" id="parentName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="parentPhone">Phone Number</label>
+                        <input type="tel" id="parentPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="parentEmail">Email Address</label>
+                        <input type="email" id="parentEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="preferredDate">Preferred Baptism Date</label>
+                        <input type="date" id="preferredDate" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Registration</button>
+                <button class="form-btn btn-secondary" data-modal-close="baptism-form-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marriage Form Modal -->
+    <div class="modal" id="marriage-form-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Marriage Request Form</h2>
+            </div>
+            <div class="modal-body">
+                <form id="marriageForm">
+                    <div class="form-group">
+                        <label class="form-label" for="brideName">Bride's Full Name</label>
+                        <input type="text" id="brideName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="bridePhone">Bride's Phone Number</label>
+                        <input type="tel" id="bridePhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="brideEmail">Bride's Email Address</label>
+                        <input type="email" id="brideEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="groomName">Groom's Full Name</label>
+                        <input type="text" id="groomName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="groomPhone">Groom's Phone Number</label>
+                        <input type="tel" id="groomPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="groomEmail">Groom's Email Address</label>
+                        <input type="email" id="groomEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="weddingDate">Desired Wedding Date</label>
+                        <input type="date" id="weddingDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Registration</button>
+                <button class="form-btn btn-secondary" data-modal-close="marriage-form-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Records Form Modal -->
+    <div class="modal" id="records-form-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Sacramental Records Request</h2>
+            </div>
+            <div class="modal-body">
+                <form id="recordsForm">
+                    <div class="form-group">
+                        <label class="form-label" for="requestorName">Your Full Name</label>
+                        <input type="text" id="requestorName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="requestorPhone">Phone Number</label>
+                        <input type="tel" id="requestorPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="requestorEmail">Email Address</label>
+                        <input type="email" id="requestorEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="recordType">Type of Record</label>
+                        <select id="recordType" class="form-select" required>
+                            <option value="">Select a record type</option>
+                            <option value="baptism">Baptism Certificate</option>
+                            <option value="confirmation">Confirmation Certificate</option>
+                            <option value="marriage">Marriage Certificate</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="personName">Name on Record</label>
+                        <input type="text" id="personName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="recordDate">Approximate Date of Sacrament</label>
+                        <input type="date" id="recordDate" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="purpose">Purpose of Request</label>
+                        <textarea id="purpose" class="form-textarea" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Request</button>
+                <button class="form-btn btn-secondary" data-modal-close="records-form-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anointing Form Modal -->
+    <div class="modal" id="anointing-form-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Anointing of the Sick Request</h2>
+            </div>
+            <div class="modal-body">
+                <form id="anointingForm">
+                    <div class="form-group">
+                        <label class="form-label" for="patientName">Patient's Full Name</label>
+                        <input type="text" id="patientName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactName">Contact Person's Name</label>
+                        <input type="text" id="contactName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactPhone">Contact Phone Number</label>
+                        <input type="tel" id="contactPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactEmail">Contact Email Address</label>
+                        <input type="email" id="contactEmail" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="location">Location of Patient</label>
+                        <input type="text" id="location" class="form-control" required placeholder="Home, Hospital, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="urgency">Urgency</label>
+                        <select id="urgency" class="form-select" required>
+                            <option value="">Select urgency level</option>
+                            <option value="emergency">Emergency (within hours)</option>
+                            <option value="urgent">Urgent (within 24 hours)</option>
+                            <option value="scheduled">Scheduled Visit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="details">Additional Details</label>
+                        <textarea id="details" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Request</button>
+                <button class="form-btn btn-secondary" data-modal-close="anointing-form-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-title">Parish Assistant</div>
+                <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you with the sacraments today?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." id="chatbotInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-comment"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-link"></i>
+                        <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="center-church.html">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+
+            header.addEventListener('click', () => {
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = 0;
+                    }
+                });
+
+                item.classList.toggle('active');
+                content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + 'px' : 0;
+            });
+        });
+
+        // Make the first accordion item active by default
+        const anointingItem = accordionItems[0];
+        anointingItem.classList.add('active');
+        anointingItem.querySelector('.accordion-content').style.maxHeight =
+            anointingItem.querySelector('.accordion-content').scrollHeight + 'px';
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('[data-modal]').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal');
+                openModal(modalId);
+            });
+        });
+
+        document.querySelectorAll('[data-modal-close], .modal-close').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal-close') || element.closest('.modal').id;
+                closeModal(modalId);
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Handle Form Submissions
+        document.querySelectorAll('.modal form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Your form has been submitted. We will contact you shortly.');
+                const modal = this.closest('.modal');
+                closeModal(modal.id);
+                form.reset();
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const sendMessage = document.getElementById('sendMessage');
+
+        chatbotButton.addEventListener('click', function() {
+            chatbotContainer.style.display = 'flex';
+        });
+
+        closeChatbot.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+        });
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function handleUserMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                    if (message.toLowerCase().includes('baptism')) {
+                        response = "To arrange a Baptism, please complete the Baptism Request Form on this page or contact the parish office at +254 123 456 789.";
+                    } else if (message.toLowerCase().includes('marriage') || message.toLowerCase().includes('wedding')) {
+                        response = "For marriage arrangements, please submit the Marriage Request Form on this page. Contact the parish office at least 6 months in advance.";
+                    } else if (message.toLowerCase().includes('anointing') || message.toLowerCase().includes('sick')) {
+                        response = "For the Anointing of the Sick, use the request form on this page or call the parish office immediately for emergencies: +254 123 456 789.";
+                    } else if (message.toLowerCase().includes('confession') || message.toLowerCase().includes('reconciliation')) {
+                        response = "Confession is available Saturdays 3:00 PM - 4:30 PM, Thursdays 5:00 PM - 6:00 PM, First Fridays 9:00 AM - 10:00 AM, or by appointment. Check the Sacraments page for details.";
+                    } else if (message.toLowerCase().includes('communion') || message.toLowerCase().includes('eucharist')) {
+                        response = "For First Holy Communion, children need two years of religious education and must be at least 7 years old. Contact the parish office for registration.";
+                    } else if (message.toLowerCase().includes('confirmation')) {
+                        response = "Confirmation requires two years of preparation and is for those at least 14 years old. Download the registration form on this page or contact the parish office.";
+                    } else if (message.toLowerCase().includes('holy orders') || message.toLowerCase().includes('priesthood') || message.toLowerCase().includes('diaconate')) {
+                        response = "If you feel called to Holy Orders, please speak with our parish priest for guidance. More details are available on this page.";
+                    } else if (message.toLowerCase().includes('sacraments')) {
+                        response = "You're on the Administration of Sacraments page! Here you can find information about Baptism, Confirmation, Eucharist, Reconciliation, Anointing of the Sick, Matrimony, and Holy Orders.";
+                    } else if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                        response = "Our Mass times can be found on the Mass Times page: mass-times.html";
+                    } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                        response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                    } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                        response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                    } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                        response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html";
+                    } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                        response = "Our parish calendar with upcoming events is available here: calendar.html";
+                    } else if (message.toLowerCase().includes('about')) {
+                        response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html";
+                    } else if (message.toLowerCase().includes('give') || message.toLowerCase().includes('donate') || message.toLowerCase().includes('offering')) {
+                        response = "You can find information on how to give to the parish on the Donate page: donations.html";
+                    } else if (message.toLowerCase().includes('resources') || message.toLowerCase().includes('prayers') || message.toLowerCase().includes('homily') || message.toLowerCase().includes('bulletin')) {
+                        response = "You can find various spiritual resources, homilies, and bulletins on the Spiritual Resources page: spiritual-resources.html";
+                    }
+
+                    addMessage(response, false);
+                }, 1000);
+            }
+        }
+
+        sendMessage.addEventListener('click', handleUserMessage);
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+    </script>
+</body>
+</html>

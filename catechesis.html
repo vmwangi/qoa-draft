@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catechesis - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 100;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Dropdown Styles */
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown-menu a {
+            padding: 0.5rem 1rem;
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 220px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            text-align: center;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            margin-left: 0.5rem;
+        }
+
+        /* Catechesis Programs */
+        .catechesis-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .catechesis-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s;
+        }
+
+        .catechesis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .catechesis-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .catechesis-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catechesis-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .catechesis-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .catechesis-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+        }
+
+        .catechesis-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .catechesis-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .catechesis-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background-color: var(--gray-50);
+        }
+
+        .schedule-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .schedule-table th {
+            background-color: var(--primary-light);
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Philosophy Section */
+        .philosophy-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .philosophy-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-list i {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .philosophy-list p {
+            color: var(--gray-600);
+            flex: 1;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 0 auto;
+            max-width: 600px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-body ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--gray-50);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1rem;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.1);
+        }
+
+        .form-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .form-btn.btn-secondary {
+            background-color: var(--gray-400);
+        }
+
+        .form-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-btn.btn-secondary:hover {
+            background-color: var(--gray-500);
+        }
+
+        /* Chatbot */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-dark);
+        }
+
+        .chatbot-button i {
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bot-message {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .catechesis-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .catechesis-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                <nav class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div>
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a>
+                            <a href="feedback.html">Share Feedback</a>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div>
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Catechesis</h1>
+            <p>Forming disciples through faith education for all ages</p>
+        </div>
+    </section>
+
+    <!-- Catechesis Programs -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Catechesis Programs</h2>
+            <p class="section-subtitle">Our catechesis programs are designed to deepen understanding of the Catholic faith, fostering spiritual growth and sacramental preparation for children, youth, and adults.</p>
+
+            <div class="catechesis-grid">
+                <div class="catechesis-card">
+                    <img src="https://placehold.co/200x400" alt="Children participating in catechesis class" class="catechesis-img">
+                    <div class="catechesis-content">
+                        <h3 class="catechesis-title">Children's Catechism</h3>
+                        <p class="catechesis-text">For ages 4–12, this program introduces children to the Catholic faith and prepares them for First Reconciliation and First Holy Communion through engaging lessons, activities, and family involvement.</p>
+                        <a href="#" class="catechesis-link" data-modal="childrens-catechism-modal">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="catechesis-card">
+                    <img src="https://placehold.co/200x400" alt="Teens in Confirmation preparation" class="catechesis-img">
+                    <div class="catechesis-content">
+                        <h3 class="catechesis-title">Youth Confirmation</h3>
+                        <p class="catechesis-text">For teens ages 13–17, this two-year program prepares them for the Sacrament of Confirmation, fostering a deeper relationship with Christ through retreats, service, and faith discussions.</p>
+                        <a href="#" class="catechesis-link" data-modal="youth-confirmation-modal">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="catechesis-card">
+                    <img src="https://placehold.co/200x400" alt="Adults in faith formation session" class="catechesis-img">
+                    <div class="catechesis-content">
+                        <h3 class="catechesis-title">Adult Faith Formation</h3>
+                        <p class="catechesis-text">For adults seeking to grow in faith, this program offers RCIA for those joining the Church and ongoing formation sessions for practicing Catholics, fostering spiritual and community growth.</p>
+                        <a href="#" class="catechesis-link" data-modal="adult-formation-modal">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section schedule-section">
+        <div class="container">
+            <h2 class="section-title">Catechesis Schedule</h2>
+            <p class="section-subtitle">Join us for our weekly catechesis sessions at Queen of Apostles Parish, designed to accommodate various age groups and foster faith formation.</p>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Children's Catechism</td>
+                        <td>Saturday</td>
+                        <td>9:00 AM–11:00 AM</td>
+                        <td>Split by age groups; includes snack break</td>
+                    </tr>
+                    <tr>
+                        <td>Youth Confirmation</td>
+                        <td>Sunday</td>
+                        <td>2:00 PM–4:00 PM</td>
+                        <td>Includes small group discussions</td>
+                    </tr>
+                    <tr>
+                        <td>Adult Faith Formation (RCIA)</td>
+                        <td>Wednesday</td>
+                        <td>6:30 PM–8:00 PM</td>
+                        <td>Open to inquirers; includes coffee social</td>
+                    </tr>
+                    <tr>
+                        <td>Adult Ongoing Formation</td>
+                        <td>Thursday</td>
+                        <td>7:00 PM–8:30 PM</td>
+                        <td>Drop-in welcome; topics rotate monthly</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-button">
+                <a href="#" class="btn" data-modal="catechesis-registration-modal">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <h2 class="section-title">Our Catechesis Philosophy</h2>
+            <p class="section-subtitle">Rooted in the teachings of the Catholic Church, our catechesis programs aim to form lifelong disciples through a Christ-centered, sacramental, and community-oriented approach.</p>
+            <ul class="philosophy-list">
+                <li>
+                    <i class="fas fa-cross"></i>
+                    <p><strong>Christ-Centered</strong>: Emphasizes a personal relationship with Jesus Christ, grounded in Scripture and Tradition.</p>
+                </li>
+                <li>
+                    <i class="fas fa-pray"></i>
+                    <p><strong>Sacramental Focus</strong>: Prepares participants to encounter Christ in the sacraments, particularly Reconciliation, Eucharist, and Confirmation.</p>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <p><strong>Community-Oriented</strong>: Encourages active participation in the parish community, fostering a sense of belonging.</p>
+                </li>
+                <li>
+                    <i class="fas fa-book-open"></i>
+                    <p><strong>Lifelong Faith Formation</strong>: Recognizes catechesis as a continuous journey, supporting parishioners at every stage of life.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Resources Link Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Explore More Resources</h2>
+            <p class="section-subtitle">Visit our Spiritual Resources page for prayers, novenas, and catechetical materials to support your faith journey.</p>
+            <div class="section-button">
+                <a href="spiritual-resources.html" class="btn">Explore Spiritual Resources <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Children's Catechism Modal -->
+    <div class="modal" id="childrens-catechism-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Children's Catechism (Ages 4–12)</h2>
+            </div>
+            <div class="modal-body">
+                <p>The Children's Catechism program introduces young children to the Catholic faith and prepares them for First Reconciliation and First Holy Communion. Running from September to May, it fosters spiritual growth through engaging and age-appropriate methods.</p>
+                <h3>Program Details</h3>
+                <ul>
+                    <li>Weekly Saturday classes (9:00 AM–11:00 AM), divided by age groups (4–6, 7–9, 10–12).</li>
+                    <li>Curriculum based on resources like <em>Alive in Christ</em>, covering the Trinity, sacraments, prayer, and moral life.</li>
+                    <li>Sacramental preparation for Grade 2 students (ages 7–8), with First Reconciliation and First Holy Communion celebrated in spring.</li>
+                    <li>Activities include storytelling, crafts, songs, and multimedia to engage young learners.</li>
+                </ul>
+                <h3>Family Involvement</h3>
+                <ul>
+                    <li>Monthly family catechesis sessions to reinforce lessons at home.</li>
+                    <li>Parents receive prayer guides and activity books to support their role as primary educators.</li>
+                </ul>
+                <h3>Additional Information</h3>
+                <ul>
+                    <li>Led by trained catechists under the Director of Religious Education.</li>
+                    <li>Registration requires baptismal certificates for sacramental preparation; modest fee with financial assistance available.</li>
+                    <li>Children participate in parish events like Advent and Lenten activities.</li>
+                </ul>
+                <p>Contact the parish office at +254 123 456 789 or <a href="mailto:info@queenofapostles.org">info@queenofapostles.org</a> for more details or to register.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn" data-modal="catechesis-registration-modal">Register Now</button>
+                <button class="form-btn btn-secondary" data-modal-close="childrens-catechism-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Youth Confirmation Modal -->
+    <div class="modal" id="youth-confirmation-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Youth Confirmation (Ages 13–17)</h2>
+            </div>
+            <div class="modal-body">
+                <p>The Youth Confirmation program is a two-year journey preparing teens for the Sacrament of Confirmation, empowering them to live as active members of the Church through a deepened relationship with the Holy Spirit.</p>
+                <h3>Program Details</h3>
+                <ul>
+                    <li>Weekly Sunday sessions (2:00 PM–4:00 PM), using resources like <em>Chosen</em> or <em>Decision Point</em>.</li>
+                    <li>Covers the Holy Spirit, Church history, apologetics, and Christian living, addressing teen-relevant issues.</li>
+                    <li>Includes a weekend retreat, service projects, and mentorship from Confirmation sponsors.</li>
+                    <li>Confirmation Mass celebrated annually, often with the bishop presiding.</li>
+                </ul>
+                <h3>Teaching Methods</h3>
+                <ul>
+                    <li>Facilitated by youth ministers and catechists, combining large-group teaching, small-group discussions, and peer-led activities.</li>
+                    <li>Incorporates contemporary media, such as videos and social media challenges.</li>
+                </ul>
+                <h3>Additional Information</h3>
+                <ul>
+                    <li>Open to teens who have received First Communion; late starters may join with catch-up sessions.</li>
+                    <li>Teens join the parish youth group for social events and mission trips.</li>
+                    <li>Parents attend an orientation and occasional sessions.</li>
+                </ul>
+                <p>Contact the parish office at +254 123 456 789 or <a href="mailto:info@queenofapostles.org">info@queenofapostles.org</a> for more details or to register.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn" data-modal="catechesis-registration-modal">Register Now</button>
+                <button class="form-btn btn-secondary" data-modal-close="youth-confirmation-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adult Faith Formation Modal -->
+    <div class="modal" id="adult-formation-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Adult Faith Formation</h2>
+            </div>
+            <div class="modal-body">
+                <p>The Adult Faith Formation program supports adults in deepening their faith through the Rite of Christian Initiation of Adults (RCIA) for those entering the Church and ongoing formation for practicing Catholics.</p>
+                <h3>RCIA Details</h3>
+                <ul>
+                    <li>Weekly Wednesday sessions (6:30 PM–8:00 PM) for catechumens and candidates.</li>
+                    <li>Follows RCIA stages: Inquiry, Catechumenate, Purification and Enlightenment, and Mystagogy.</li>
+                    <li>Covers Scripture, the Creed, sacraments, and morality; culminates in sacraments at the Easter Vigil.</li>
+                </ul>
+                <h3>Ongoing Formation Details</h3>
+                <ul>
+                    <li>Thursday sessions (7:00 PM–8:30 PM), using resources like <em>The Bible Timeline</em> or <em>Symbolon</em>.</li>
+                    <li>Monthly or biweekly topics include Scripture study, Church history, and Vatican II teachings.</li>
+                    <li>Guest speakers and small faith-sharing groups enhance learning.</li>
+                </ul>
+                <h3>Additional Information</h3>
+                <ul>
+                    <li>RCIA participants are paired with sponsors; ongoing formation is flexible with drop-in attendance.</li>
+                    <li>Encourages involvement in parish ministries and seasonal retreats.</li>
+                    <li>Led by the parish priest, deacon, or trained lay catechists.</li>
+                </ul>
+                <p>Contact the parish office at +254 123 456 789 or <a href="mailto:info@queenofapostles.org">info@queenofapostles.org</a> for more details or to register.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn" data-modal="catechesis-registration-modal">Register Now</button>
+                <button class="form-btn btn-secondary" data-modal-close="adult-formation-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catechesis Registration Modal -->
+    <div class="modal" id="catechesis-registration-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Catechesis Registration</h2>
+            </div>
+            <div class="modal-body">
+                <form id="catechesisForm">
+                    <div class="form-group">
+                        <label class="form-label" for="participantName">Participant's Full Name</label>
+                        <input type="text" id="participantName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="participantDOB">Date of Birth</label>
+                        <input type="date" id="participantDOB" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="parentName">Parent/Guardian Name (if applicable)</label>
+                        <input type="text" id="parentName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactPhone">Phone Number</label>
+                        <input type="tel" id="contactPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="program">Program</label>
+                        <select id="program" class="form-select" required>
+                            <option value="">Select a program</option>
+                            <option value="childrens">Children's Catechism</option>
+                            <option value="youth">Youth Confirmation</option>
+                            <option value="adult-rcia">Adult Faith Formation (RCIA)</option>
+                            <option value="adult-ongoing">Adult Ongoing Formation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" class="form-textarea"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="form-btn">Submit Registration</button>
+                <button class="form-btn btn-secondary" data-modal-close="catechesis-registration-modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-title">Parish Assistant</div>
+                <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you with catechesis today?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." id="chatbotInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-comment"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-link"></i>
+                        <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="center-church.html">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('[data-modal]').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal');
+                openModal(modalId);
+            });
+        });
+
+        document.querySelectorAll('[data-modal-close], .modal-close').forEach(element => {
+            element.addEventListener('click', () => {
+                const modalId = element.getAttribute('data-modal-close') || element.closest('.modal').id;
+                closeModal(modalId);
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Handle Form Submissions
+        document.querySelectorAll('.modal form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Your registration has been submitted. We will contact you shortly.');
+                const modal = this.closest('.modal');
+                closeModal(modal.id);
+                form.reset();
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const sendMessage = document.getElementById('sendMessage');
+
+        chatbotButton.addEventListener('click', function() {
+            chatbotContainer.style.display = 'flex';
+        });
+
+        closeChatbot.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+        });
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function handleUserMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                    if (message.toLowerCase().includes('catechesis') || message.toLowerCase().includes('religious education')) {
+                        response = "You're on the Catechesis page! Here you can find information about our Children's Catechism, Youth Confirmation, and Adult Faith Formation programs.";
+                    } else if (message.toLowerCase().includes('children') || message.toLowerCase().includes('kids')) {
+                        response = "Our Children's Catechism program is for ages 4–12, preparing them for First Reconciliation and First Holy Communion. Classes are Saturdays, 9:00 AM–11:00 AM. Check the Catechesis page for details or register using the form.";
+                    } else if (message.toLowerCase().includes('youth') || message.toLowerCase().includes('teen') || message.toLowerCase().includes('confirmation')) {
+                        response = "The Youth Confirmation program is for teens ages 13–17, offering a two-year preparation for the Sacrament of Confirmation. Sessions are Sundays, 2:00 PM–4:00 PM. Visit the Catechesis page for more info or to register.";
+                    } else if (message.toLowerCase().includes('adult') || message.toLowerCase().includes('rcia') || message.toLowerCase().includes('faith formation')) {
+                        response = "Our Adult Faith Formation includes RCIA (Wednesdays, 6:30 PM–8:00 PM) and ongoing formation (Thursdays, 7:00 PM–8:30 PM). See the Catechesis page for details or register.";
+                    } else if (message.toLowerCase().includes('schedule')) {
+                        response = "The catechesis schedule is available on this page: Children's Catechism on Saturdays, Youth Confirmation on Sundays, Adult RCIA on Wednesdays, and Adult Ongoing Formation on Thursdays.";
+                    } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                        response = "You can register for catechesis programs using the registration form on this page or contact the parish office at +254 123 456 789.";
+                    } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                        response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                    } else if (message.toLowerCase().includes('resources') || message.toLowerCase().includes('prayers')) {
+                        response = "Additional spiritual resources are available on our Spiritual Resources page: spiritual-resources.html";
+                    }
+
+                    addMessage(response, false);
+                }, 1000);
+            }
+        }
+
+        sendMessage.addEventListener('click', handleUserMessage);
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+    </script>
+</body>
+</html>

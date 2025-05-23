@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Resources - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 100;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Dropdown Styles */
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown-menu a {
+            padding: 0.5rem 1rem;
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 220px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            text-align: center;
+        }
+
+        /* Section Styles */
+        .resource-section {
+            padding: 3rem 0 5rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            margin-left: 0.5rem;
+        }
+
+        /* Spiritual Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .resource-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .resource-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Homily Archive */
+        .homily-search {
+            margin-bottom: 2rem;
+        }
+
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .homilies-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .homily-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .homily-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .homily-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homily-date {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .homily-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .homily-celebrant {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .homily-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .audio-player {
+            margin-bottom: 1rem;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .audio-control {
+            background-color: var(--gray-200);
+            color: var(--gray-800);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .audio-control:hover {
+            background-color: var(--gray-300);
+        }
+
+        .audio-speed {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        .homily-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .homily-action {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+        }
+
+        .homily-action:hover {
+            color: var(--primary-dark);
+        }
+
+        .homily-action i {
+            margin-right: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .homily-action:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 1.5rem;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: color 0.2s;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--gray-100);
+        }
+
+        .modal-close:hover {
+            color: var(--gray-800);
+            background-color: var(--gray-200);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .resource-files-list {
+            list-style: none;
+            margin-top: 1rem;
+            padding: 0;
+        }
+
+        .resource-file-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background-color: var(--gray-50);
+            border-radius: 0.5rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .resource-file-item:hover {
+            background-color: var(--gray-100);
+        }
+
+        .resource-file-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+        }
+
+        .resource-file-info {
+            flex-grow: 1;
+        }
+
+        .resource-file-name {
+            font-weight: 500;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-file-size {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .resource-file-download {
+            color: var(--primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .resource-file-download:hover {
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Chatbot */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-dark);
+        }
+
+        .chatbot-button i {
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bot-message {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .homilies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .homilies-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="/" class="logo">Queen of Apostles</a>
+                <nav class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div>
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
+                    <a href="groups.html">Jumuiya & Groups</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a>
+                            <a href="feedback.html">Share Feedback</a>
+                        </div>
+                    </div>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div>
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
+                <a href="groups.html">Jumuiya & Groups</a>
+                <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Spiritual Resources</h1>
+            <p>Deepen your faith with our collection of prayers, novenas, rosary guides, and homilies.</p>
+        </div>
+    </section>
+
+    <!-- Spiritual Resources -->
+    <section class="resource-section">
+        <div class="container">
+            <h2 class="section-title">Spiritual Resources</h2>
+            <p class="section-subtitle">Explore our collection of spiritual resources to help you grow in your faith journey.</p>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <img src="https://placehold.co/200x400" alt="Daily Prayers" class="resource-img">
+                    <div class="resource-content">
+                        <h3 class="resource-title">Daily Prayers</h3>
+                        <p class="resource-text">A collection of daily prayers to help you start and end your day with God.</p>
+                        <a class="resource-link" onclick="openModal('daily-prayers-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <img src="https://placehold.co/200x400" alt="Novenas" class="resource-img">
+                    <div class="resource-content">
+                        <h3 class="resource-title">Novenas</h3>
+                        <p class="resource-text">A collection of novenas to various saints and for different intentions.</p>
+                        <a class="resource-link" onclick="openModal('novenas-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <img src="https://placehold.co/200x400" alt="Rosary Guide" class="resource-img">
+                    <div class="resource-content">
+                        <h3 class="resource-title">Rosary Guide</h3>
+                        <p class="resource-text">A comprehensive guide to praying the Rosary, including all the mysteries and accompanying prayers.</p>
+                        <a class="resource-link" onclick="openModal('rosary-guide-modal')">View Resources <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homily Archive -->
+    <section class="resource-section">
+        <div class="container">
+            <h2 class="section-title">Homily Archive</h2>
+            <p class="section-subtitle">Listen to and read homilies from our parish priests.</p>
+
+            <div class="homily-search">
+                <form class="search-form">
+                    <div class="search-row">
+                        <input type="text" placeholder="Search by keyword" class="search-input">
+                        <input type="date" class="search-input">
+                        <select class="search-input">
+                            <option value="">All Celebrants</option>
+                            <option value="fr-john">Fr. John</option>
+                            <option value="fr-peter">Fr. Peter</option>
+                            <option value="fr-james">Fr. James</option>
+                        </select>
+                        <button type="submit" class="search-btn">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="homilies-grid">
+                <div class="homily-card">
+                    <div class="homily-content">
+                        <p class="homily-date">April 9, 2023 - Easter Sunday</p>
+                        <h3 class="homily-title">The Resurrection: New Life in Christ</h3>
+                        <p class="homily-celebrant">Fr. John Kamau</p>
+                        <p class="homily-text">In this Easter homily, Fr. John reflects on the meaning of the Resurrection and how it brings new life to all believers.</p>
+
+                        <div class="audio-player">
+                            <audio controls style="width: 100%;">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="audio-controls">
+                                <button class="audio-control" title="0.5x Speed">0.5x</button>
+                                <button class="audio-control" title="1x Speed">1x</button>
+                                <button class="audio-control" title="1.5x Speed">1.5x</button>
+                                <button class="audio-control" title="2x Speed">2x</button>
+                                <span class="audio-speed">Playback Speed</span>
+                            </div>
+                        </div>
+
+                        <div class="homily-actions">
+                            <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                            <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homily-card">
+                    <div class="homily-content">
+                        <p class="homily-date">April 2, 2023 - Palm Sunday</p>
+                        <h3 class="homily-title">The Passion of Christ: A Journey of Love</h3>
+                        <p class="homily-celebrant">Fr. Peter Njoroge</p>
+                        <p class="homily-text">Fr. Peter reflects on the Passion of Christ and how it demonstrates God's immense love for humanity.</p>
+
+                        <div class="audio-player">
+                            <audio controls style="width: 100%;">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="audio-controls">
+                                <button class="audio-control" title="0.5x Speed">0.5x</button>
+                                <button class="audio-control" title="1x Speed">1x</button>
+                                <button class="audio-control" title="1.5x Speed">1.5x</button>
+                                <button class="audio-control" title="2x Speed">2x</button>
+                                <span class="audio-speed">Playback Speed</span>
+                            </div>
+                        </div>
+
+                        <div class="homily-actions">
+                            <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                            <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homily-card">
+                    <div class="homily-content">
+                        <p class="homily-date">March 26, 2023 - 5th Sunday of Lent</p>
+                        <h3 class="homily-title">The Raising of Lazarus: A Sign of Hope</h3>
+                        <p class="homily-celebrant">Fr. James Mwangi</p>
+                        <p class="homily-text">Fr. James explores the story of the raising of Lazarus and what it teaches us about hope and resurrection.</p>
+
+                        <div class="audio-player">
+                            <audio controls style="width: 100%;">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="audio-controls">
+                                <button class="audio-control" title="0.5x Speed">0.5x</button>
+                                <button class="audio-control" title="1x Speed">1x</button>
+                                <button class="audio-control" title="1.5x Speed">1.5x</button>
+                                <button class="audio-control" title="2x Speed">2x</button>
+                                <span class="audio-speed">Playback Speed</span>
+                            </div>
+                        </div>
+
+                        <div class="homily-actions">
+                            <a class="homily-action"><i class="fas fa-download"></i> Download Audio</a>
+                            <a class="homily-action"><i class="fas fa-file-alt"></i> View Transcript</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-button">
+                <a href="#" class="btn">See Past Homilies <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Daily Prayers Modal -->
+    <div class="modal" id="daily-prayers-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('daily-prayers-modal')">×</span>
+            <h2 class="modal-title">Daily Prayers</h2>
+            <div class="modal-body">
+                <p>Our Daily Prayers resource includes prayers to help you start and end your day with God, as well as prayers for specific intentions and needs.</p>
+
+                <ul class="resource-files-list">
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Morning Prayers Collection</div>
+                            <div class="resource-file-size">PDF • 1.2 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Evening Prayers Collection</div>
+                            <div class="resource-file-size">PDF • 980 KB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Prayers for Special Intentions</div>
+                            <div class="resource-file-size">PDF • 1.5 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Family Prayer Guide</div>
+                            <div class="resource-file-size">PDF • 2.3 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('daily-prayers-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Novenas Modal -->
+    <div class="modal" id="novenas-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('novenas-modal')">×</span>
+            <h2 class="modal-title">Novenas</h2>
+            <div class="modal-body">
+                <p>Our Novenas collection includes prayers to various saints and for different intentions to help deepen your prayer life.</p>
+
+                <ul class="resource-files-list">
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Divine Mercy Novena</div>
+                            <div class="resource-file-size">PDF • 850 KB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Novena to Our Lady of Perpetual Help</div>
+                            <div class="resource-file-size">PDF • 1.1 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Novena to St. Joseph</div>
+                            <div class="resource-file-size">PDF • 920 KB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Novena to the Holy Spirit</div>
+                            <div class="resource-file-size">PDF • 1.3 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Novena to St. Jude</div>
+                            <div class="resource-file-size">PDF • 780 KB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('novenas-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rosary Guide Modal -->
+    <div class="modal" id="rosary-guide-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('rosary-guide-modal')">×</span>
+            <h2 class="modal-title">Rosary Guide</h2>
+            <div class="modal-body">
+                <p>Our Rosary Guide includes comprehensive instructions and meditations for praying the Rosary, including all the mysteries and accompanying prayers.</p>
+
+                <ul class="resource-files-list">
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Complete Rosary Guide</div>
+                            <div class="resource-file-size">PDF • 3.2 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Joyful Mysteries Meditations</div>
+                            <div class="resource-file-size">PDF • 1.1 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Sorrowful Mysteries Meditations</div>
+                            <div class="resource-file-size">PDF • 1.2 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Glorious Mysteries Meditations</div>
+                            <div class="resource-file-size">PDF • 1.3 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                    <li class="resource-file-item">
+                        <i class="fas fa-file-pdf resource-file-icon"></i>
+                        <div class="resource-file-info">
+                            <div class="resource-file-name">Luminous Mysteries Meditations</div>
+                            <div class="resource-file-size">PDF • 1.2 MB</div>
+                        </div>
+                        <a href="#" class="resource-file-download"><i class="fas fa-download"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('rosary-guide-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-title">Parish Assistant</div>
+                <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." id="chatbotInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-comment"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
+                        <li><a href="groups.html">Jumuiya & Groups</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Church Road, City</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@queenofapostles.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-link"></i>
+                        <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Outstations</h3>
+                    <div class="outstation">
+                        <a href="center-church.html">Center Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="outstation">
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Modal Functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const sendMessage = document.getElementById('sendMessage');
+
+        chatbotButton.addEventListener('click', function() {
+            chatbotContainer.style.display = 'flex';
+        });
+
+        closeChatbot.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+        });
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function handleUserMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    let response = "Thank you for your message. A parish staff member will get back to you soon.";
+
+                    if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                        response = "Our Mass times can be found on the Mass Times page: mass-times.html";
+                    } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                        response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                    } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                        response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                    } else if (message.toLowerCase().includes('sacraments')) {
+                        response = "Information about the sacraments is available on our Sacraments page: administration-sacraments.html";
+                    } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                        response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html";
+                    } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                        response = "Our parish calendar with upcoming events is available here: calendar.html";
+                    } else if (message.toLowerCase().includes('about')) {
+                        response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html";
+                    } else if (message.toLowerCase().includes('give') || message.toLowerCase().includes('donate') || message.toLowerCase().includes('offering')) {
+                        response = "You can find information on how to give to the parish on the Give page: donations.html";
+                    } else if (message.toLowerCase().includes('resources') || message.toLowerCase().includes('prayers') || message.toLowerCase().includes('homily') || message.toLowerCase().includes('bulletin')) {
+                        response = "You can find various spiritual resources, homilies, and bulletins on the Spiritual Resources page: spiritual-resources.html";
+                    }
+
+                    addMessage(response, false);
+                }, 1000);
+            }
+        }
+
+        sendMessage.addEventListener('click', handleUserMessage);
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+    </script>
+</body>
+</html>

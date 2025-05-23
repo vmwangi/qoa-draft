@@ -1,1316 +1,1223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us - Queen of Apostles Parish</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    :root {
-        --primary: #2a9df4;
-        --primary-dark: #1e88e5;
-        --primary-light: #e3f2fd;
-        --white: #ffffff;
-        --black: #000000;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-300: #d1d5db;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-600: #4b5563;
-        --gray-700: #374151;
-        --gray-800: #1f2937;
-        --gray-900: #111827;
-        --amber-700: #b45309;
-        --amber-100: #fef3c7;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.5;
-        color: var(--gray-800);
-    }
-
-    .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    /* Announcement Banner */
-    .announcement-banner {
-        background-color: var(--amber-100);
-        color: var(--amber-700);
-        padding: 0.5rem 1rem;
-        text-align: center;
-    }
-
-    .announcement-banner-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    /* Header & Navigation */
-    header {
-        background-color: var(--white);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 4rem;
-    }
-
-    .logo {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary);
-        text-decoration: none;
-    }
-
-    .nav-menu {
-        display: none; /* Hidden by default, shown on larger screens */
-    }
-
-    .nav-menu a {
-        color: var(--gray-800);
-        text-decoration: none;
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        transition: color 0.2s;
-    }
-
-    .nav-menu a:hover {
-        color: var(--primary);
-    }
-
-    .mobile-menu-btn {
-        background: none;
-        border: none;
-        color: var(--gray-800);
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    .mobile-menu {
-        display: none; /* Hidden by default, shown on mobile */
-        background-color: var(--white);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu a {
-        display: block;
-        padding: 0.75rem 1rem;
-        color: var(--gray-800);
-        text-decoration: none;
-        font-weight: 500;
-        border-bottom: 1px solid var(--gray-100);
-    }
-
-    .mobile-menu a:hover {
-        color: var(--primary);
-    }
-
-    /* Dropdown Styles */
-    .dropdown {
-        position: relative;
-        display: inline-block; /* Allows it to sit next to other nav items */
-    }
-
-    .dropdown-toggle {
-        display: flex; /* Align icon with text */
-        align-items: center;
-        gap: 0.25rem; /* Space between text and icon */
-    }
-
-    .dropdown-menu {
-        display: none; /* Hidden by default */
-        position: absolute;
-        top: 100%; /* Position below the toggle */
-        left: 0;
-        background-color: var(--white);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        min-width: 160px; /* Minimum width for the dropdown */
-        z-index: 100; /* Ensure it appears above other content */
-        border-radius: 0.375rem;
-        overflow: hidden; /* Ensures rounded corners apply to children */
-    }
-
-    .dropdown-menu a {
-        color: var(--gray-800);
-        padding: 0.75rem 1rem;
-        text-decoration: none;
-        display: block; /* Make each link a block element */
-        transition: background-color 0.2s;
-    }
-
-    .dropdown-menu a:hover {
-        background-color: var(--gray-100);
-        color: var(--primary);
-    }
-
-    /* Show the dropdown menu on hover for desktop */
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    /* Mobile Dropdown Styles */
-    .mobile-dropdown-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Push icon to the right */
-        padding: 0.75rem 1rem;
-        color: var(--gray-800);
-        text-decoration: none;
-        font-weight: 500;
-        border-bottom: 1px solid var(--gray-100);
-        cursor: pointer; /* Indicate it's clickable */
-    }
-
-    .mobile-dropdown-menu {
-        display: none; /* Hidden by default */
-        background-color: var(--gray-50); /* Slightly different background for clarity */
-        padding-left: 1rem; /* Indent the mobile dropdown items */
-    }
-
-    .mobile-dropdown-menu a {
-        padding: 0.5rem 1rem; /* Adjust padding for nested items */
-        border-bottom: none; /* Remove border for nested items */
-    }
-
-    .mobile-dropdown-menu.active {
-        display: block; /* Show when active */
-    }
-
-    /* Rotate the icon when the mobile dropdown is active */
-    .mobile-dropdown-toggle i {
-        transition: transform 0.3s ease;
-    }
-
-    .mobile-dropdown-toggle.active i {
-        transform: rotate(180deg);
-    }
-
-
-    /* Hero Section */
-    .hero {
-        position: relative;
-        height: 250px;
-        color: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
-        background-size: cover;
-        background-position: center;
-        filter: brightness(0.7);
-        z-index: -1;
-    }
-
-    .hero .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: none; /* Remove max-width for full-width centering */
-        padding: 0; /* Remove padding for full-width centering */
-    }
-
-    .hero-content {
-        max-width: 800px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        width: 100%;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-        font-size: 1.125rem;
-    }
-
-    /* Section Styles */
-    .section {
-        padding: 4rem 0;
-    }
-
-    .section-title {
-        font-size: 1.875rem;
-        font-weight: 700;
-        color: var(--gray-800);
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--gray-800);
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    .section-text {
-        color: var(--gray-600);
-        margin-bottom: 2rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    /* Timeline */
-    .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 0;
-    }
-
-    .timeline::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 4px;
-        background-color: var(--primary-light);
-        transform: translateX(-50%);
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 2rem;
-        width: 100%;
-    }
-
-    .timeline-item:nth-child(odd) {
-        padding-right: calc(50% + 2rem);
-        text-align: right;
-    }
-
-    .timeline-item:nth-child(even) {
-        padding-left: calc(50% + 2rem);
-        text-align: left;
-    }
-
-    .timeline-dot {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        background-color: var(--primary);
-        border-radius: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-    }
-
-    .timeline-content {
-        background-color: var(--white);
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .timeline-year {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-    }
-
-    .timeline-text {
-        color: var(--gray-600);
-    }
-
-    /* Patron Saint */
-    .patron-saint {
-        padding: 4rem 0;
-        background-color: var(--primary-light);
-    }
-
-    .saint-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .saint-img {
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .saint-text {
-        max-width: 600px;
-        text-align: center;
-    }
-
-    /* Clergy Team */
-    .clergy-team {
-        padding: 4rem 0;
-    }
-
-    .clergy-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .clergy-card {
-        background-color: var(--white);
-        border-radius: 0.5rem;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-    }
-
-    .clergy-img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
-
-    .clergy-info {
-        padding: 1.5rem;
-    }
-
-    .clergy-name {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--gray-800);
-        margin-bottom: 0.5rem;
-    }
-
-    .clergy-title {
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--primary);
-        margin-bottom: 1rem;
-    }
-
-    .clergy-bio {
-        color: var(--gray-600);
-    }
-
-    /* Outstations */
-    .outstations {
-        padding: 4rem 0;
-        background-color: var(--gray-50);
-    }
-
-    .outstation-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .outstation-card {
-        background-color: var(--white);
-        border-radius: 0.5rem;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .outstation-img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .outstation-info {
-        padding: 1.5rem;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .outstation-name {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--gray-800);
-        margin-bottom: 0.5rem;
-    }
-
-    .outstation-details {
-        color: var(--gray-600);
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
-    }
-
-    .outstation-map-link {
-        display: inline-flex;
-        align-items: center;
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 500;
-        margin-top: auto;
-    }
-
-    .outstation-map-link i {
-        margin-left: 0.25rem;
-    }
-
-    /* Church Leadership */
-    .church-leadership {
-        padding: 4rem 0;
-    }
-
-    .leadership-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-bottom: 2rem;
-        justify-content: center;
-    }
-
-    .leadership-tab {
-        padding: 0.85rem 1.75rem;
-        background-color: var(--gray-100);
-        color: var(--gray-700);
-        border: none;
-        border-radius: 2rem;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 1.05rem;
-        transition: all 0.2s;
-    }
-
-    .leadership-tab.active {
-        background-color: var(--primary);
-        color: var(--white);
-    }
-
-    .leadership-content {
-        display: none;
-    }
-
-    .leadership-content.active {
-        display: block;
-    }
-
-    .leadership-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 2rem;
-        justify-items: center;
-    }
-
-    .leader-card {
-        background-color: var(--white);
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-        position: relative;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .leader-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .leader-img-container {
-        width: 100%;
-        height: 250px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .leader-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s;
-    }
-
-    .leader-card:hover .leader-img {
-        transform: scale(1.05);
-    }
-
-    .leader-info {
-        padding: 1.5rem;
-        text-align: center;
-        background: linear-gradient(to bottom, var(--white), var(--gray-50));
-    }
-
-    .leader-name {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--gray-800);
-        margin-bottom: 0.25rem;
-    }
-
-    .leader-position {
-        font-size: 0.875rem;
-        color: var(--primary);
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    /* Chatbot */
-    .chatbot-widget {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-    }
-
-    .chatbot-button {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: var(--primary);
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .chatbot-button:hover {
-        transform: scale(1.1);
-        background-color: var(--primary-dark);
-    }
-
-    .chatbot-button i {
-        font-size: 24px;
-    }
-
-    .chatbot-container {
-        position: fixed;
-        bottom: 90px;
-        right: 20px;
-        width: 350px;
-        height: 450px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 1000;
-    }
-
-    .chatbot-header {
-        background-color: var(--primary);
-        color: white;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .chatbot-title {
-        font-weight: 600;
-        font-size: 1.1rem;
-    }
-
-    .chatbot-close {
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .chatbot-messages {
-        flex-grow: 1;
-        padding: 15px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .message {
-        max-width: 80%;
-        padding: 10px 15px;
-        border-radius: 18px;
-        margin-bottom: 5px;
-        font-size: 0.9rem;
-    }
-
-    .bot-message {
-        background-color: var(--gray-100);
-        color: var(--gray-800);
-        align-self: flex-start;
-        border-bottom-left-radius: 5px;
-    }
-
-    .user-message {
-        background-color: var(--primary);
-        color: white;
-        align-self: flex-end;
-        border-bottom-right-radius: 5px;
-    }
-
-    .chatbot-input {
-        display: flex;
-        padding: 10px;
-        border-top: 1px solid var(--gray-200);
-    }
-
-    .chatbot-input input {
-        flex-grow: 1;
-        padding: 10px;
-        border: 1px solid var(--gray-300);
-        border-radius: 20px;
-        outline: none;
-    }
-
-    .chatbot-input button {
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-left: 10px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    /* Footer */
-    footer {
-        background-color: var(--gray-900);
-        color: var(--white);
-        padding: 3rem 0;
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer-section h3 {
-        font-size: 1.125rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.5rem;
-    }
-
-    .footer-links a {
-        color: var(--white);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-        color: var(--primary);
-    }
-
-    .newsletter-form {
-        display: flex;
-        margin-top: 1rem;
-    }
-
-    .newsletter-input {
-        flex-grow: 1;
-        padding: 0.75rem 1rem;
-        border: none;
-        border-radius: 0.375rem 0 0 0.375rem;
-        outline: none;
-        height: 3rem;
-    }
-
-    .newsletter-btn {
-        background-color: var(--primary);
-        color: var(--white);
-        border: none;
-        padding: 0.75rem 1rem;
-        border-radius: 0 0.375rem 0.375rem 0;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
-
-    .newsletter-btn:hover {
-        background-color: var(--primary-dark);
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .contact-item i {
-        color: var(--primary);
-        margin-right: 0.5rem;
-        width: 1.25rem;
-        text-align: center;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .social-links a {
-        color: var(--white);
-        font-size: 1.5rem;
-        transition: color 0.2s;
-    }
-
-    .social-links a:hover {
-        color: var(--primary);
-    }
-
-    .outstation {
-        margin-bottom: 0.75rem;
-    }
-
-    .outstation a {
-        color: var(--white);
-        text-decoration: none;
-        transition: color 0.2s;
-        display: flex;
-        align-items: center;
-    }
-
-    .outstation a:hover {
-        color: var(--primary);
-    }
-
-    .outstation a i {
-        margin-left: 0.5rem;
-        font-size: 0.75rem;
-    }
-
-    .footer-bottom {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--gray-800);
-        text-align: center;
-        font-size: 0.875rem;
-    }
-
-    /* Media Queries */
-    @media (min-width: 640px) {
-        .saint-content {
-            flex-direction: row;
-            text-align: left;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Queen of Apostles Parish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9df4;
+            --primary-dark: #1e88e5;
+            --primary-light: #e3f2fd;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --amber-700: #b45309;
+            --amber-100: #fef3c7;
         }
 
-        .saint-text {
-            text-align: left;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .clergy-grid {
-            grid-template-columns: repeat(2, 1fr);
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
         }
 
-        .outstation-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .footer-content {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 768px) {
-        .outstation-grid {
-            grid-template-columns: repeat(3, 1fr);
+        /* Announcement Banner */
+        .announcement-banner {
+            background-color: var(--amber-100);
+            color: var(--amber-700);
+            padding: 0.5rem 1rem;
+            text-align: center;
         }
 
-        .footer-content {
-            grid-template-columns: repeat(4, 1fr);
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        /* Show mobile menu button on medium screens */
-        .mobile-menu-btn {
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none; /* Hidden by default, shown on larger screens */
+        }
+
+        .nav-menu a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.375rem;
+        }
+
+        .dropdown-menu a {
+            color: var(--gray-800);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        /* Hide desktop nav menu on medium screens */
-        .nav-menu {
-            display: none;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        /* Hide mobile menu button on large screens */
-        .mobile-menu-btn {
-            display: none;
-        }
-
-        /* Show desktop nav menu on large screens */
-        .nav-menu {
+        .dropdown-toggle {
             display: flex;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 0.25rem;
         }
 
-        /* Hide mobile menu completely on large screens */
+        .dropdown-toggle i {
+            font-size: 0.75rem;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--gray-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .mobile-menu {
-            display: none !important;
+            display: none; /* Hidden by default, shown on mobile */
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-dropdown-menu {
+            display: none;
+            background-color: var(--gray-50);
+            padding-left: 1.5rem;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 250px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Church%20photo.jpg-G5hWwVU0WwA0DGbW2tPAwGujRLn4R9.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .hero .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: none;
+            padding: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .section-text {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--primary-light);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--gray-600);
+        }
+
+        /* Patron Saint */
+        .patron-saint {
+            padding: 4rem 0;
+            background-color: var(--primary-light);
+        }
+
+        .saint-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .saint-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .saint-text {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Clergy Team */
+        .clergy-team {
+            padding: 4rem 0;
         }
 
         .clergy-grid {
-            grid-template-columns: repeat(3, 1fr);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
-    }
-</style>
+
+        .clergy-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .clergy-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .clergy-info {
+            padding: 1.5rem;
+        }
+
+        .clergy-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .clergy-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .clergy-bio {
+            color: var(--gray-600);
+        }
+
+        /* Outstations */
+        .outstations {
+            padding: 4rem 0;
+            background-color: var(--gray-50);
+        }
+
+        .outstation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .outstation-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .outstation-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .outstation-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .outstation-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .outstation-details {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .outstation-map-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        .outstation-map-link i {
+            margin-left: 0.25rem;
+        }
+
+        /* Church Leadership */
+        .church-leadership {
+            padding: 4rem 0;
+        }
+
+        .leadership-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .leadership-tab {
+            padding: 0.85rem 1.75rem;
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.2s;
+        }
+
+        .leadership-tab.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .leadership-content {
+            display: none;
+        }
+
+        .leadership-content.active {
+            display: block;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .leader-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-info {
+            padding: 1.5rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--white), var(--gray-50));
+        }
+
+        .leader-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .leader-position {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Chatbot */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-dark);
+        }
+
+        .chatbot-button i {
+            font-size: 24px;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bot-message {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .outstation {
+            margin-bottom: 0.75rem;
+        }
+
+        .outstation a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .outstation a:hover {
+            color: var(--primary);
+        }
+
+        .outstation a i {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .saint-content {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .saint-text {
+                text-align: left;
+            }
+
+            .clergy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .outstation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .outstation-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+
+            .clergy-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- Announcement Banner -->
-<div class="announcement-banner">
-    <div class="container">
-        <div class="announcement-banner-content">
-            <i class="fas fa-exclamation-circle"></i>
-            <p>Important Notice: Special prayer service this Friday at 6 PM.</p>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-banner-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Important Notice: Special mass this Friday at 6 PM.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Header & Navigation -->
-<header>
+    <!-- Header & Navigation -->
+    <header>
         <div class="container">
             <div class="navbar">
                 <a href="/" class="logo">Queen of Apostles</a>
-
                 <nav class="nav-menu">
                     <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="mass-times.html">Mass Times</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="center-church.html">Center Church</a>
+                            <a href="marurui-church.html">Marurui Church</a>
+                            <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                        </div>
+                    </div> 
+                    <a href="youth.html">PMC & Youth</a>
+                    <a href="cma-cwa.html">CMA & CWA</a>
                     <a href="groups.html">Jumuiya & Groups</a>
-                    <a href="offering.html">Give</a>
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="sacraments.html">Sacraments</a>
-                            <a href="youth.html">PMC, MYM and Youth</a>
-                            <a href="calendar.html">Calendar</a>
-                            <a href="media.html">Media</a>
-                            <a href="resources.html">Other Resources</a>
+                            <a href="about.html">About Our Parish</a>
+                            <a href="administration-sacraments.html">Administration of Sacraments</a>
+                            <a href="catechesis.html">Catechesis</a>
+                            <a href="spiritual-resources.html">Spiritual Resources</a>
+                            <a href="donations.html">Donate</a>
+                            <a href="calendar.html">Our Calendar</a> 
                             <a href="feedback.html">Share Feedback</a>
                         </div>
                     </div>
                 </nav>
-
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="container">
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="mass-times.html">Mass Times</a>
+                <a href="#" class="mobile-dropdown-toggle">Outstations <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="center-church.html">Center Church</a>
+                    <a href="marurui-church.html">Marurui Church</a>
+                    <a href="st-gabriel-church.html">St. Gabriel Church</a>
+                </div> 
+                <a href="youth.html">PMC & Youth</a>
+                <a href="cma-cwa.html">CMA & CWA</a>
                 <a href="groups.html">Jumuiya & Groups</a>
-                <a href="offering.html">Give</a>
                 <a href="#" class="mobile-dropdown-toggle">Resources <i class="fas fa-chevron-down"></i></a>
                 <div class="mobile-dropdown-menu">
-                    <a href="sacraments.html">Sacraments</a>
-                    <a href="youth.html">PMC, MYM and Youth</a>
-                    <a href="calendar.html">Calendar</a>
+                    <a href="about.html">About Our Parish</a>
+                    <a href="administration-sacraments.html">Administration of Sacraments</a>
+                    <a href="catechesis.html">Catechesis</a>
+                    <a href="spiritual-resources.html">Spiritual Resources</a>
+                    <a href="donations.html">Donate</a>
+                    <a href="calendar.html">Our Calendar</a>
                     <a href="media.html">Media</a>
-                    <a href="resources.html">Other Resources</a>
                     <a href="feedback.html">Feedback</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>About Us</h1>
+                <p>Learn about our parish history, mission, and leadership</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-        <div class="hero-content">
-            <h1>About Us</h1>
-            <p>Learn about our parish history, mission, and leadership</p>
+    <!-- Parish History -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Parish History</h2>
+            <p class="section-text">Queen of Apostles Parish has a rich history of faith, community, and service. Explore our journey through the years.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1965</div>
+                        <p class="timeline-text">Queen of Apostles Parish was established as a mission outpost by the Consolata Missionaries.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1972</div>
+                        <p class="timeline-text">The first church building was constructed and dedicated to Our Lady, Queen of Apostles.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <p class="timeline-text">The parish expanded with the establishment of the first outstation in Marurui.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1998</div>
+                        <p class="timeline-text">St. Gabriel outstation was established to serve the growing community.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <p class="timeline-text">The main church building was renovated and expanded to accommodate the growing congregation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <p class="timeline-text">Today, Queen of Apostles Parish continues to grow as a vibrant community of faith, serving thousands of parishioners across multiple outstations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patron Saint -->
+    <section class="patron-saint">
+        <div class="container">
+            <h2 class="section-title">Our Patron Saint</h2>
+            <div class="saint-content">
+                <img src="https://placehold.co/300x300?text=Mary,+Queen+of+Apostles" alt="Mary, Queen of Apostles Placeholder" class="saint-img">
+                <div class="saint-text">
+                    <h3 class="section-subtitle">Mary, Queen of Apostles</h3>
+                    <p>Mary, Queen of Apostles, is the patroness of our parish. After the Ascension of Jesus, Mary remained with the Apostles in prayer and supported them as they began their mission to spread the Gospel. As Queen of Apostles, Mary continues to guide and intercede for the Church in its mission of evangelization.</p>
+                    <p>Our parish is dedicated to Mary under this title to emphasize our commitment to the apostolic mission of the Church and to seek her maternal guidance in our efforts to spread the Good News of Jesus Christ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clergy Team -->
+    <section class="clergy-team">
+        <div class="container">
+            <h2 class="section-title">Our Clergy Team</h2>
+            <p class="section-text">Meet the dedicated priests who serve our parish community.</p>
+
+            <div class="clergy-grid">
+                <div class="clergy-card">
+                    <div class="clergy-info">
+                        <h3 class="clergy-name">Fr. James Mwangi</h3>
+                        <p class="clergy-title">Parish Priest</p>
+                        <p class="clergy-bio">Fr. James has been serving as the Parish Priest of Queen of Apostles since 2015. He was ordained in 1998 and has dedicated his priesthood to building vibrant parish communities. He has a special interest in youth ministry and liturgical formation.</p>
+                    </div>
+                </div>
+
+                <div class="clergy-card">
+                    <div class="clergy-info">
+                        <h3 class="clergy-name">Fr. Peter Kamau</h3>
+                        <p class="clergy-title">Assistant Priest</p>
+                        <p class="clergy-bio">Fr. Peter joined our parish in 2020. He was ordained in 2012 and has served in various parishes across the Archdiocese. He oversees the sacramental preparation programs and is passionate about adult faith formation.</p>
+                    </div>
+                </div>
+
+                <div class="clergy-card">
+                    <div class="clergy-info">
+                        <h3 class="clergy-name">Dcn. Joseph Njoroge</h3>
+                        <p class="clergy-title">Permanent Deacon</p>
+                        <p class="clergy-bio">Deacon Joseph was ordained to the permanent diaconate in 2018. He assists with liturgical celebrations, baptisms, and marriage preparation. He also coordinates the parish's outreach to the sick and homebound.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outstations -->
+    <section class="outstations">
+        <div class="container">
+            <h2 class="section-title">Our Outstations</h2>
+            <p class="section-text">Queen of Apostles Parish serves the faithful through several outstations, each with its own community and schedule of services.</p>
+
+            <div class="outstation-grid">
+                <div class="outstation-card">
+                    <img src="https://placehold.co/400x200?text=Center+Church" alt="Center Church Placeholder" class="outstation-img">
+                    <div class="outstation-info">
+                        <h3 class="outstation-name">Center Church</h3>
+                        <div class="outstation-details">
+                            <p>The main parish church, located in the heart of the community. It hosts the parish office and serves as the administrative center for all parish activities.</p>
+                            <p><strong>Address:</strong> 123 Church Road, City</p>
+                            <p><strong>Phone:</strong> +254 123 456 789</p>
+                        </div>
+                        <a href="center-church.html" class="outstation-map-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="outstation-card">
+                    <img src="https://placehold.co/400x200?text=Marurui+Church" alt="Marurui Church Placeholder" class="outstation-img">
+                    <div class="outstation-info">
+                        <h3 class="outstation-name">Marurui Church</h3>
+                        <div class="outstation-details">
+                            <p>Established in 1985, this outstation serves the Marurui area with regular Masses, sacraments, and community activities.</p>
+                            <p><strong>Address:</strong> 45 Marurui Road, Marurui</p>
+                            <p><strong>Phone:</strong> +254 789 456 123</p>
+                        </div>
+                        <a href="marurui-church.html" class="outstation-map-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="outstation-card">
+                    <img src="https://placehold.co/400x200?text=St.+Gabriel+Church" alt="St. Gabriel Church Placeholder" class="outstation-img">
+                    <div class="outstation-info">
+                        <h3 class="outstation-name">St. Gabriel Church</h3>
+                        <div class="outstation-details">
+                            <p>Founded in 1998, St. Gabriel outstation provides spiritual care to the growing community in the eastern part of our parish territory.</p>
+                            <p><strong>Address:</strong> 78 St. Gabriel Avenue, City</p>
+                            <p><strong>Phone:</strong> +254 456 789 123</p>
+                        </div>
+                        <a href="st-gabriel-church.html" class="outstation-map-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Church Leadership -->
+    <section class="church-leadership">
+        <div class="container">
+            <h2 class="section-title">Church Leadership</h2>
+            <p class="section-text">Meet the dedicated lay leaders who work alongside our clergy to guide our parish community.</p>
+
+            <div class="leadership-tabs">
+                <button class="leadership-tab active" data-tab="center">Center Church</button>
+                <button class="leadership-tab" data-tab="marurui">Marurui Church</button>
+                <button class="leadership-tab" data-tab="stgabriel">St. Gabriel Church</button>
+            </div>
+
+            <div class="leadership-content active" id="center-leadership">
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">John Kamau</h3>
+                            <p class="leader-position">Parish Council Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Mary Wanjiku</h3>
+                            <p class="leader-position">Vice Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Paul Ochieng</h3>
+                            <p class="leader-position">Secretary</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Agnes Muthoni</h3>
+                            <p class="leader-position">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-content" id="marurui-leadership">
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Peter Njoroge</h3>
+                            <p class="leader-position">Outstation Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Jane Akinyi</h3>
+                            <p class="leader-position">Vice Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Michael Otieno</h3>
+                            <p class="leader-position">Secretary</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Grace Wambui</h3>
+                            <p class="leader-position">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-content" id="stgabriel-leadership">
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">David Maina</h3>
+                            <p class="leader-position">Outstation Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Sarah Nduta</h3>
+                            <p class="leader-position">Vice Chair</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Joseph Kariuki</h3>
+                            <p class="leader-position">Secretary</p>
+                        </div>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-info">
+                            <h3 class="leader-name">Elizabeth Wangari</h3>
+                            <p class="leader-position">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-title">Parish Assistant</div>
+                <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." id="chatbotInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-comment"></i>
         </div>
     </div>
-</section>
 
-<!-- Parish History -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">Parish History</h2>
-        <p class="section-text">Queen of Apostles Parish has a rich history of faith, community, and service. Explore our journey through the years.</p>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">1965</div>
-                    <p class="timeline-text">Queen of Apostles Parish was established as a mission outpost by the Consolata Missionaries.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">1972</div>
-                    <p class="timeline-text">The first church building was constructed and dedicated to Our Lady, Queen of Apostles.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">1985</div>
-                    <p class="timeline-text">The parish expanded with the establishment of the first outstation in Marurui.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">1998</div>
-                    <p class="timeline-text">St. Gabriel outstation was established to serve the growing community.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">2010</div>
-                    <p class="timeline-text">The main church building was renovated and expanded to accommodate the growing congregation.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">2023</div>
-                    <p class="timeline-text">Today, Queen of Apostles Parish continues to grow as a vibrant community of faith, serving thousands of parishioners across multiple outstations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Patron Saint -->
-<section class="patron-saint">
-    <div class="container">
-        <h2 class="section-title">Our Patron Saint</h2>
-        <div class="saint-content">
-            <img src="https://placehold.co/300x300?text=Mary,+Queen+of+Apostles" alt="Mary, Queen of Apostles Placeholder" class="saint-img">
-            <div class="saint-text">
-                <h3 class="section-subtitle">Mary, Queen of Apostles</h3>
-                <p>Mary, Queen of Apostles, is the patroness of our parish. After the Ascension of Jesus, Mary remained with the Apostles in prayer and supported them as they began their mission to spread the Gospel. As Queen of Apostles, Mary continues to guide and intercede for the Church in its mission of evangelization.</p>
-                <p>Our parish is dedicated to Mary under this title to emphasize our commitment to the apostolic mission of the Church and to seek her maternal guidance in our efforts to spread the Good News of Jesus Christ.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Clergy Team -->
-<section class="clergy-team">
-    <div class="container">
-        <h2 class="section-title">Our Clergy Team</h2>
-        <p class="section-text">Meet the dedicated priests who serve our parish community.</p>
-
-        <div class="clergy-grid">
-            <div class="clergy-card">
-                <img src="https://placehold.co/400x300?text=Fr.+James+Mwangi" alt="Fr. James Mwangi Placeholder" class="clergy-img">
-                <div class="clergy-info">
-                    <h3 class="clergy-name">Fr. James Mwangi</h3>
-                    <p class="clergy-title">Parish Priest</p>
-                    <p class="clergy-bio">Fr. James has been serving as the Parish Priest of Queen of Apostles since 2015. He was ordained in 1998 and has dedicated his priesthood to building vibrant parish communities. He has a special interest in youth ministry and liturgical formation.</p>
-                </div>
-            </div>
-
-            <div class="clergy-card">
-                <img src="https://placehold.co/400x300?text=Fr.+Peter+Kamau" alt="Fr. Peter Kamau Placeholder" class="clergy-img">
-                <div class="clergy-info">
-                    <h3 class="clergy-name">Fr. Peter Kamau</h3>
-                    <p class="clergy-title">Assistant Priest</p>
-                    <p class="clergy-bio">Fr. Peter joined our parish in 2020. He was ordained in 2012 and has served in various parishes across the Archdiocese. He oversees the sacramental preparation programs and is passionate about adult faith formation.</p>
-                </div>
-            </div>
-
-            <div class="clergy-card">
-                <img src="https://placehold.co/400x300?text=Dcn.+Joseph+Njoroge" alt="Dcn. Joseph Njoroge Placeholder" class="clergy-img">
-                <div class="clergy-info">
-                    <h3 class="clergy-name">Dcn. Joseph Njoroge</h3>
-                    <p class="clergy-title">Permanent Deacon</p>
-                    <p class="clergy-bio">Deacon Joseph was ordained to the permanent diaconate in 2018. He assists with liturgical celebrations, baptisms, and marriage preparation. He also coordinates the parish's outreach to the sick and homebound.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Outstations -->
-<section class="outstations">
-    <div class="container">
-        <h2 class="section-title">Our Outstations</h2>
-        <p class="section-text">Queen of Apostles Parish serves the faithful through several outstations, each with its own community and schedule of services.</p>
-
-        <div class="outstation-grid">
-            <div class="outstation-card">
-                <img src="https://placehold.co/400x200?text=Center+Church" alt="Center Church Placeholder" class="outstation-img">
-                <div class="outstation-info">
-                    <h3 class="outstation-name">Center Church</h3>
-                    <div class="outstation-details">
-                        <p>The main parish church, located in the heart of the community. It hosts the parish office and serves as the administrative center for all parish activities.</p>
-                        <p><strong>Address:</strong> 123 Church Road, City</p>
-                        <p><strong>Phone:</strong> +254 123 456 789</p>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" class="outstation-map-link">View on Map <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-
-            <div class="outstation-card">
-                <img src="https://placehold.co/400x200?text=Marurui+Church" alt="Marurui Church Placeholder" class="outstation-img">
-                <div class="outstation-info">
-                    <h3 class="outstation-name">Marurui Church</h3>
-                    <div class="outstation-details">
-                        <p>Established in 1985, this outstation serves the Marurui area with regular Masses, sacraments, and community activities.</p>
-                        <p><strong>Address:</strong> 45 Marurui Road, Marurui</p>
-                        <p><strong>Phone:</strong> +254 789 456 123</p>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" class="outstation-map-link">View on Map <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-
-            <div class="outstation-card">
-                <img src="https://placehold.co/400x200?text=St.+Gabriel+Church" alt="St. Gabriel Church Placeholder" class="outstation-img">
-                <div class="outstation-info">
-                    <h3 class="outstation-name">St. Gabriel Church</h3>
-                    <div class="outstation-details">
-                        <p>Founded in 1998, St. Gabriel outstation provides spiritual care to the growing community in the eastern part of our parish territory.</p>
-                        <p><strong>Address:</strong> 78 St. Gabriel Avenue, City</p>
-                        <p><strong>Phone:</strong> +254 456 789 123</p>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" class="outstation-map-link">View on Map <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Church Leadership -->
-<section class="church-leadership">
-    <div class="container">
-        <h2 class="section-title">Church Leadership</h2>
-        <p class="section-text">Meet the dedicated lay leaders who work alongside our clergy to guide our parish community.</p>
-
-        <div class="leadership-tabs">
-            <button class="leadership-tab active" data-tab="center">Center Church</button>
-            <button class="leadership-tab" data-tab="marurui">Marurui Church</button>
-            <button class="leadership-tab" data-tab="stgabriel">St. Gabriel Church</button>
-        </div>
-
-        <div class="leadership-content active" id="center-leadership">
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=John+Kamau" alt="John Kamau Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">John Kamau</h3>
-                        <p class="leader-position">Parish Council Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Mary+Wanjiku" alt="Mary Wanjiku Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Mary Wanjiku</h3>
-                        <p class="leader-position">Vice Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Paul+Ochieng" alt="Paul Ochieng Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Paul Ochieng</h3>
-                        <p class="leader-position">Secretary</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Agnes+Muthoni" alt="Agnes Muthoni Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Agnes Muthoni</h3>
-                        <p class="leader-position">Treasurer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="leadership-content" id="marurui-leadership">
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Peter+Njoroge" alt="Peter Njoroge Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Peter Njoroge</h3>
-                        <p class="leader-position">Outstation Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Jane+Akinyi" alt="Jane Akinyi Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Jane Akinyi</h3>
-                        <p class="leader-position">Vice Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Michael+Otieno" alt="Michael Otieno Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Michael Otieno</h3>
-                        <p class="leader-position">Secretary</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Grace+Wambui" alt="Grace Wambui Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Grace Wambui</h3>
-                        <p class="leader-position">Treasurer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="leadership-content" id="stgabriel-leadership">
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=David+Maina" alt="David Maina Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">David Maina</h3>
-                        <p class="leader-position">Outstation Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Sarah+Nduta" alt="Sarah Nduta Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Sarah Nduta</h3>
-                        <p class="leader-position">Vice Chair</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Joseph+Kariuki" alt="Joseph Kariuki Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Joseph Kariuki</h3>
-                        <p class="leader-position">Secretary</p>
-                    </div>
-                </div>
-
-                <div class="leader-card">
-                    <div class="leader-img-container">
-                        <img src="https://placehold.co/250x250?text=Elizabeth+Wangari" alt="Elizabeth Wangari Placeholder" class="leader-img">
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">Elizabeth Wangari</h3>
-                        <p class="leader-position">Treasurer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Chatbot Widget -->
-<div class="chatbot-widget">
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <div class="chatbot-title">Parish Assistant</div>
-            <button class="chatbot-close" id="closeChatbot"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot-message">Hello! Welcome to Queen of Apostles Parish. How can I assist you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" placeholder="Type your message..." id="chatbotInput">
-            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
-    <div class="chatbot-button" id="chatbotButton">
-        <i class="fas fa-comment"></i>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer>
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <!-- Quick Links -->
@@ -1318,26 +1225,24 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="sacraments.html">Sacraments</a></li>
-                        <li><a href="mass-times.html">Mass Times</a></li>
+                        <li><a href="about.html">About Our Parish</a></li>
+                        <li><a href="youth.html">PMC & Youth</a></li>
+                        <li><a href="cma-cwa.html">CMA & CWA</a></li>
                         <li><a href="groups.html">Jumuiya & Groups</a></li>
-                        <li><a href="Calendar.html">Calendar</a></li>
+                        <li><a href="calendar.html">Our Calendar</a></li>
                     </ul>
                 </div>
-
                 <!-- Additional Links -->
                 <div class="footer-section">
-                    <h3>More Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="offering.html">Give</a></li>
-                        <li><a href="youth.html">PMC, MYM and Youth</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="media.html">Media</a></li>
+                    <h3>Resources</h3>
+                    <ul class="footer-links"> 
+                        <li><a href="administration-sacraments.html">Administration of Sacraments</a></li>
+                        <li><a href="catechesis.html">Catechesis</a></li>
+                        <li><a href="spiritual-resources.html">Spiritual Resources</a></li>
+                        <li><a href="donations.html">Donate</a></li>
                         <li><a href="feedback.html">Feedback</a></li>
                     </ul>
                 </div>
-
                 <!-- Contact Info -->
                 <div class="footer-section">
                     <h3>Contact Info</h3>
@@ -1357,7 +1262,6 @@
                         <i class="fas fa-link"></i>
                         <a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a>
                     </div>
-
                     <!-- Social Media -->
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1365,150 +1269,155 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-
                 <!-- Our Outstations -->
                 <div class="footer-section">
                     <h3>Our Outstations</h3>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Center Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="center-church.html">Center Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">Marurui Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="marurui-church.html">Marurui Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                     <div class="outstation">
-                        <a href="https://maps.google.com" target="_blank">St. Gabriel Church <i class="fas fa-external-link-alt"></i></a>
+                        <a href="st-gabriel-church.html">St. Gabriel Church <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© <script>document.write(new Date().getFullYear())</script> Queen of Apostles Catholic Parish, Ruaraka. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-<script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle'); // Get the mobile dropdown toggle
-    const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu'); // Get the mobile dropdown menu
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        const mobileDropdownMenus = document.querySelectorAll('.mobile-dropdown-menu');
 
-    mobileMenuBtn.addEventListener('click', function() {
-        // Toggle the display of the main mobile menu
-        if (mobileMenu.style.display === 'block') {
-            mobileMenu.style.display = 'none';
-            // Also hide the mobile dropdown if the main menu is closed
-            mobileDropdownMenu.classList.remove('active');
-            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
-        } else {
-            mobileMenu.style.display = 'block';
-        }
-    });
-
-    // Mobile dropdown toggle
-    mobileDropdownToggle.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default link behavior
-        mobileDropdownMenu.classList.toggle('active'); // Toggle the 'active' class on the dropdown menu
-        mobileDropdownToggle.classList.toggle('active'); // Toggle the 'active' class on the toggle itself (for icon rotation)
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        // Check if the click is outside the mobile menu and the mobile menu button
-        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-            mobileMenu.style.display = 'none';
-            // Also hide the mobile dropdown when the main menu is closed by clicking outside
-            mobileDropdownMenu.classList.remove('active');
-            mobileDropdownToggle.classList.remove('active'); // Remove active class from toggle
-        }
-    });
-
-    // Leadership Tabs
-    const leadershipTabs = document.querySelectorAll('.leadership-tab');
-    const leadershipContents = document.querySelectorAll('.leadership-content');
-
-    leadershipTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active class from all tabs
-            leadershipTabs.forEach(t => t.classList.remove('active'));
-
-            // Add active class to clicked tab
-            tab.classList.add('active');
-
-            // Hide all content
-            leadershipContents.forEach(content => content.classList.remove('active'));
-
-            // Show corresponding content
-            const tabId = tab.getAttribute('data-tab');
-            document.getElementById(`${tabId}-leadership`).classList.add('active');
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+                mobileDropdownMenus.forEach(menu => {
+                    menu.classList.remove('active');
+                });
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                });
+            } else {
+                mobileMenu.style.display = 'block';
+            }
         });
-    });
 
-    // Chatbot functionality
-    const chatbotButton = document.getElementById('chatbotButton');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChatbot = document.getElementById('closeChatbot');
-    const chatbotMessages = document.getElementById('chatbotMessages');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const sendMessage = document.getElementById('sendMessage');
-
-    chatbotButton.addEventListener('click', function() {
-        chatbotContainer.style.display = 'flex';
-    });
-
-    closeChatbot.addEventListener('click', function() {
-        chatbotContainer.style.display = 'none';
-    });
-
-    function addMessage(message, isUser) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message');
-        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-        messageDiv.textContent = message;
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
-    }
-
-    function handleUserMessage() {
-        const message = chatbotInput.value.trim();
-        if (message) {
-            addMessage(message, true);
-            chatbotInput.value = '';
-
-            // Simple bot response (you can expand this logic)
-            setTimeout(() => {
-                let response = "Thank you for your message. A parish staff member will get back to you soon.";
-
-                // Simple keyword responses
-                if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
-                    response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html"; // Replace with actual link
-                } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
-                    response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
-                } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
-                    response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
-                } else if (message.toLowerCase().includes('sacraments')) {
-                     response = "Information about the sacraments is available on our Sacraments page: sacraments.html"; // Replace with actual link
-                } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
-                     response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html"; // Replace with actual link
-                } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
-                     response = "Our parish calendar with upcoming events is available here: calendar.html"; // Replace with actual link
-                } else if (message.toLowerCase().includes('about')) {
-                     response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html"; // Replace with actual link
+        // Mobile dropdown toggle
+        mobileDropdownToggles.forEach((toggle, index) => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const menu = mobileDropdownMenus[index];
+                const isActive = menu.classList.contains('active');
+                mobileDropdownMenus.forEach(m => m.classList.remove('active'));
+                mobileDropdownToggles.forEach(t => t.classList.remove('active'));
+                if (!isActive) {
+                    menu.classList.add('active');
+                    toggle.classList.add('active');
                 }
+            });
+        });
 
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+                mobileDropdownMenus.forEach(menu => {
+                    menu.classList.remove('active');
+                });
+                mobileDropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                });
+            }
+        });
 
-                addMessage(response, false);
-            }, 1000); // Simulate thinking time
+        // Leadership Tabs
+        const leadershipTabs = document.querySelectorAll('.leadership-tab');
+        const leadershipContents = document.querySelectorAll('.leadership-content');
+
+        leadershipTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                leadershipTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                leadershipContents.forEach(content => content.classList.remove('active'));
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-leadership`).classList.add('active');
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const sendMessage = document.getElementById('sendMessage');
+
+        chatbotButton.addEventListener('click', function() {
+            chatbotContainer.style.display = 'flex';
+        });
+
+        closeChatbot.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+        });
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
-    }
 
-    sendMessage.addEventListener('click', handleUserMessage);
-    chatbotInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            handleUserMessage();
+        function handleUserMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+
+                setTimeout(() => {
+                    let response = "Thank you for your message. A parish staff member will get back to you soon.";
+                    if (message.toLowerCase().includes('mass') || message.toLowerCase().includes('service')) {
+                        response = "Our Mass times can be found on the Mass Times page. You can view them here: mass-times.html";
+                    } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('phone') || message.toLowerCase().includes('email')) {
+                        response = "You can contact the parish office at +254 123 456 789 or email info@queenofapostles.org.";
+                    } else if (message.toLowerCase().includes('register') || message.toLowerCase().includes('join')) {
+                        response = "You can register as a parishioner by clicking the 'Register Here' button on our homepage or visiting the registration section.";
+                    } else if (message.toLowerCase().includes('sacraments')) {
+                        response = "Information about the administration of sacraments is available on our Administration of Sacraments page: administration-sacraments.html";
+                    } else if (message.toLowerCase().includes('groups') || message.toLowerCase().includes('jumuiya')) {
+                        response = "You can learn about our Jumuiya and Ministry Groups on the Groups page: groups.html";
+                    } else if (message.toLowerCase().includes('events') || message.toLowerCase().includes('calendar')) {
+                        response = "Our parish calendar with upcoming events is available here: calendar.html";
+                    } else if (message.toLowerCase().includes('about')) {
+                        response = "You can learn more about our parish history, mission, and leadership on the About Us page: about.html";
+                    }
+                    addMessage(response, false);
+                }, 1000);
+            }
         }
-    });
-</script>
+
+        sendMessage.addEventListener('click', handleUserMessage);
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+
+        // Close chatbot when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!chatbotContainer.contains(event.target) && !chatbotButton.contains(event.target) && chatbotContainer.style.display === 'flex') {
+                chatbotContainer.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
